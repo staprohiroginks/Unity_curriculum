@@ -1,671 +1,321 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>カリキュラム7.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="unity7%E7%B6%99%E6%89%BF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B">Unity7:継承について理解する。</h1>
-<p>クラスを複数作成する際に似ている要素を複数使用作成することがあると思います。
-そのような場合に便利な機能として <strong>継承</strong> という機能があります。
+<!DOCTYPE html><html><head>
+      <title>カリキュラム7</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="unity7継承について理解する">Unity7:継承について理解する。 </h1>
+<p>クラスを複数作成する際に似ている要素を複数使用作成することがあると思います。<br>
+そのような場合に便利な機能として <strong>継承</strong> という機能があります。<br>
 今回は、継承という機能について詳しく説明していきます。</p>
-<h2 id="%E7%B6%99%E6%89%BF">継承</h2>
-<h3 id="%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E7%B6%99%E6%89%BF">基本的な継承</h3>
-<p>継承という機能は、あるクラスを元に新しいクラスを作成する機能です。
+<h2 id="継承">継承 </h2>
+<h3 id="基本的な継承">基本的な継承 </h3>
+<p>継承という機能は、あるクラスを元に新しいクラスを作成する機能です。<br>
 この機能を使用することで、型の扱いが楽になったり、同じコードを複数書かなくてよいというメリットがあります。</p>
 <p>ではどのように継承できるか例を見ていきましょう</p>
 <p>まず<code>Super.cs</code>というファイルを作成し以下のように記述してください</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span><span class="hljs-comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
-{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Super</span>
-    {
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> num1;
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> num2;
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Call</span>(<span class="hljs-params"></span>)</span>
-        {
-            Console.WriteLine(<span class="hljs-string">"Called"</span>+(num1+num2));
-        }
-    }
-}
-</div></code></pre>
-<p>続いて<code>Sub.cs</code>というファイルを作成し以下のように</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span><span class="hljs-comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
-{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Sub</span>:<span class="hljs-title">Super</span>
-    {
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> num3;
-    }
-}
-</div></code></pre>
-<p>続いて<code>Program</code>ファイルに以下のプログラムを記述します</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数を作成する。</span></span>
-    {
-        Super super = <span class="hljs-keyword">new</span> Super();
-        super.num1 = <span class="hljs-number">10</span>;
-        super.num2 = <span class="hljs-number">20</span>;
-        Sub sub = <span class="hljs-keyword">new</span> Sub();
-        sub.num1 = <span class="hljs-number">5</span>;
-        sub.num2 = <span class="hljs-number">10</span>;
-        sub.num3 = <span class="hljs-number">25</span>;
-        Super super1;
-        super1 = sub;  <span class="hljs-comment">//継承元の型に継承先の値を入れることができる。</span>
-        Addition(super);
-        Addition(sub);
-        Addition(super1);
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Super</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
+        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
+        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called"</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>続いて<code>Sub.cs</code>というファイルを作成し以下のように</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Sub</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">Super</span></span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num3<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>続いて<code>Program</code>ファイルに以下のプログラムを記述します</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数を作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">Super</span> super <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        super<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        super<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+        <span class="token class-name">Sub</span> sub <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sub<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        sub<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        sub<span class="token punctuation">.</span>num3 <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+        <span class="token class-name">Super</span> super1<span class="token punctuation">;</span>
+        super1 <span class="token operator">=</span> sub<span class="token punctuation">;</span>  <span class="token comment">//継承元の型に継承先の値を入れることができる。</span>
+        <span class="token function">Addition</span><span class="token punctuation">(</span>super<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">Addition</span><span class="token punctuation">(</span>sub<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">Addition</span><span class="token punctuation">(</span>super1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        AdditionSubClass(sub);
-        <span class="hljs-comment">//AdditionSubClass(super1); //←コメントを外すとエラーが発生する。</span>
+        <span class="token function">AdditionSubClass</span><span class="token punctuation">(</span>sub<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//AdditionSubClass(super1); //←コメントを外すとエラーが発生する。</span>
 
-        super.Call();
-        sub.Call();
+        super<span class="token punctuation">.</span><span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sub<span class="token punctuation">.</span><span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         
-    }
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Addition</span>(<span class="hljs-params">Super super</span>)</span>{
-        <span class="hljs-keyword">int</span> num = super.num1 + super.num2;
-        Console.WriteLine(num);
-    }
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AdditionSubClass</span>(<span class="hljs-params">Sub super</span>)</span>{
-        <span class="hljs-keyword">int</span> num = super.num1 + super.num2+ super.num3;
-        Console.WriteLine(num);
-    }
-}
-</div></code></pre>
-<p>これを実行すると以下のような出力を得ることができます。</p>
-<pre class="hljs"><code><div>30
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Addition</span><span class="token punctuation">(</span><span class="token class-name">Super</span> super<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num <span class="token operator">=</span> super<span class="token punctuation">.</span>num1 <span class="token operator">+</span> super<span class="token punctuation">.</span>num2<span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">AdditionSubClass</span><span class="token punctuation">(</span><span class="token class-name">Sub</span> super<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num <span class="token operator">=</span> super<span class="token punctuation">.</span>num1 <span class="token operator">+</span> super<span class="token punctuation">.</span>num2<span class="token operator">+</span> super<span class="token punctuation">.</span>num3<span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>これを実行すると以下のような出力を得ることができます。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>30
 15
 15
 40
 Called30
 Called15
 
-</div></code></pre>
-<p>このようにsubというクラスはsuperというクラスの派生であるためsuperというクラスと同一に扱うことができるとわかりました、一方でAdditionSubClassの呼び出しのように引数や代入先が継承後の型であれば同様に扱うことができなくなっています。</p>
+</code></pre><p>このようにsubというクラスはsuperというクラスの派生であるためsuperというクラスと同一に扱うことができるとわかりました、一方でAdditionSubClassの呼び出しのように引数や代入先が継承後の型であれば同様に扱うことができなくなっています。</p>
 <p>継承元にメソッドや変数がある場合<code>Call</code>メソッドや<code>num1</code>,<code>num2</code>変数のように派生先のクラスにも同じメソッドや変数が備わっており同様の動きをします。</p>
-<p>また、継承元のクラスを <code>基底クラス</code> や <code>スーパークラス</code> と呼び継承先(派生した)クラスを <code>派生クラス</code> や <code>サブクラス</code> といいます。
+<p>また、継承元のクラスを <code>基底クラス</code> や <code>スーパークラス</code> と呼び継承先(派生した)クラスを <code>派生クラス</code> や <code>サブクラス</code> といいます。<br>
 なので今回の場合 <code>Super</code> は <strong>基底クラス</strong> であり、 <code>Sub</code> は <code>Super</code> の <strong>派生クラス</strong> ということができます。サブクラスから見た派生元のクラスは <strong>親クラス</strong> と呼ばれることもあります</p>
-<h3 id="override">override</h3>
-<p>先ほどのように基底クラスを使用することができると変数などを同様に扱うことができる一方メソッドの中身は変わっていないので使用する変数が増えた場合でもメソッドの動作を変えることができません。そのような問題を解決するためにできた機能が <strong>override</strong> (オーバーライド)という機能です。
+<h3 id="override">override </h3>
+<p>先ほどのように基底クラスを使用することができると変数などを同様に扱うことができる一方メソッドの中身は変わっていないので使用する変数が増えた場合でもメソッドの動作を変えることができません。そのような問題を解決するためにできた機能が <strong>override</strong> (オーバーライド)という機能です。<br>
 overrideはその名の通りメソッドを上書きできる機能です。</p>
 <p>先ほどの<code>Super.cs</code>のファイルのプログラムを以下のように書き換えてください。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span><span class="hljs-comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
-{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Super</span>
-    {
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> num1;
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> num2;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Super</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
+        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
 
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Call</span>(<span class="hljs-params"></span>)</span>
-        {
-            Console.WriteLine(<span class="hljs-string">"Called Super "</span> + (num1 + num2));
-        }
-    }
-}
-</div></code></pre>
-<p>続いて先ほどの<code>Sub.cs</code>というファイルを以下のように書き換えます。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span><span class="hljs-comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
-{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Sub</span> : <span class="hljs-title">Super</span>
-    {
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> num3;
+        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-virtual">virtual</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called Super "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>num1 <span class="token operator">+</span> num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>続いて先ほどの<code>Sub.cs</code>というファイルを以下のように書き換えます。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Sub</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Super</span></span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num3<span class="token punctuation">;</span>
 
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Call</span>(<span class="hljs-params"></span>)</span>
-        {
-            Console.WriteLine(<span class="hljs-string">"Called Sub "</span> + (num1 + num2 + num3));
-        }
-    }
+        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-override">override</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called Sub "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>num1 <span class="token operator">+</span> num2 <span class="token operator">+</span> num3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-}
-</div></code></pre>
-<p>続いて<code>Program</code>ファイルに以下のプログラムを記述します</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数を作成する。</span></span>
-    {
-        Super super = <span class="hljs-keyword">new</span> Super();
-        super.num1 = <span class="hljs-number">10</span>;
-        super.num2 = <span class="hljs-number">20</span>;
-        Sub sub = <span class="hljs-keyword">new</span> Sub();
-        sub.num1 = <span class="hljs-number">5</span>;
-        sub.num2 = <span class="hljs-number">10</span>;
-        sub.num3 = <span class="hljs-number">25</span>;
-        Super super1;
-        super1 = sub;  <span class="hljs-comment">//継承元の型に継承先の値を入れることができる。</span>
-        Addition(super);
-        Addition(sub);
-        Addition(super1);
+<span class="token punctuation">}</span>
+</code></pre><p>続いて<code>Program</code>ファイルに以下のプログラムを記述します</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数を作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">Super</span> super <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        super<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        super<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+        <span class="token class-name">Sub</span> sub <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sub<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        sub<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        sub<span class="token punctuation">.</span>num3 <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+        <span class="token class-name">Super</span> super1<span class="token punctuation">;</span>
+        super1 <span class="token operator">=</span> sub<span class="token punctuation">;</span>  <span class="token comment">//継承元の型に継承先の値を入れることができる。</span>
+        <span class="token function">Addition</span><span class="token punctuation">(</span>super<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">Addition</span><span class="token punctuation">(</span>sub<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">Addition</span><span class="token punctuation">(</span>super1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        AdditionSubClass(sub);
-        <span class="hljs-comment">//AdditionSubClass(super1); //←コメントを外すとエラーが発生する。</span>
+        <span class="token function">AdditionSubClass</span><span class="token punctuation">(</span>sub<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//AdditionSubClass(super1); //←コメントを外すとエラーが発生する。</span>
 
-        super.Call();
-        sub.Call();
+        super<span class="token punctuation">.</span><span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sub<span class="token punctuation">.</span><span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    }
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Addition</span>(<span class="hljs-params">Super super</span>)</span>
-    {
-        <span class="hljs-keyword">int</span> num = super.num1 + super.num2;
-        Console.WriteLine(num);
-    }
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AdditionSubClass</span>(<span class="hljs-params">Sub super</span>)</span>
-    {
-        <span class="hljs-keyword">int</span> num = super.num1 + super.num2 + super.num3;
-        Console.WriteLine(num);
-    }
-}
-</div></code></pre>
-<p>これを実行すると以下のような出力を得ることができます。</p>
-<pre class="hljs"><code><div>30
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Addition</span><span class="token punctuation">(</span><span class="token class-name">Super</span> super<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num <span class="token operator">=</span> super<span class="token punctuation">.</span>num1 <span class="token operator">+</span> super<span class="token punctuation">.</span>num2<span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">AdditionSubClass</span><span class="token punctuation">(</span><span class="token class-name">Sub</span> super<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num <span class="token operator">=</span> super<span class="token punctuation">.</span>num1 <span class="token operator">+</span> super<span class="token punctuation">.</span>num2 <span class="token operator">+</span> super<span class="token punctuation">.</span>num3<span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>これを実行すると以下のような出力を得ることができます。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>30
 15
 15
 40
 Called Super 30
 Called Sub 40
 
-</div></code></pre>
-<p>このように最後の出力結果がoverrideされていない場合</p>
-<pre class="hljs"><code><div>Called Super 15
+</code></pre><p>このように最後の出力結果がoverrideされていない場合</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Called Super 15
 
-</div></code></pre>
-<p>となるところが、</p>
-<pre class="hljs"><code><div>Called Sub 40
+</code></pre><p>となるところが、</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Called Sub 40
 
-</div></code></pre>
-<p>という出力になっている。このようにメソッドを書き換えることができていることがわかる。</p>
-<p><code>Super.cs</code>の9行目を見ると<code>public</code>の後に<code>virtual</code>という文字が追加されているのがわかる。これは派生クラスが <strong>overrideできる</strong>　ということを表すキーワードになっている。
-基底クラスのメソッドに <code>virtual</code> がない場合基本的に派生クラスでoverrideできないことになっている。
+</code></pre><p>という出力になっている。このようにメソッドを書き換えることができていることがわかる。</p>
+<p><code>Super.cs</code>の9行目を見ると<code>public</code>の後に<code>virtual</code>という文字が追加されているのがわかる。これは派生クラスが <strong>overrideできる</strong>　ということを表すキーワードになっている。<br>
+基底クラスのメソッドに <code>virtual</code> がない場合基本的に派生クラスでoverrideできないことになっている。<br>
 また、<code>Sub.cs</code> 8行目を見ると<code>public</code>の後に<code>override</code>と書いてあることがわかる。これはメソッドを上書きしたことを示すキーワードであり、overrideする場合は記述が必須で、記述なく同じ名前のメソッドを作ろうとするとエラーが発生してしまう。</p>
-<h2 id="%E5%9E%8B%E5%A4%89%E6%8F%9B">型変換</h2>
-<p>派生クラスを基底クラスの変数に代入することができるとわかったと思います。
+<h2 id="型変換">型変換 </h2>
+<p>派生クラスを基底クラスの変数に代入することができるとわかったと思います。<br>
 しかし基底クラスの変数に代入後、再度派生クラスの変数に直接代入することができません。そのためキャストという処理を行います。</p>
 <p>キャスト</p>
-<pre class="hljs"><code><div>変数 = (変換したい型)変換したい変数
-</div></code></pre>
-<p>先ほどのSubクラスのインスタンスをSuperクラスの変数super1に代入しキャストした後Subクラスの変数sub1に代入する例は以下のようになります。</p>
-<pre class="hljs"><code><div>Super super1 = <span class="hljs-keyword">new</span> Sub();
-sub1 = (Sub)super1;
-</div></code></pre>
-<p>このようにすることで型を変換することができます。
-しかし、この場合変換したい型に変換できない場合にエラーが発生してしまいます。
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数 = (変換したい型)変換したい変数
+</code></pre><p>先ほどのSubクラスのインスタンスをSuperクラスの変数super1に代入しキャストした後Subクラスの変数sub1に代入する例は以下のようになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Super</span> super1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+sub1 <span class="token operator">=</span> <span class="token punctuation">(</span>Sub<span class="token punctuation">)</span>super1<span class="token punctuation">;</span>
+</code></pre><p>このようにすることで型を変換することができます。<br>
+しかし、この場合変換したい型に変換できない場合にエラーが発生してしまいます。<br>
 そのため、確実に変換可能な場合に使うことが望ましい処理です</p>
 <p>そこでasというキーワードを使用し型変換を行うことが可能です</p>
-<pre class="hljs"><code><div>変数 = 変換したい変数 as 変換したい型
-</div></code></pre>
-<p>先ほどのSubクラスのインスタンスをSuperクラスの変数super1に代入しキャストした後Subクラスの変数sub1に代入する例は以下のようになります。</p>
-<pre class="hljs"><code><div>Super super1 = <span class="hljs-keyword">new</span> Sub();
-sub1 = super1 <span class="hljs-keyword">as</span> Sub;
-</div></code></pre>
-<p>asを使うことで同様に型変換ができますが、型が変換できない場合は<code>null</code>という値が代入されエラーは発生しません。
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数 = 変換したい変数 as 変換したい型
+</code></pre><p>先ほどのSubクラスのインスタンスをSuperクラスの変数super1に代入しキャストした後Subクラスの変数sub1に代入する例は以下のようになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Super</span> super1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+sub1 <span class="token operator">=</span> super1 <span class="token keyword keyword-as">as</span> <span class="token class-name">Sub</span><span class="token punctuation">;</span>
+</code></pre><p>asを使うことで同様に型変換ができますが、型が変換できない場合は<code>null</code>という値が代入されエラーは発生しません。<br>
 今後の資料で<code>null</code>については説明しますが、何もないという意味だと理解してください。</p>
-<h4 id="%E6%B3%A8%E6%84%8F%E7%82%B9">注意点</h4>
-<p>この型変換は派生したクラスへの型変換の方法です。
-int型からstring型への変換やint.Parseでのstring型からint型への変換はここで言う変換とは異なりますので注意してください。
+<h4 id="注意点">注意点 </h4>
+<p>この型変換は派生したクラスへの型変換の方法です。<br>
+int型からstring型への変換やint.Parseでのstring型からint型への変換はここで言う変換とは異なりますので注意してください。<br>
 また、その他の型から文字列への変換や文字列から他の型への変換も同様にこの変換とは異なります。</p>
-<h2 id="%E4%BE%BF%E5%88%A9%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9">便利な使い方</h2>
+<h2 id="便利な使い方">便利な使い方 </h2>
 <p>継承を使った便利な使い方について説明します。</p>
-<h3 id="%E9%85%8D%E5%88%97%E3%81%AA%E3%81%A9%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">配列などに使用する</h3>
+<h3 id="配列などに使用する">配列などに使用する </h3>
 <p>継承は配列など複数の変数を一気に扱う際とても扱いやすくなります。</p>
 <p>先ほどのプログラムから<code>Program.cs</code>を以下のように書き換えてください。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数を作成する。</span></span>
-    {
-        Super[] superArray = <span class="hljs-keyword">new</span> Super[<span class="hljs-number">3</span>];
-        Super super1 = <span class="hljs-keyword">new</span> Super();
-        super1.num1 = <span class="hljs-number">10</span>;
-        super1.num2 = <span class="hljs-number">15</span>;
-        Sub sub1 = <span class="hljs-keyword">new</span> Sub();
-        sub1.num1 = <span class="hljs-number">10</span>;
-        sub1.num2 = <span class="hljs-number">15</span>;
-        sub1.num3 = <span class="hljs-number">20</span>;
-        Super super2 = <span class="hljs-keyword">new</span> Super();
-        super2.num1 = <span class="hljs-number">15</span>;
-        super2.num2 = <span class="hljs-number">20</span>;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数を作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">Super<span class="token punctuation">[</span><span class="token punctuation">]</span></span> superArray <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Super</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">Super</span> super1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        super1<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        super1<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+        <span class="token class-name">Sub</span> sub1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sub1<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        sub1<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+        sub1<span class="token punctuation">.</span>num3 <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+        <span class="token class-name">Super</span> super2 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        super2<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+        super2<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 
-        superArray[<span class="hljs-number">0</span>] = super1;
-        superArray[<span class="hljs-number">1</span>] = sub1;
-        superArray[<span class="hljs-number">2</span>] = super2;
+        superArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> super1<span class="token punctuation">;</span>
+        superArray<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> sub1<span class="token punctuation">;</span>
+        superArray<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> super2<span class="token punctuation">;</span>
 
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; superArray.Length;i++)
-        {
-            superArray[i].Call();
-        }
-    }
-}
-</div></code></pre>
-<p>その後実行すると以下のようになります。</p>
-<pre class="hljs"><code><div>Called Super 25
+        <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> superArray<span class="token punctuation">.</span>Length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            superArray<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>その後実行すると以下のようになります。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Called Super 25
 Called Sub 50
 Called Super 35
 
-</div></code></pre>
-<p>このように一つの配列に複数の型を持つ変数を入れることができ一つの命令で複数の処理をすることができました。このような言語機能を <strong>多態性</strong> といいます。</p>
+</code></pre><p>このように一つの配列に複数の型を持つ変数を入れることができ一つの命令で複数の処理をすることができました。このような言語機能を <strong>多態性</strong> といいます。</p>
 <p>多態性は同じメソッドを呼び出した場合でもオブジェクト(型)によって異なる動きをさせることができる機能のことを指します。</p>
 <p>この多態性を利用することで複雑な処理を大幅に簡単化することができるようになります。</p>
-<h3 id="%E7%B6%99%E6%89%BF%E3%81%AE%E4%BB%95%E6%A7%98">継承の仕様</h3>
-<p>派生クラスは一つのクラスからしか派生することができません。
-これはC++という言語で<a href="https://ja.wikipedia.org/wiki/%E8%8F%B1%E5%BD%A2%E7%B6%99%E6%89%BF%E5%95%8F%E9%A1%8C">菱形継承問題</a>が発生してしまったため複数の親クラスを持つことができなくなっています。
+<h3 id="継承の仕様">継承の仕様 </h3>
+<p>派生クラスは一つのクラスからしか派生することができません。<br>
+これはC++という言語で<a href="https://ja.wikipedia.org/wiki/%E8%8F%B1%E5%BD%A2%E7%B6%99%E6%89%BF%E5%95%8F%E9%A1%8C">菱形継承問題</a>が発生してしまったため複数の親クラスを持つことができなくなっています。<br>
 しかしながら複数の親クラスを持つような動きをさせる必要がある場合があり、そのような場合は次回説明するinterface(インターフェイス)という要素を使用します。</p>
 <p>継承していないクラスを作成することがあると思います。しかし、実際にはすべてのクラスはObjectというクラスから派生している要素のため先ほど使用したProgramクラスでも</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>:<span class="hljs-title">Object</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数を作成する。</span></span>
-    {
-        Super[] superArray = <span class="hljs-keyword">new</span> Super[<span class="hljs-number">3</span>];
-        Super super1 = <span class="hljs-keyword">new</span> Super();
-        super1.num1 = <span class="hljs-number">10</span>;
-        super1.num2 = <span class="hljs-number">15</span>;
-        Sub sub1 = <span class="hljs-keyword">new</span> Sub();
-        sub1.num1 = <span class="hljs-number">10</span>;
-        sub1.num2 = <span class="hljs-number">15</span>;
-        sub1.num3 = <span class="hljs-number">20</span>;
-        Super super2 = <span class="hljs-keyword">new</span> Super();
-        super2.num1 = <span class="hljs-number">15</span>;
-        super2.num2 = <span class="hljs-number">20</span>;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">Object</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数を作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">Super<span class="token punctuation">[</span><span class="token punctuation">]</span></span> superArray <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Super</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">Super</span> super1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        super1<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        super1<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+        <span class="token class-name">Sub</span> sub1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sub1<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        sub1<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+        sub1<span class="token punctuation">.</span>num3 <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+        <span class="token class-name">Super</span> super2 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        super2<span class="token punctuation">.</span>num1 <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+        super2<span class="token punctuation">.</span>num2 <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 
-        superArray[<span class="hljs-number">0</span>] = super1;
-        superArray[<span class="hljs-number">1</span>] = sub1;
-        superArray[<span class="hljs-number">2</span>] = super2;
+        superArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> super1<span class="token punctuation">;</span>
+        superArray<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> sub1<span class="token punctuation">;</span>
+        superArray<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> super2<span class="token punctuation">;</span>
 
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; superArray.Length;i++)
-        {
-            superArray[i].Call();
-        }
-    }
-}
-</div></code></pre>
-<p>このように内部ではObjectクラスの派生となっています。</p>
+        <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> superArray<span class="token punctuation">.</span>Length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            superArray<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>このように内部ではObjectクラスの派生となっています。</p>
 <p>また、派生したクラスからさらに派生することもできます。その場合は一番大本となった型に変換することもできますし、親クラスに変換することも可能になっています。</p>
-<h2 id="%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C">練習問題</h2>
-<h4 id="1-%E7%B6%99%E6%89%BF%E3%81%AE%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88%E3%82%92%E7%AD%94%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84">1. 継承のメリットを答えてください。</h4>
+<h2 id="練習問題">練習問題 </h2>
+<h4 id="1-継承のメリットを答えてください">1. 継承のメリットを答えてください。 </h4>
 <details><summary>解答例</summary>
-<p>メソッドや変数が同じクラスをすぐ作れる。
+<p>メソッドや変数が同じクラスをすぐ作れる。<br>
 共通した動きを簡単に作ることができる。</p>
 <p>などなど</p>
 </details>
-<h4 id="2-%E5%9E%8B%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%E3%82%92%E7%AD%94%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84">2. 型変換する方法を答えてください。</h4>
+<h4 id="2-型変換する方法を答えてください">2. 型変換する方法を答えてください。 </h4>
 <p>object型のO1という変数をint?に変換しint?型の変数aに代入するコードを答えてください。</p>
 <p>※int?型とはnullという何も数値が入っていない状態を持てるint型です。</p>
 <details><summary>解答例</summary>
 <p>方法1</p>
-<pre class="hljs"><code><div>a = (<span class="hljs-keyword">int</span>?)O1;
-</div></code></pre>
-<p>方法2</p>
-<pre class="hljs"><code><div>a = O1 <span class="hljs-keyword">as</span> <span class="hljs-keyword">int</span>?;
-</div></code></pre>
-</details>
-</body>
-</html>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span><span class="token punctuation">?</span><span class="token punctuation">)</span>O1<span class="token punctuation">;</span>
+</code></pre><p>方法2</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>a <span class="token operator">=</span> O1 <span class="token keyword keyword-as">as</span> <span class="token class-name"><span class="token keyword keyword-int">int</span><span class="token punctuation">?</span></span><span class="token punctuation">;</span>
+</code></pre></details>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

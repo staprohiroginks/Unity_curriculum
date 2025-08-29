@@ -1,520 +1,168 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>カリキュラム9.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="unity9%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF%E3%82%84list%E3%83%BBqueue%E3%83%BBstack%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B">Unity9:ジェネリックやList・Queue・Stackについて理解する</h1>
-<h2 id="%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF%E3%81%A8%E3%81%AF">ジェネリックとは</h2>
-<p>今までメソッドの引数などの型や戻り値の型、変数の型は固定ででしたが、ジェネリックという機能を使えば宣言時や呼び出し時に型を指定し任意の型で呼び出しができるようになります。
+<!DOCTYPE html><html><head>
+      <title>カリキュラム9</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="unity9ジェネリックやlistqueuestackについて理解する">Unity9:ジェネリックやList・Queue・Stackについて理解する </h1>
+<h2 id="ジェネリックとは">ジェネリックとは </h2>
+<p>今までメソッドの引数などの型や戻り値の型、変数の型は固定ででしたが、ジェネリックという機能を使えば宣言時や呼び出し時に型を指定し任意の型で呼び出しができるようになります。<br>
 型を後から変えて使いまわしができる機能になっています。</p>
 <p>また、ジェネリックを簡単に説明すると型の変数のような機能になっています。ジェネリックで型を変数のように扱うことができその結果として引数などを変更できる機能です。</p>
-<h3 id="%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9">ジェネリックの使い方</h3>
-<p>ジェネリックはメソッドのジェネリックとクラスのジェネリックがあるのでそれぞれ説明していきます。
+<h3 id="ジェネリックの使い方">ジェネリックの使い方 </h3>
+<p>ジェネリックはメソッドのジェネリックとクラスのジェネリックがあるのでそれぞれ説明していきます。<br>
 基本的な使い方は変わりません。</p>
-<h4 id="%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF">メソッドのジェネリック</h4>
+<h4 id="メソッドのジェネリック">メソッドのジェネリック </h4>
 <p>メソッドのジェネリックの構文は通常のメソッドの宣言のメソッド名の後ろに<code>&lt;任意の文字&gt;</code>を追加することでできます。</p>
 <p>実際にルールを記述すると以下のようになります。</p>
-<pre class="hljs"><code><div>アクセス修飾子 戻り値の型 メソッド名&lt;T&gt;(型名 変数名,型名)
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 戻り値の型 メソッド名&lt;T&gt;(型名 変数名,型名)
 {
 
 }
-</div></code></pre>
-<p>Tの部分は任意の文字でよくこの文字が型の変数のような働きをします。</p>
+</code></pre><p>Tの部分は任意の文字でよくこの文字が型の変数のような働きをします。</p>
 <p>実際に<code>GenericClass</code>というクラスを作成し以下のコードを記述してください。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>
-{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>
-    {
-        <span class="hljs-keyword">public</span> T Method&lt;T&gt;(T inputvalue)
-        {
-            <span class="hljs-keyword">return</span> inputvalue;
-        }
-    }
-}
-</div></code></pre>
-<p>また、<code>Program.cs</code>に以下のコードを記述してください。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数作成する。</span></span>
-    {
-        GenericClass genericClass = <span class="hljs-keyword">new</span> GenericClass();
-        <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
-        <span class="hljs-keyword">int</span> b = genericClass.Method&lt;<span class="hljs-keyword">int</span>&gt;(a);
-        Console.WriteLine(b);
-        <span class="hljs-keyword">double</span> c = <span class="hljs-number">1.5</span>;
-        <span class="hljs-keyword">double</span> d = genericClass.Method&lt;<span class="hljs-keyword">double</span>&gt;(c);
-        Console.WriteLine(d);
-        <span class="hljs-keyword">string</span> s = <span class="hljs-string">"Hello"</span>;
-        <span class="hljs-keyword">string</span> s1 = genericClass.Method&lt;<span class="hljs-keyword">string</span>&gt;(s);
-        Console.WriteLine(s1);
-    }
-}
-</div></code></pre>
-<p>出力は</p>
-<pre class="hljs"><code><div>1
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">GenericClass</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token generic-method"><span class="token function">Method</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token class-name">T</span> inputvalue<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword keyword-return">return</span> inputvalue<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>また、<code>Program.cs</code>に以下のコードを記述してください。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">GenericClass</span> genericClass <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">GenericClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> b <span class="token operator">=</span> genericClass<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Method</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-double">double</span></span> c <span class="token operator">=</span> <span class="token number">1.5</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-double">double</span></span> d <span class="token operator">=</span> genericClass<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Method</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword keyword-double">double</span><span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> s <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> s1 <span class="token operator">=</span> genericClass<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Method</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>出力は</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>1
 1.5
 Hello
 
-</div></code></pre>
-<p>となっています。</p>
+</code></pre><p>となっています。</p>
 <p>このことから<code>GenericClass</code>クラスの<code>Method</code>は入力をそのまま出力するメソッドとなっていますが、それぞれ異なる型で呼び出すことができるようになっていると言えます。</p>
-<p><code>&lt;&gt;</code>の中で指定された文字列は通常の型に近い扱いができるので
+<p><code>&lt;&gt;</code>の中で指定された文字列は通常の型に近い扱いができるので<br>
 例えば<code>&lt;T&gt;</code>だった時に以下のように使うことができます。</p>
-<pre class="hljs"><code><div>T <span class="hljs-keyword">value</span>;<span class="hljs-comment">//ジェネリックで変数を作成</span>
-T a = (T)<span class="hljs-keyword">value</span>;<span class="hljs-comment">//キャストする</span>
-</div></code></pre>
-<p>また、<code>&lt;&gt;</code>の中は複数宣言することができ
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">T</span> <span class="token keyword keyword-value">value</span><span class="token punctuation">;</span><span class="token comment">//ジェネリックで変数を作成</span>
+<span class="token class-name">T</span> a <span class="token operator">=</span> <span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token keyword keyword-value">value</span><span class="token punctuation">;</span><span class="token comment">//キャストする</span>
+</code></pre><p>また、<code>&lt;&gt;</code>の中は複数宣言することができ<br>
 複数書く場合<code>&lt;T1,T2,T3,....&gt;</code>のように記述できます。</p>
-<h3 id="class%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF">classのジェネリック</h3>
+<h3 id="classのジェネリック">classのジェネリック </h3>
 <p>クラスのジェネリックを使うと変数やメソッドに使用する型をインスタンスの作成時に指定できます。</p>
 <p>指定方法としてはクラスを宣言する際に</p>
-<pre class="hljs"><code><div>アクセス修飾子 class クラス名&lt;任意の文字&gt;
-</div></code></pre>
-<p>と記述することで可能です。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>
-{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>&lt;<span class="hljs-title">T</span>&gt;
-    {
-        <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">Method</span>(<span class="hljs-params">T invalue</span>)</span>
-        {
-            <span class="hljs-keyword">return</span> invalue;
-        }
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 class クラス名&lt;任意の文字&gt;
+</code></pre><p>と記述することで可能です。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">GenericClass<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token function">Method</span><span class="token punctuation">(</span><span class="token class-name">T</span> invalue<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword keyword-return">return</span> invalue<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-keyword">public</span> T Value;
-        <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">GetValue</span>(<span class="hljs-params"></span>)</span>
-        {
-            <span class="hljs-keyword">return</span> Value;
-        }
-    }
-}
-</div></code></pre>
-<p><code>Program.cs</code>ファイルを以下のように書き換えます。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数作成する。</span></span>
-    {
-        GenericClass&lt;<span class="hljs-keyword">int</span>&gt; genericClass = <span class="hljs-keyword">new</span> GenericClass&lt;<span class="hljs-keyword">int</span>&gt;();
-        genericClass.Value = <span class="hljs-number">5</span>;
-        <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
-        <span class="hljs-keyword">int</span> b = genericClass.Method(a);
-        Console.WriteLine(b);
-        <span class="hljs-keyword">int</span> c = genericClass.GetValue();
-        Console.WriteLine(c);
+        <span class="token keyword keyword-public">public</span> <span class="token class-name">T</span> Value<span class="token punctuation">;</span>
+        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token function">GetValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword keyword-return">return</span> Value<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><code>Program.cs</code>ファイルを以下のように書き換えます。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">GenericClass<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span> genericClass <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">GenericClass<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        genericClass<span class="token punctuation">.</span>Value <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> b <span class="token operator">=</span> genericClass<span class="token punctuation">.</span><span class="token function">Method</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-int">int</span></span> c <span class="token operator">=</span> genericClass<span class="token punctuation">.</span><span class="token function">GetValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        GenericClass&lt;<span class="hljs-keyword">double</span>&gt; genericClass1 = <span class="hljs-keyword">new</span> GenericClass&lt;<span class="hljs-keyword">double</span>&gt;();
-        genericClass1.Value = <span class="hljs-number">1.5</span>;
-        <span class="hljs-keyword">double</span> ad = <span class="hljs-number">0.5</span>;
-        <span class="hljs-keyword">double</span> bd = genericClass1.Method(ad);
-        Console.WriteLine(bd);
-        <span class="hljs-keyword">double</span> dd = genericClass1.GetValue();
-        Console.WriteLine(dd);
+        <span class="token class-name">GenericClass<span class="token punctuation">&lt;</span><span class="token keyword keyword-double">double</span><span class="token punctuation">&gt;</span></span> genericClass1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">GenericClass<span class="token punctuation">&lt;</span><span class="token keyword keyword-double">double</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        genericClass1<span class="token punctuation">.</span>Value <span class="token operator">=</span> <span class="token number">1.5</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-double">double</span></span> ad <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-double">double</span></span> bd <span class="token operator">=</span> genericClass1<span class="token punctuation">.</span><span class="token function">Method</span><span class="token punctuation">(</span>ad<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>bd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-double">double</span></span> dd <span class="token operator">=</span> genericClass1<span class="token punctuation">.</span><span class="token function">GetValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>dd<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="hljs-keyword">string</span> s1 = <span class="hljs-string">"Hello"</span>;
-        GenericClass&lt;<span class="hljs-keyword">string</span>&gt; genericClass2 = <span class="hljs-keyword">new</span> GenericClass&lt;<span class="hljs-keyword">string</span>&gt;();
-        genericClass2.Value = <span class="hljs-string">"Bye"</span>;
-        <span class="hljs-keyword">string</span> s2 = genericClass2.Method(s1);
-        Console.WriteLine(s2);
-        <span class="hljs-keyword">string</span> s3 = genericClass2.GetValue();
-        Console.WriteLine(s3);
-    }
-}
-</div></code></pre>
-<p>実行すると以下のように出力されます。</p>
-<pre class="hljs"><code><div>10
+        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> s1 <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+        <span class="token class-name">GenericClass<span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span> genericClass2 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">GenericClass<span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        genericClass2<span class="token punctuation">.</span>Value <span class="token operator">=</span> <span class="token string">"Bye"</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> s2 <span class="token operator">=</span> genericClass2<span class="token punctuation">.</span><span class="token function">Method</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> s3 <span class="token operator">=</span> genericClass2<span class="token punctuation">.</span><span class="token function">GetValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>s3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>実行すると以下のように出力されます。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>10
 5
 0.5
 1.5
 Bye
 Hello
-</div></code></pre>
-<p>コードからクラス単位で型を指定できていることがわかります。</p>
-<h3 id="where%E5%88%B6%E7%B4%84">where制約</h3>
-<p>ジェネリックとしてはとても便利な機能ですがこのままではあまり実用的な使い方ができません。
-その理由としては通常のジェネリックではなんの型でも対応できるようになっており多くの機能が使えないという点です。
-そのためジェネリックに入れることができる型を制限する機能があります。
+</code></pre><p>コードからクラス単位で型を指定できていることがわかります。</p>
+<h3 id="where制約">where制約 </h3>
+<p>ジェネリックとしてはとても便利な機能ですがこのままではあまり実用的な使い方ができません。<br>
+その理由としては通常のジェネリックではなんの型でも対応できるようになっており多くの機能が使えないという点です。<br>
+そのためジェネリックに入れることができる型を制限する機能があります。<br>
 決められた実装をしたものしかジェネリックで指定できないという風に制限を設けることができます。</p>
 <p>where制約はメソッドの場合は以下のような構文で書くことが可能です。</p>
-<pre class="hljs"><code><div>アクセス修飾子 戻り値の型 メソッド名&lt;T&gt;(型名 変数名,型名):where制約
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 戻り値の型 メソッド名&lt;T&gt;(型名 変数名,型名):where制約
 {
 
 }
-</div></code></pre>
-<p>where制約はクラスの場合は以下のような構文で書くことが可能です。</p>
-<pre class="hljs"><code><div>アクセス修飾子 class クラス名&lt;T&gt;:where制約
+</code></pre><p>where制約はクラスの場合は以下のような構文で書くことが可能です。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 class クラス名&lt;T&gt;:where制約
 {
 
 }
-</div></code></pre>
-<p>whereの条件は複数種類があり書き方などを以下の表に示します。
+</code></pre><p>whereの条件は複数種類があり書き方などを以下の表に示します。<br>
 また、ジェネリックは<code>&lt;T&gt;</code>と指定されているとします。</p>
 <table>
 <thead>
@@ -547,248 +195,218 @@ Hello
 </tbody>
 </table>
 <p>where制約は複数宣言することができます。その場合は</p>
-<pre class="hljs"><code><div>where T:struct,class,Object
-</div></code></pre>
-<p>のように記述できます。</p>
-<h2 id="list">List</h2>
-<p>ジェネリックを使った要素として一番よく使う要素はListというクラスです。
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>where T:struct,class,Object
+</code></pre><p>のように記述できます。</p>
+<h2 id="list">List </h2>
+<p>ジェネリックを使った要素として一番よく使う要素はListというクラスです。<br>
 このクラスは要素を追加削除できる配列とです。Listを使うことで要素を後から書き換えたり追加削除することができます。</p>
-<h3 id="list%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9">Listの使い方</h3>
-<h4 id="%E5%AE%A3%E8%A8%80">宣言</h4>
+<h3 id="listの使い方">Listの使い方 </h3>
+<h4 id="宣言">宣言 </h4>
 <p>Listの変数宣言は以下のようになります</p>
-<pre class="hljs"><code><div>List&lt;型名&gt; 変数名 = new List&lt;型名&gt;();
-</div></code></pre>
-<p>型名はListで扱いたい型を指定します。
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>List&lt;型名&gt; 変数名 = new List&lt;型名&gt;();
+</code></pre><p>型名はListで扱いたい型を指定します。<br>
 例えばintであれば</p>
-<pre class="hljs"><code><div>List&lt;<span class="hljs-keyword">int</span>&gt; nums = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-keyword">int</span>&gt;();
-</div></code></pre>
-<p>のように記述できます。</p>
-<h4 id="%E8%A6%81%E7%B4%A0%E3%81%AE%E8%BF%BD%E5%8A%A0add">要素の追加(Add)</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">List<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span> nums <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>のように記述できます。</p>
+<h4 id="要素の追加add">要素の追加(Add) </h4>
 <p>要素一番最後に追加する場合は</p>
-<pre class="hljs"><code><div>リストの変数名.Add(値);
-</div></code></pre>
-<p>のように記述できます。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>リストの変数名.Add(値);
+</code></pre><p>のように記述できます。</p>
 <p>なので先ほどのnumsというListに値を追加する場合は</p>
-<pre class="hljs"><code><div>nums.Add(<span class="hljs-number">10</span>);
-</div></code></pre>
-<p>のようになります。</p>
-<h4 id="%E4%BB%BB%E6%84%8F%E3%81%AE%E5%A0%B4%E6%89%80%E3%81%B8%E3%81%AE%E8%A6%81%E7%B4%A0%E8%BF%BD%E5%8A%A0">任意の場所への要素追加</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>nums<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>のようになります。</p>
+<h4 id="任意の場所への要素追加">任意の場所への要素追加 </h4>
 <p>任意の場所に値を追加する場合は以下のように記述できます。</p>
-<pre class="hljs"><code><div>リストの変数名.Insert(添え字,値);
-</div></code></pre>
-<p>numsで実際に使用した例は以下のようになります。</p>
-<pre class="hljs"><code><div>nums.Insert(<span class="hljs-number">0</span>,<span class="hljs-number">15</span>);
-</div></code></pre>
-<h4 id="%E8%A6%81%E7%B4%A0%E3%81%AE%E5%8F%96%E5%BE%97">要素の取得</h4>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>リストの変数名.Insert(添え字,値);
+</code></pre><p>numsで実際に使用した例は以下のようになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>nums<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="要素の取得">要素の取得 </h4>
 <p>指定した場所の要素を取得するには</p>
-<pre class="hljs"><code><div>変数名 = リストの変数名[添え字];
-</div></code></pre>
-<p>のように記述できる
-添え字は要素の番号であり0から始まっています。添え字は変数も使用することが可能です。
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = リストの変数名[添え字];
+</code></pre><p>のように記述できる<br>
+添え字は要素の番号であり0から始まっています。添え字は変数も使用することが可能です。<br>
 また、戻り値の変数の型はリストを宣言する際に指定した型になっています。</p>
 <p>numsをつかった例は以下のようになる。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span> num1 = nums[<span class="hljs-number">0</span>]
-</div></code></pre>
-<h4 id="%E6%B7%BB%E3%81%88%E5%AD%97%E3%81%8B%E3%82%89%E8%A6%81%E7%B4%A0%E3%81%AE%E5%89%8A%E9%99%A4">添え字から要素の削除</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1 <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+</code></pre><h4 id="添え字から要素の削除">添え字から要素の削除 </h4>
 <p>指定した添え字の値を削除するには以下のように記述できます。</p>
-<pre class="hljs"><code><div>リストの変数名.RemoveAt(添え字);
-</div></code></pre>
-<p>添え字については0から始まります。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>リストの変数名.RemoveAt(添え字);
+</code></pre><p>添え字については0から始まります。</p>
 <p>numsを使用した例では以下のようになります。</p>
-<pre class="hljs"><code><div>nums.RemoveAt(<span class="hljs-number">0</span>);
-</div></code></pre>
-<h4 id="%E8%A6%81%E7%B4%A0%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97">要素数の取得</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>nums<span class="token punctuation">.</span><span class="token function">RemoveAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="要素数の取得">要素数の取得 </h4>
 <p>要素数を取得するには以下のように記述できます。</p>
-<pre class="hljs"><code><div>変数名 = リストの変数名.Count;
-</div></code></pre>
-<p>numsを使用した例は以下のようになります。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span> c = nums.Count;
-</div></code></pre>
-<h4 id="%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E9%85%8D%E5%88%97%E3%81%AE%E5%A4%89%E6%8F%9B">リストから配列の変換</h4>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = リストの変数名.Count;
+</code></pre><p>numsを使用した例は以下のようになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> c <span class="token operator">=</span> nums<span class="token punctuation">.</span>Count<span class="token punctuation">;</span>
+</code></pre><h4 id="リストから配列の変換">リストから配列の変換 </h4>
 <p>リストを配列に変換するには以下のように記述できます。</p>
-<pre class="hljs"><code><div>配列の変数名 = リスト名.ToArray();
-</div></code></pre>
-<p>numsで使用した例は以下のようになります。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] numsArray = nums.ToArray(); 
-</div></code></pre>
-<h2 id="queue">Queue</h2>
-<p>Queue(キュー)はプログラミングにおいてよく使われるデータ構造の一つです。
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>配列の変数名 = リスト名.ToArray();
+</code></pre><p>numsで使用した例は以下のようになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> numsArray <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">ToArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre><h2 id="queue">Queue </h2>
+<p>Queue(キュー)はプログラミングにおいてよく使われるデータ構造の一つです。<br>
 Queueは要素の入出力が一方通行の要素です。</p>
 <p>イメージは以下の画像のような形になります。</p>
 <p><img src="./images/Queue.png" alt="Queueのイメージ"></p>
-<p>要素は入力された順に出力することしかできない要素になっています。
-またQueueにデータを入れることを<code>Enqueue(エンキュー)</code>といいデータを出すことを<code>Dequeue(デキュー)</code>といいます。
+<p>要素は入力された順に出力することしかできない要素になっています。<br>
+またQueueにデータを入れることを<code>Enqueue(エンキュー)</code>といいデータを出すことを<code>Dequeue(デキュー)</code>といいます。<br>
 なのでQueueはEnqueueした順にしかDequeueすることができないといえます。</p>
 <p>また、このようなデータの管理方法を先に入れたデータを先に出すので先入れ先出しといい <strong>FIFO(First In First Out)</strong> とも言います。</p>
-<h3 id="queue%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9">Queueの使い方</h3>
-<h4 id="queue%E3%81%AE%E5%AE%A3%E8%A8%80">Queueの宣言</h4>
+<h3 id="queueの使い方">Queueの使い方 </h3>
+<h4 id="queueの宣言">Queueの宣言 </h4>
 <p>実際にQueueを宣言する方法を以下に示します。</p>
-<pre class="hljs"><code><div>Queue&lt;型&gt; 変数名 = new Queue&lt;型&gt;();
-</div></code></pre>
-<p>型の部分で扱いたいクラスやinterfaceを指定します。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>Queue&lt;型&gt; 変数名 = new Queue&lt;型&gt;();
+</code></pre><p>型の部分で扱いたいクラスやinterfaceを指定します。</p>
 <p>実際に記述した例は以下の通りです。</p>
-<pre class="hljs"><code><div>Queue&lt;<span class="hljs-keyword">int</span>&gt; intqueue = <span class="hljs-keyword">new</span> Queue&lt;<span class="hljs-keyword">int</span>&gt;();
-</div></code></pre>
-<h4 id="enqueue">Enqueue</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Queue<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span> intqueue <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Queue<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="enqueue">Enqueue </h4>
 <p>エンキューする方法は以下の通りです。</p>
-<pre class="hljs"><code><div>キューの変数名.Enqueue(値);
-</div></code></pre>
-<p>intqueueで使用した例は以下の通りです</p>
-<pre class="hljs"><code><div>intqueue.Enqueue(<span class="hljs-number">10</span>);
-</div></code></pre>
-<h4 id="dequeue">Dequeue</h4>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>キューの変数名.Enqueue(値);
+</code></pre><p>intqueueで使用した例は以下の通りです</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>intqueue<span class="token punctuation">.</span><span class="token function">Enqueue</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="dequeue">Dequeue </h4>
 <p>デキューする方法を以下に示します。</p>
-<pre class="hljs"><code><div>変数=キューの変数名.Dequeue();
-</div></code></pre>
-<p>intqueueで使用した方法は以下の通りです。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span> num = intqueue.Dequeue();
-</div></code></pre>
-<h4 id="%E6%AC%A1%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AE%E7%A2%BA%E8%AA%8D">次の要素の確認</h4>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数=キューの変数名.Dequeue();
+</code></pre><p>intqueueで使用した方法は以下の通りです。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> num <span class="token operator">=</span> intqueue<span class="token punctuation">.</span><span class="token function">Dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="次の要素の確認">次の要素の確認 </h4>
 <p>次にデキューする値を参照する</p>
-<pre class="hljs"><code><div>変数=キューの変数名.Peek();
-</div></code></pre>
-<p>intqueueで使用した場合は以下の通りです。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span> num2 = intqueue.Peek();
-</div></code></pre>
-<p>Peekを使うと値を取り出さずに次に出力される要素を取得できます。</p>
-<h4 id="%E8%A6%81%E7%B4%A0%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97">要素数の取得</h4>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数=キューの変数名.Peek();
+</code></pre><p>intqueueで使用した場合は以下の通りです。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2 <span class="token operator">=</span> intqueue<span class="token punctuation">.</span><span class="token function">Peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>Peekを使うと値を取り出さずに次に出力される要素を取得できます。</p>
+<h4 id="要素数の取得-1">要素数の取得 </h4>
 <p>キューの現在の要素数を取得する方法は以下の通りです。</p>
-<pre class="hljs"><code><div>変数名 = キューの変数名.Count;
-</div></code></pre>
-<p>intqueueで使用した場合は以下の通りです。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span> queueCount = intqueue.Count;
-</div></code></pre>
-<h2 id="stack">Stack</h2>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = キューの変数名.Count;
+</code></pre><p>intqueueで使用した場合は以下の通りです。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> queueCount <span class="token operator">=</span> intqueue<span class="token punctuation">.</span>Count<span class="token punctuation">;</span>
+</code></pre><h2 id="stack">Stack </h2>
 <p>先ほど説明したQueueは先入れ先出しだったのに対しStack(スタック)は後入れ先出しと言われており、後に入れた要素から先に出てくるようになっています。また、後入れ先出しは <strong>LIFO(Last In First Out)</strong> とも呼ばれます。</p>
 <p>stackのイメージは以下画像の通りです。</p>
 <p><img src="./images/Stack.png" alt="Stackのイメージ"></p>
-<p>このように要素と同じサイズの箱がありそこに要素が積み上がって行くようなイメージです。
+<p>このように要素と同じサイズの箱がありそこに要素が積み上がって行くようなイメージです。<br>
 物を取ろうとしても上からしか取り出すことができず、結果として先に入れたデータから取り出すということになります。</p>
 <p>また、Stackにデータを入れることを<code>Push</code>といいStackからデータを取り出すことを<code>Pop</code>といいます。</p>
 <p>Stackのよく使われる場面としては例えば作業の戻る機能などで戻る処理がある場合などに便利な構造です。</p>
-<h3 id="stack%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9">Stackの使い方</h3>
-<h4 id="stack%E3%81%AE%E5%AE%A3%E8%A8%80">Stackの宣言</h4>
+<h3 id="stackの使い方">Stackの使い方 </h3>
+<h4 id="stackの宣言">Stackの宣言 </h4>
 <p>Stack変数の宣言方法は以下の通りです。</p>
-<pre class="hljs"><code><div>Stack&lt;型&gt; スタックの変数名 = new Stack&lt;型&gt;();
-</div></code></pre>
-<p>型の部分ではStackで扱いたい型を指定できます。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>Stack&lt;型&gt; スタックの変数名 = new Stack&lt;型&gt;();
+</code></pre><p>型の部分ではStackで扱いたい型を指定できます。</p>
 <p>例えばintを扱うStackのintStackという変数を宣言する場合は以下の通りになります。</p>
-<pre class="hljs"><code><div>Stack&lt;<span class="hljs-keyword">int</span>&gt; intStack = <span class="hljs-keyword">new</span> Stack&lt;<span class="hljs-keyword">int</span>&gt;();
-</div></code></pre>
-<h4 id="push">Push</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Stack<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span> intStack <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Stack<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="push">Push </h4>
 <p>StackにPushする方法は以下の通りです。</p>
-<pre class="hljs"><code><div>スタックの変数名.Push(値);
-</div></code></pre>
-<p>intStackに10をPushする場合は以下の通りになります。</p>
-<pre class="hljs"><code><div>intStack.Push(<span class="hljs-number">10</span>);
-</div></code></pre>
-<h4 id="pop">Pop</h4>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>スタックの変数名.Push(値);
+</code></pre><p>intStackに10をPushする場合は以下の通りになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>intStack<span class="token punctuation">.</span><span class="token function">Push</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="pop">Pop </h4>
 <p>StackからPopする方法は以下の通りです。</p>
-<pre class="hljs"><code><div>変数名 = スタックの変数名.Pop();
-</div></code></pre>
-<p>intStackからPopする方法は以下の通りになります。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span> num1 = intStack.Pop();
-</div></code></pre>
-<h4 id="%E6%AC%A1%E3%81%AE%E5%80%A4%E3%82%92%E5%8F%82%E7%85%A7">次の値を参照</h4>
-<p>Stackにも次に出力する要素の値を参照する方法があります。
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = スタックの変数名.Pop();
+</code></pre><p>intStackからPopする方法は以下の通りになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1 <span class="token operator">=</span> intStack<span class="token punctuation">.</span><span class="token function">Pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="次の値を参照">次の値を参照 </h4>
+<p>Stackにも次に出力する要素の値を参照する方法があります。<br>
 使い方はQueueと同様で以下の通りです。</p>
-<pre class="hljs"><code><div>変数名=スタックの変数名.Peek();
-</div></code></pre>
-<p>intStackからPeekする場合は以下の通りになります。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span> peekValue = intStack.Peek();
-</div></code></pre>
-<h4 id="%E8%A6%81%E7%B4%A0%E6%95%B0%E3%81%AE%E5%8F%96%E5%BE%97">要素数の取得</h4>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名=スタックの変数名.Peek();
+</code></pre><p>intStackからPeekする場合は以下の通りになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> peekValue <span class="token operator">=</span> intStack<span class="token punctuation">.</span><span class="token function">Peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="要素数の取得-2">要素数の取得 </h4>
 <p>Stackの要素数を取得する方法は以下の通りです。</p>
-<pre class="hljs"><code><div>変数名 = スタックの変数名.Count;
-</div></code></pre>
-<p>intStackから要素数を取得する方法は以下の通りになります。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">int</span> stackCount = intStack.Count;
-</div></code></pre>
-<h2 id="%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C">練習問題</h2>
-<h4 id="1-%E6%96%87%E5%AD%97%E5%88%97%E3%82%92%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9D%E3%81%AE%E5%80%A4%E3%81%8Ccall%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AF%E3%81%9D%E3%81%AE%E5%80%A4%E3%82%92queue%E3%81%AB%E3%82%A8%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%97%E3%81%9D%E3%81%AE%E5%80%A4%E3%81%8Ccall%E3%81%A0%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AB%E3%83%87%E3%82%AD%E3%83%A5%E3%83%BC%E3%81%97%E3%81%9D%E3%81%AE%E5%80%A4%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%81%BE%E3%81%9Fcall%E3%81%8C%E5%85%A5%E5%8A%9B%E3%81%95%E3%82%8C%E5%80%A4%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%97%E3%81%9F%E6%99%82%E7%82%B9%E3%81%A7%E8%A6%81%E7%B4%A0%E6%95%B0%E3%81%8C0%E3%81%AE%E5%A0%B4%E5%90%88%E3%81%AF%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E7%B5%82%E4%BA%86%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84">1. 文字列を入力しその値が「Call」ではない場合はその値をQueueにエンキューしその値が「Call」だった場合にデキューしその値を出力するプログラムを作ってください。また「Call」が入力され、値を出力した時点で要素数が0の場合はプログラムを終了してください。</h4>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = スタックの変数名.Count;
+</code></pre><p>intStackから要素数を取得する方法は以下の通りになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> stackCount <span class="token operator">=</span> intStack<span class="token punctuation">.</span>Count<span class="token punctuation">;</span>
+</code></pre><h2 id="練習問題">練習問題 </h2>
+<h4 id="1-文字列を入力しその値がcallではない場合はその値をqueueにエンキューしその値がcallだった場合にデキューしその値を出力するプログラムを作ってくださいまたcallが入力され-値を出力した時点で要素数が0の場合はプログラムを終了してください">1. 文字列を入力しその値が「Call」ではない場合はその値をQueueにエンキューしその値が「Call」だった場合にデキューしその値を出力するプログラムを作ってください。また「Call」が入力され、値を出力した時点で要素数が0の場合はプログラムを終了してください。 </h4>
 <details><summary>解答例</summary>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数作成する。</span></span>
-    {
-        <span class="hljs-keyword">string</span> input;
-        Queue&lt;<span class="hljs-keyword">string</span>&gt; dataQueue = <span class="hljs-keyword">new</span> Queue&lt;<span class="hljs-keyword">string</span>&gt;();
-        <span class="hljs-keyword">do</span>
-        {
-            input = Console.ReadLine();
-            <span class="hljs-keyword">if</span>(input == <span class="hljs-string">"Call"</span>)
-            {
-                Console.WriteLine(dataQueue.Dequeue());
-            }
-            <span class="hljs-keyword">else</span>
-            {
-               dataQueue.Enqueue(input); 
-            }
-        }<span class="hljs-keyword">while</span>(dataQueue.Count &gt; <span class="hljs-number">0</span>);
-    }
-}
-</div></code></pre>
-</details>
-<h4 id="2-end%E3%82%92%E5%85%A5%E5%8A%9B%E3%81%99%E3%82%8B%E3%81%BE%E3%81%A7%E5%80%A4%E3%82%92list%E3%81%AB%E5%85%A5%E3%82%8C%E7%B6%9A%E3%81%91end%E3%81%8C%E5%85%A5%E5%8A%9B%E3%81%95%E3%82%8C%E3%81%9F%E3%82%89end%E3%81%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E5%85%A5%E3%82%8C%E3%81%9A%E5%80%A4%E3%82%92%E3%81%99%E3%81%B9%E3%81%A6%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84">2. Endを入力するまで値をListに入れ続けEndが入力されたらEndはリストに入れず、値をすべて出力するプログラムを作成してください。</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> input<span class="token punctuation">;</span>
+        <span class="token class-name">Queue<span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span> dataQueue <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Queue<span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-do">do</span>
+        <span class="token punctuation">{</span>
+            input <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>input <span class="token operator">==</span> <span class="token string">"Call"</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>dataQueue<span class="token punctuation">.</span><span class="token function">Dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword keyword-else">else</span>
+            <span class="token punctuation">{</span>
+               dataQueue<span class="token punctuation">.</span><span class="token function">Enqueue</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token keyword keyword-while">while</span><span class="token punctuation">(</span>dataQueue<span class="token punctuation">.</span>Count <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></details>
+<h4 id="2-endを入力するまで値をlistに入れ続けendが入力されたらendはリストに入れず-値をすべて出力するプログラムを作成してください">2. Endを入力するまで値をListに入れ続けEndが入力されたらEndはリストに入れず、値をすべて出力するプログラムを作成してください。 </h4>
 <details><summary>解答例1</summary>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数作成する。</span></span>
-    {
-        <span class="hljs-keyword">string</span> input;
-        List&lt;<span class="hljs-keyword">string</span>&gt; dataList = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-keyword">string</span>&gt;();
-        <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>)
-        {
-            input = Console.ReadLine();
-            <span class="hljs-keyword">if</span>(input==<span class="hljs-string">"End"</span>){
-                <span class="hljs-keyword">break</span>;
-            }
-            dataList.Add(input);
-        }
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;dataList.Count;i++)
-        {
-            Console.WriteLine(dataList[i]);
-        }
-    }
-}
-</div></code></pre>
-</details>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> input<span class="token punctuation">;</span>
+        <span class="token class-name">List<span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span> dataList <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-while">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            input <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>input<span class="token operator">==</span><span class="token string">"End"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            dataList<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>dataList<span class="token punctuation">.</span>Count<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>dataList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></details>
 <details><summary>解答例2</summary>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数作成する。</span></span>
-    {
-        <span class="hljs-keyword">string</span> input;
-        List&lt;<span class="hljs-keyword">string</span>&gt; dataList = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-keyword">string</span>&gt;();
-        <span class="hljs-keyword">for</span>(;;)
-        {
-            input = Console.ReadLine();
-            <span class="hljs-keyword">if</span>(input==<span class="hljs-string">"End"</span>){
-                <span class="hljs-keyword">break</span>;
-            }
-            dataList.Add(input);
-        }
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;dataList.Count;i++)
-        {
-            Console.WriteLine(dataList[i]);
-        }
-    }
-}
-</div></code></pre>
-</details>
-<h4 id="3-%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF%E3%81%AE%E5%9E%8B%E3%81%8Cilist%E3%81%8B%E3%82%89%E6%B4%BE%E7%94%9F%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%A7%8B%E6%96%87%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%97%E3%81%AA%E3%81%95%E3%81%84">3. ジェネリックの型がIListから派生しているかを確認する構文を記述しなさい。</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> input<span class="token punctuation">;</span>
+        <span class="token class-name">List<span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span> dataList <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword keyword-string">string</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            input <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>input<span class="token operator">==</span><span class="token string">"End"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            dataList<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>dataList<span class="token punctuation">.</span>Count<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>dataList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></details>
+<h4 id="3-ジェネリックの型がilistから派生しているかを確認する構文を記述しなさい">3. ジェネリックの型がIListから派生しているかを確認する構文を記述しなさい。 </h4>
 <p>解答の仕方</p>
-<pre class="hljs"><code><div>Where T:Object
-</div></code></pre>
-<details><summary>解答例</summary>
-<pre class="hljs"><code><div><span class="hljs-keyword">where</span> T:IList
-</div></code></pre>
-</details>
-</body>
-</html>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>Where T:Object
+</code></pre><details><summary>解答例</summary>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-where">where</span> <span class="token class-name">T</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">IList</span></span>
+</code></pre></details>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

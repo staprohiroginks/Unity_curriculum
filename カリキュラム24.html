@@ -1,471 +1,128 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>カリキュラム24.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="unity24%E7%B0%A1%E5%8D%98%E3%81%AA%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%82%88%E3%81%86---%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E4%BD%9C%E6%88%90">Unity24:簡単なゲームを作成しよう - プログラムの作成</h1>
+<!DOCTYPE html><html><head>
+      <title>カリキュラム24</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="unity24簡単なゲームを作成しよう---プログラムの作成">Unity24:簡単なゲームを作成しよう - プログラムの作成 </h1>
 <p>カリキュラム24でステージの作成が完了したのでここから動作を作成していきます。</p>
-<h2 id="%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90">プレイヤーの作成</h2>
-<p>まずプレイヤーとなる球体を作成します。
+<h2 id="プレイヤーの作成">プレイヤーの作成 </h2>
+<p>まずプレイヤーとなる球体を作成します。<br>
 この球体に力を加えることで動かしていきます。</p>
-<p>では初めにSphere(球体)をヒエラルキーウインドウに追加し、名前をPlayerとしてください。
+<p>では初めにSphere(球体)をヒエラルキーウインドウに追加し、名前をPlayerとしてください。<br>
 <strong>なお、この球体はMapの外に作成してください</strong></p>
 <p>その後今回はRigidbodyによる物理演算を用いて球体を移動させるので、Rididbodyを追加します。設定については初期状態のままで構いません。</p>
-<p>Rididbodyの設定ができたら今回はPlayer視点(一人称視点)にしたいので<code>Main Camera</code>をPlayer内に設定するようにします。
+<p>Rididbodyの設定ができたら今回はPlayer視点(一人称視点)にしたいので<code>Main Camera</code>をPlayer内に設定するようにします。<br>
 <code>Main Camera</code>が元からあると思うので<code>Player</code>の子要素するためにドラッグアンドドロップを行います。</p>
 <p><img src="./images/MazeGame12.png" alt="PlayerにMainCameraをドラッグアンドドロップ"></p>
 <p>ドラッグアンドドロップを行うと以下のようになります。</p>
 <p><img src="./images/MazeGame13.png" alt="Playerの子要素になったカメラ"></p>
-<p>しかし、追加したではカメラの位置が正しい位置になりません。
+<p>しかし、追加したではカメラの位置が正しい位置になりません。<br>
 今回は球体の中にカメラがあるという状態にしたいのでMainCameraのTransformの設定を以下のように設定してください。</p>
 <p><img src="./images/MazeGame14.png" alt="Playerの子要素になったカメラ"></p>
-<h3 id="%E5%8B%95%E4%BD%9C%E3%81%AE%E4%BD%9C%E6%88%90">動作の作成</h3>
-<p>では初めにPlayerを動作させるためのスクリプトを作成します。
+<h3 id="動作の作成">動作の作成 </h3>
+<p>では初めにPlayerを動作させるためのスクリプトを作成します。<br>
 今回は<code>MovePlayer</code>というスクリプトを作成します。</p>
-<h4 id="%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E5%9C%B0%E7%82%B9%E3%81%B8%E3%81%AE%E7%A7%BB%E5%8B%95">スタート地点への移動</h4>
+<h4 id="スタート地点への移動">スタート地点への移動 </h4>
 <p>まず初めにスタート地点にPlayerを移動したいので以下の条件を満たすコードをMovePlayerに記述してください。</p>
 <ul>
 <li>SerializeField属性を適用したGameObject型変数をStartObjectという名前で作成する。</li>
 <li>Rigidbody型のメンバ変数rbを作成しStartメソッド内でrbにGameObjectのRigidbodyを代入する。</li>
 <li>rb変数のpositionをStartObject.Transform.positionに変更するようにしてください。</li>
 </ul>
-<p>作成例は以下に示しています。
+<p>作成例は以下に示しています。<br>
 わからない場合は確認してみてください。</p>
 <details><summary>作成例</summary>
 <p><code>MovePlayer</code>のコード</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MovePlayer</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    [<span class="hljs-meta">SerializeField</span>] GameObject StartObject;
-    Rigidbody rb;
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb = GetComponent&lt;Rigidbody&gt;();
-        rb.position = StartObject.transform.position;
-    }
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MovePlayer</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> StartObject<span class="token punctuation">;</span>
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rb<span class="token punctuation">.</span>position <span class="token operator">=</span> StartObject<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-}
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</div></code></pre>
-</details>
+</code></pre></details>
 <p>スクリプトを作成できたらMovePlayerにアタッチし、以下のようにStartObjectに前回作成したStartPointを指定してください。</p>
 <p><img src="./images/MazeGame15.png" alt="StartObjectの設定"></p>
-<p>この状態で実行する前回指定したスタート地点に移動していることがわかります。
+<p>この状態で実行する前回指定したスタート地点に移動していることがわかります。<br>
 実行中シーンウインドウを確認するとスタート地点に移動していることが確認できると思います。</p>
 <p><img src="./images/MazeGame16.png" alt="スタート地点への移動"></p>
-<h4 id="%E3%82%AB%E3%83%A1%E3%83%A9%E3%81%AE%E5%90%91%E3%81%8D%E3%81%AE%E5%A4%89%E6%9B%B4">カメラの向きの変更</h4>
+<h4 id="カメラの向きの変更">カメラの向きの変更 </h4>
 <p>今回のゲームはカメラの向きの方向にプレイヤーに速度を与えるようなプログラムなのでカメラの向きを変更すようなスクリプトを作成します。</p>
 <p>ではMoveCameraという名前のスクリプトを作成し、以下の条件を満たすコードを作成してください。</p>
 <ul>
 <li>Updateメソッド内でDキーが押されていたらtransform.rotationを使用しy軸を中心に1だけ回る。</li>
 <li>Updateメソッド内でAキーが押されていたらtransform.rotationを使用しy軸を中心に-1だけ回る。</li>
 </ul>
-<p>作成例は以下に示しています。
+<p>作成例は以下に示しています。<br>
 わからない場合は確認してみてください。</p>
 <details><summary>作成例</summary>
 <p><code>MoveCamera</code>のコード</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MoveCamera</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MoveCamera</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.D))
-        {
-            transform.rotation = transform.rotation * Quaternion.Euler(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
-        }
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.A))
-        {
-            transform.rotation = transform.rotation * Quaternion.Euler(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
-        }
-    }
-}
-</div></code></pre>
-</details>
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>D<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            transform<span class="token punctuation">.</span>rotation <span class="token operator">=</span> transform<span class="token punctuation">.</span>rotation <span class="token operator">*</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>A<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            transform<span class="token punctuation">.</span>rotation <span class="token operator">=</span> transform<span class="token punctuation">.</span>rotation <span class="token operator">*</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></details>
 <p>完成したら<code>Main Camera</code>にこのスクリプトをアタッチしてください。</p>
-<p>その後実行してAキーとSキーを押してみましょう
+<p>その後実行してAキーとSキーを押してみましょう<br>
 Aキーを押すと左に向いて、Sキーを押すと右を向くと思います。</p>
-<h4 id="%E7%90%83%E4%BD%93%E3%82%92%E5%8B%95%E3%81%8B%E3%81%99">球体を動かす</h4>
+<h4 id="球体を動かす">球体を動かす </h4>
 <p>続いてCameraの向いている方向に力を加えるように<code>MovePlayer</code>のプログラムを修正していきます。</p>
 <p>以下の条件を満たすようにコードを変更してください。</p>
 <ul>
@@ -479,51 +136,50 @@ Aキーを押すと左に向いて、Sキーを押すと右を向くと思いま
 </ul>
 <details><summary>作成例</summary>
 <p><code>MovePlayer</code>のコード</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MovePlayer</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    [<span class="hljs-meta">SerializeField</span>] GameObject StartObject;
-    [<span class="hljs-meta">SerializeField</span>] GameObject CameraObject;
-    Rigidbody rb;
-    Transform CameraTransform;
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MovePlayer</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> StartObject<span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> CameraObject<span class="token punctuation">;</span>
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span>
+    <span class="token class-name">Transform</span> CameraTransform<span class="token punctuation">;</span>
 
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb = GetComponent&lt;Rigidbody&gt;();
-        rb.position = StartObject.transform.position;
-        CameraTransform = CameraObject.transform;
-    }
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rb<span class="token punctuation">.</span>position <span class="token operator">=</span> StartObject<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+        CameraTransform <span class="token operator">=</span> CameraObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>(<span class="hljs-params"></span>)</span>
-    {
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.W))
-        {
-            rb.AddForce(CameraTransform.forward * <span class="hljs-number">0.02f</span>, ForceMode.VelocityChange);
-        }
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.S))
-        {
-            rb.AddForce(CameraTransform.forward * <span class="hljs-number">-0.02f</span>, ForceMode.VelocityChange);
-        }
-    }
-}
-</div></code></pre>
-</details>
-<p>ではコードを保存して実際に動かしてみましょう。
+    <span class="token punctuation">}</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">FixedUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>W<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            rb<span class="token punctuation">.</span><span class="token function">AddForce</span><span class="token punctuation">(</span>CameraTransform<span class="token punctuation">.</span>forward <span class="token operator">*</span> <span class="token number">0.02f</span><span class="token punctuation">,</span> ForceMode<span class="token punctuation">.</span>VelocityChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            rb<span class="token punctuation">.</span><span class="token function">AddForce</span><span class="token punctuation">(</span>CameraTransform<span class="token punctuation">.</span>forward <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">0.02f</span><span class="token punctuation">,</span> ForceMode<span class="token punctuation">.</span>VelocityChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></details>
+<p>ではコードを保存して実際に動かしてみましょう。<br>
 動かすためにはCamera Objectの設定をしないといけないので以下のようにMovePlayerのCamera Objectに<code>Main Camera</code>を設定してください。</p>
 <p><img src="./images/MazeGame17.png" alt="Move Playerの設定"></p>
-<p>Wを押すと前に少しだけ進んでカメラが下を向いてしまうと思います。
+<p>Wを押すと前に少しだけ進んでカメラが下を向いてしまうと思います。<br>
 これは球体の動きがカメラの動きとが同じため球体に力を加えると下を向いたときに下方向に移動しようとするため止まってしまいます。</p>
 <p>これを修正する必要があります。</p>
-<h5 id="movecamera%E3%82%92%E4%BF%AE%E6%AD%A3%E3%81%99%E3%82%8B">MoveCameraを修正する</h5>
+<h5 id="movecameraを修正する">MoveCameraを修正する </h5>
 <p>今回正しく動作しなかった原因はカメラが、球体と一緒に動いているのでカメラが意図しない方向に固定しておく必要があります。</p>
 <p>固定しておくために<code>MoveCamera</code>を修正していきます。</p>
 <p>以下の考え方基づいて修正していきます。</p>
@@ -542,41 +198,40 @@ Aキーを押すと左に向いて、Sキーを押すと右を向くと思いま
 </ul>
 <details><summary>作成例</summary>
 <p><code>MoveCamera</code>のコード</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MoveCamera</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    Quaternion CameraRotation;
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        CameraRotation = transform.rotation;
-    }
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MoveCamera</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token class-name">Quaternion</span> CameraRotation<span class="token punctuation">;</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        CameraRotation <span class="token operator">=</span> transform<span class="token punctuation">.</span>rotation<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.D))
-        {
-            CameraRotation = CameraRotation * Quaternion.Euler(<span class="hljs-number">0</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">0</span>);
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>D<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            CameraRotation <span class="token operator">=</span> CameraRotation <span class="token operator">*</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        }
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.A))
-        {
-            CameraRotation = CameraRotation * Quaternion.Euler(<span class="hljs-number">0</span>, <span class="hljs-number">-0.3</span>, <span class="hljs-number">0</span>);
-        }
-        transform.rotation = CameraRotation;
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>A<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            CameraRotation <span class="token operator">=</span> CameraRotation <span class="token operator">*</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        transform<span class="token punctuation">.</span>rotation <span class="token operator">=</span> CameraRotation<span class="token punctuation">;</span>
 
-    }
-}
-</div></code></pre>
-</details>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></details>
 <br>
 <p>保存して実際に実行してみるとWキーを押すと前にSキーを押すと後ろにAキーを押すと左に向きDキーを押すと右に向くような正しい挙動をすることを確認できます。</p>
 <p>ボールなのでWキーを離してもそのまま真っすぐ進み続けることがわかると思います。今回はそういうゲームなのでこのままいきます。</p>
-<h2 id="%E3%82%B4%E3%83%BC%E3%83%AB%E3%81%AE%E5%87%A6%E7%90%86%E3%82%92%E4%BD%9C%E3%82%8B">ゴールの処理を作る</h2>
+<h2 id="ゴールの処理を作る">ゴールの処理を作る </h2>
 <p>ゴールしたことを検知するプログラムを作成していきます。</p>
 <p>では<code>GoalScript</code>を作成してください。</p>
 <p>その後GoalScriptをGoalPointにアタッチして下さい。</p>
@@ -587,151 +242,34 @@ Aキーを押すと左に向いて、Sキーを押すと右を向くと思いま
 <p>作成例は以下の通りです</p>
 <details><summary>作成例</summary>
 <p><code>GoalScript</code>のコード</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GoalScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">GoalScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerEnter</span>(<span class="hljs-params">Collider other</span>)</span>
-    {
-        Debug.Log(<span class="hljs-string">"ゴール"</span>);
-    }
-}
+    <span class="token punctuation">}</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">OnTriggerEnter</span><span class="token punctuation">(</span><span class="token class-name">Collider</span> other<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">"ゴール"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</div></code></pre>
-</details>
+</code></pre></details>
 <br>
 <p>これで実行してみるとゴールした瞬間にゴールとログに表示されることが確認できると思います。</p>
-<!-- 
-続いてゴール後5秒経つと元の位置に戻るようにプログラムを修正していきます。
-
-まず、MovePlayerのプログラムを以下の条件で修正してください
-
-- publicなMoveStartPointというメソッドを作成してください
-- 作成したMoveStartPointというメソッドにStartPointの位置に移動するプロフラムを移動(切り取り・貼り付け)してください
-- MoveStartPointメソッドをStartメソッドで呼び出すようにして下さい
-
-作成例は以下の通りです
-
-<details><summary>作成例</summary>
-`MovePlayer`のコード
-
-```cs
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MovePlayer : MonoBehaviour
-{
-    [SerializeField] GameObject StartObject;
-    [SerializeField] GameObject CameraObject;
-    Rigidbody rb;
-    Transform CameraTransform;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        CameraTransform = CameraObject.transform;
-        MoveStartPoint();
-    }
-    public void MoveStartPoint()
-    {
-        rb.position = StartObject.transform.position;
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.AddForce(CameraTransform.forward * 0.1f, ForceMode.VelocityChange);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            rb.AddForce(CameraTransform.forward * -0.1f, ForceMode.VelocityChange);
-        }
-    }
-}
-
-```
-</details>
-
-
-<br>
-
-その後ゴールの処理を以下のように書き換えます。
-```cs
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using UnityEngine;
-
-public class GoalScript : MonoBehaviour
-{
-    [SerializeField] GameObject Player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    async void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("ゴール");
-        await Task.Delay(5000);
-        Player.GetComponent<MovePlayer>().MoveStartPoint();
-    }
-}
-
-```
-
-変わった部分についてですが
-
-```cs
-[SerializeField] GameObject Player;
-```
-を追加することでプレイヤーのゲームオブジェクトを取得できるようにしています。
-
-また、以下のような見たことのないコードがあると思います。
-```cs
-await Task.Delay(5000); 
-```
-
-このコードの意味は5000ミリ秒(5秒)待って次の処理をするというコードになっています。
-また`void OnTriggerEnter`の前に`async`と`Task.Delay`の前に`await`がありますが、今回はとりあえず`Task.Deley`の前には`await`が必要で`await`を含むメソッドは戻り値の型とアクセス修飾子の間に`async`が必要ということだけ覚えておいてください。
-
-続いて以下のようにPlayer内にあるMovePlayerクラスのインスタンスを取得しそのMoveStartPointメソッドを呼び出すことでスタート地点に移動できます。
-```cs
-Player.GetComponent<MovePlayer>().MoveStartPoint();
-```
-
-では実際に動かしていましょう。
-動かす前にGoalPointのGoalScriptのプレイヤーの項目をPlayerのゲームオブジェクトにすることを忘れないようにしてください。
-ゴールにつくと5秒経ったのちにスタート地点に戻ることが確認できたと思います。 -->
-<h2 id="ui%E3%81%AE%E4%BD%9C%E6%88%90">UIの作成</h2>
-<p>今回はUIといってもあまり複雑なものは作りません。
+<h2 id="uiの作成">UIの作成 </h2>
+<p>今回はUIといってもあまり複雑なものは作りません。<br>
 ゴール時にゴールと表示され再度スタートボタンがあるだけのUIです。</p>
 <p>まず、カリキュラム22のTextMeshProの日本語対応を確認して日本語フォントを使える状態にしてください。</p>
 <p>その後Canvasを作成し、その子要素として<code>UI</code>&gt;<code>Text - TextMeshPro</code>を追加してください。</p>
@@ -739,27 +277,27 @@ Player.GetComponent<MovePlayer>().MoveStartPoint();
 <p><img src="./images/MazeGame18.png" alt="テキストの追加"></p>
 <p>その後インスペクターウインドウの内容は以下のように設定してください。</p>
 <p><img src="./images/MazeGame19.png" alt="テキストのインスペクターウインドウ"></p>
-<p>主に編集したところは<code>幅</code>と<code>高さ</code>、<code>Font Assets</code>、<code>Font Style</code>、<code>Font Size</code>、<code>Vertex Color</code>、<code>Alignment</code>です。
+<p>主に編集したところは<code>幅</code>と<code>高さ</code>、<code>Font Assets</code>、<code>Font Style</code>、<code>Font Size</code>、<code>Vertex Color</code>、<code>Alignment</code>です。<br>
 <code>Vertex Color</code>についてはなんでも大丈夫ですが白いマップなのでできるだけ異なる色のほうが良いと思います。</p>
 <p>正しく設定できると以下のようになると思います。</p>
 <p><img src="./images/MazeGame20.png" alt="テキスト"></p>
 <p>続いてボタンを追加していきます。</p>
-<p>先ほどのCanvasの子要素として<code>Button - TextMeshPro</code>を追加してください。
+<p>先ほどのCanvasの子要素として<code>Button - TextMeshPro</code>を追加してください。<br>
 ボタンを追加すると以下のようになります。</p>
 <p><img src="./images/MazeGame21.png" alt="ボタン追加"></p>
 <p>ボタンが追加できていることを確認したらボタンのインスペクターウインドウから位置Yの値を-150にしてください。</p>
 <p>位置Yの値が正しく設定できると以下のようになります。</p>
 <p><img src="./images/MazeGame22.png" alt="ボタン追加"></p>
 <p>続いてボタンの子要素になっているTextを編集します。</p>
-<p>基本的に表示されている文字を<code>リスタート</code>と変更しそれに伴ってフォントを変えてください。
+<p>基本的に表示されている文字を<code>リスタート</code>と変更しそれに伴ってフォントを変えてください。<br>
 正しく設定できると以下のようになります。</p>
 <p><img src="./images/MazeGame23.png" alt="ボタン追加"></p>
 <p>UIの設定は完了しました。</p>
-<h3 id="%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%A8%E9%80%A3%E6%90%BA%E3%81%95%E3%81%9B%E3%82%8B">プログラムと連携させる。</h3>
+<h3 id="プログラムと連携させる">プログラムと連携させる。 </h3>
 <p>最後にこれらのUIをプログラムと関連付けていきます。</p>
-<p>まず、MovePlayerのプログラムを修正していきます。
-現在はスタート地点に戻るのは最初だけの処理ですが今後ボタンが押された際に同じようにスタート地点に戻る必要があります。
-なのでスタート地点に戻る処理をメソッド化していきます。
+<p>まず、MovePlayerのプログラムを修正していきます。<br>
+現在はスタート地点に戻るのは最初だけの処理ですが今後ボタンが押された際に同じようにスタート地点に戻る必要があります。<br>
+なのでスタート地点に戻る処理をメソッド化していきます。<br>
 <code>MovePlayer</code>のプログラムを以下の手順で修正してください。</p>
 <ul>
 <li>publicなMoveStartPointというメソッドを作成してください</li>
@@ -769,49 +307,48 @@ Player.GetComponent<MovePlayer>().MoveStartPoint();
 <p>作成例は以下の通りです</p>
 <details><summary>作成例</summary>
 `MovePlayer`のコード
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MovePlayer</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    [<span class="hljs-meta">SerializeField</span>] GameObject StartObject;
-    [<span class="hljs-meta">SerializeField</span>] GameObject CameraObject;
-    Rigidbody rb;
-    Transform CameraTransform;
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MovePlayer</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> StartObject<span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> CameraObject<span class="token punctuation">;</span>
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span>
+    <span class="token class-name">Transform</span> CameraTransform<span class="token punctuation">;</span>
 
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb = GetComponent&lt;Rigidbody&gt;();
-        CameraTransform = CameraObject.transform;
-        MoveStartPoint();
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">MoveStartPoint</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb.position = StartObject.transform.position;
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        CameraTransform <span class="token operator">=</span> CameraObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
+        <span class="token function">MoveStartPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-public">public</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">MoveStartPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb<span class="token punctuation">.</span>position <span class="token operator">=</span> StartObject<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
 
-    }
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token punctuation">}</span>
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>(<span class="hljs-params"></span>)</span>
-    {
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.W))
-        {
-            rb.AddForce(CameraTransform.forward * <span class="hljs-number">0.1f</span>, ForceMode.VelocityChange);
-        }
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.S))
-        {
-            rb.AddForce(CameraTransform.forward * <span class="hljs-number">-0.1f</span>, ForceMode.VelocityChange);
-        }
-    }
-}
+    <span class="token punctuation">}</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">FixedUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>W<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            rb<span class="token punctuation">.</span><span class="token function">AddForce</span><span class="token punctuation">(</span>CameraTransform<span class="token punctuation">.</span>forward <span class="token operator">*</span> <span class="token number">0.1f</span><span class="token punctuation">,</span> ForceMode<span class="token punctuation">.</span>VelocityChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            rb<span class="token punctuation">.</span><span class="token function">AddForce</span><span class="token punctuation">(</span>CameraTransform<span class="token punctuation">.</span>forward <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">0.1f</span><span class="token punctuation">,</span> ForceMode<span class="token punctuation">.</span>VelocityChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</div></code></pre>
-</details>
+</code></pre></details>
 <br>
 <p>続いてボタンのクリック時()の設定です。</p>
 <p><img src="./images/MazeGame24.png" alt="ボタン追加"></p>
@@ -819,9 +356,9 @@ Player.GetComponent<MovePlayer>().MoveStartPoint();
 <p>正しく設定できると以下のようになります。</p>
 <p>これで実行してみてください。</p>
 <p>すると最初から<strong>ゴール</strong>とは表示されますが、実際にリスタートボタンを押すとスタート地点に戻ることがわかります。</p>
-<p>しかしながら初めからリスタートやゴールと表示される必要はありません。
+<p>しかしながら初めからリスタートやゴールと表示される必要はありません。<br>
 なのでリスタートされたタイミングでCanvasが無効になることが望ましいです。</p>
-<p>なので<code>MovePlayer</code>を修正していきます。
+<p>なので<code>MovePlayer</code>を修正していきます。<br>
 次の手順でプログラムを修正してください。</p>
 <ul>
 <li>SerializeField属性を適用したGameObject型変数をCanvasObjectという名前で作成する。</li>
@@ -830,52 +367,51 @@ Player.GetComponent<MovePlayer>().MoveStartPoint();
 <p>作成例は以下の通りになります。</p>
 <details><summary>作成例</summary>
 <p><code>MovePlayer</code>のプログラムを以下のように書き換えます。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MovePlayer</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    [<span class="hljs-meta">SerializeField</span>] GameObject StartObject;
-    [<span class="hljs-meta">SerializeField</span>] GameObject CameraObject;
-    [<span class="hljs-meta">SerializeField</span>] GameObject CanvasObject;
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MovePlayer</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> StartObject<span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> CameraObject<span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> CanvasObject<span class="token punctuation">;</span>
 
-    Rigidbody rb;
-    Transform CameraTransform;
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span>
+    <span class="token class-name">Transform</span> CameraTransform<span class="token punctuation">;</span>
     
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb = GetComponent&lt;Rigidbody&gt;();
-        CameraTransform = CameraObject.transform;
-        MoveStartPoint();
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">MoveStartPoint</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb.position = StartObject.transform.position;
-        CanvasObject.SetActive(<span class="hljs-literal">false</span>);
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        CameraTransform <span class="token operator">=</span> CameraObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
+        <span class="token function">MoveStartPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-public">public</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">MoveStartPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb<span class="token punctuation">.</span>position <span class="token operator">=</span> StartObject<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+        CanvasObject<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    }
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token punctuation">}</span>
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>(<span class="hljs-params"></span>)</span>
-    {
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.W))
-        {
-            rb.AddForce(CameraTransform.forward * <span class="hljs-number">0.1f</span>, ForceMode.VelocityChange);
-        }
-        <span class="hljs-keyword">if</span> (Input.GetKey(KeyCode.S))
-        {
-            rb.AddForce(CameraTransform.forward * <span class="hljs-number">-0.1f</span>, ForceMode.VelocityChange);
-        }
-    }
-}
+    <span class="token punctuation">}</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">FixedUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>W<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            rb<span class="token punctuation">.</span><span class="token function">AddForce</span><span class="token punctuation">(</span>CameraTransform<span class="token punctuation">.</span>forward <span class="token operator">*</span> <span class="token number">0.1f</span><span class="token punctuation">,</span> ForceMode<span class="token punctuation">.</span>VelocityChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKey</span><span class="token punctuation">(</span>KeyCode<span class="token punctuation">.</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            rb<span class="token punctuation">.</span><span class="token function">AddForce</span><span class="token punctuation">(</span>CameraTransform<span class="token punctuation">.</span>forward <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">0.1f</span><span class="token punctuation">,</span> ForceMode<span class="token punctuation">.</span>VelocityChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</div></code></pre>
-</details>
+</code></pre></details>
 <br>
 <p>Playerのゲームオブジェクトの<code>MovePlayer</code>内の<code>Canvas Object</code>にCanvasを設定して実行してみてください。</p>
 <p>実行してみるとゴールやリスタートボタンは消えています。</p>
@@ -888,42 +424,41 @@ Player.GetComponent<MovePlayer>().MoveStartPoint();
 <p>作成例は以下のようになっています。</p>
 <details><summary>作成例</summary>
 <p><code>GoalScript</code>のプログラムを以下のように書き換えます。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> System.Threading;
-<span class="hljs-keyword">using</span> System.Threading.Tasks;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GoalScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    [<span class="hljs-meta">SerializeField</span>] GameObject CanvasObject;
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">GoalScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span> <span class="token class-name">GameObject</span> CanvasObject<span class="token punctuation">;</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token punctuation">}</span>
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerEnter</span>(<span class="hljs-params">Collider other</span>)</span>
-    {
-        Debug.Log(<span class="hljs-string">"ゴール"</span>);
-        CanvasObject.SetActive(<span class="hljs-literal">true</span>);
+    <span class="token punctuation">}</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">OnTriggerEnter</span><span class="token punctuation">(</span><span class="token class-name">Collider</span> other<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">"ゴール"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        CanvasObject<span class="token punctuation">.</span><span class="token function">SetActive</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    }
-}
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</div></code></pre>
-</details>
+</code></pre></details>
 <br>
 <p>コードの修正ができると先ほどのようにGoalPointのGoal ScriptのCanvas ObjectにCanvasを指定してください。</p>
 <p>その後実行すると最初はUIが表示されませんがゴールすると以下のように表示されます。</p>
 <p><img src="./images/MazeGame25.png" alt="ゴール"></p>
 <p>リスタートを押すとUIは消え初期地点に戻ることができたと思います。</p>
-<h2 id="%E4%BB%8A%E5%BE%8C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">今後について</h2>
-<p>このゲームは改造の余地を多々残しています。
+<h2 id="今後について">今後について </h2>
+<p>このゲームは改造の余地を多々残しています。<br>
 簡単に考えるだけでも以下のような改造が思いつきます。</p>
 <ul>
 <li>例えば、スタートからゴールまでの時間を測る。</li>
@@ -933,5 +468,14 @@ Player.GetComponent<MovePlayer>().MoveStartPoint();
 </ul>
 <p>興味がある方はこれらの改造を行い遊んでみてください。</p>
 
-</body>
-</html>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
