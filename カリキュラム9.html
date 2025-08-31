@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -35,26 +35,24 @@
 <h4 id="メソッドのジェネリック">メソッドのジェネリック </h4>
 <p>メソッドのジェネリックの構文は通常のメソッドの宣言のメソッド名の後ろに<code>&lt;任意の文字&gt;</code>を追加することでできます。</p>
 <p>実際にルールを記述すると以下のようになります。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 戻り値の型 メソッド名&lt;T&gt;(型名 変数名,型名)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>アクセス修飾子 戻り値の型 メソッド名&lt;T&gt;(型名 変数名,型名)
 {
 
 }
 </code></pre><p>Tの部分は任意の文字でよくこの文字が型の変数のような働きをします。</p>
 <p>実際に<code>GenericClass</code>というクラスを作成し以下のコードを記述してください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">GenericClass</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">GenericClass</span>
+    <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token generic-method"><span class="token function">Method</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token class-name">T</span> inputvalue<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token generic-method"><span class="token function">Method</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token class-name">T</span> inputvalue<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword keyword-return">return</span> inputvalue<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-return">return</span> inputvalue<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
+
 </code></pre><p>また、<code>Program.cs</code>に以下のコードを記述してください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -72,7 +70,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>出力は</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>1
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1
 1.5
 Hello
 
@@ -87,28 +85,26 @@ Hello
 <h3 id="classのジェネリック">classのジェネリック </h3>
 <p>クラスのジェネリックを使うと変数やメソッドに使用する型をインスタンスの作成時に指定できます。</p>
 <p>指定方法としてはクラスを宣言する際に</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 class クラス名&lt;任意の文字&gt;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>アクセス修飾子 class クラス名&lt;任意の文字&gt;
 </code></pre><p>と記述することで可能です。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">GenericClass<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token function">Method</span><span class="token punctuation">(</span><span class="token class-name">T</span> invalue<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword keyword-return">return</span> invalue<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 
-        <span class="token keyword keyword-public">public</span> <span class="token class-name">T</span> Value<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token function">GetValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword keyword-return">return</span> Value<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">GenericClass<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token function">Method</span><span class="token punctuation">(</span><span class="token class-name">T</span> invalue<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> invalue<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">T</span> Value<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token return-type class-name">T</span> <span class="token function">GetValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> Value<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
+
 </code></pre><p><code>Program.cs</code>ファイルを以下のように書き換えます。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -140,7 +136,7 @@ Hello
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>実行すると以下のように出力されます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>10
+<pre data-role="codeBlock" data-info="" class="language-text"><code>10
 5
 0.5
 1.5
@@ -153,12 +149,12 @@ Hello
 そのためジェネリックに入れることができる型を制限する機能があります。<br>
 決められた実装をしたものしかジェネリックで指定できないという風に制限を設けることができます。</p>
 <p>where制約はメソッドの場合は以下のような構文で書くことが可能です。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 戻り値の型 メソッド名&lt;T&gt;(型名 変数名,型名):where制約
+<pre data-role="codeBlock" data-info="" class="language-text"><code>アクセス修飾子 戻り値の型 メソッド名&lt;T&gt;(型名 変数名,型名):where制約
 {
 
 }
 </code></pre><p>where制約はクラスの場合は以下のような構文で書くことが可能です。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 class クラス名&lt;T&gt;:where制約
+<pre data-role="codeBlock" data-info="" class="language-text"><code>アクセス修飾子 class クラス名&lt;T&gt;:where制約
 {
 
 }
@@ -195,7 +191,7 @@ Hello
 </tbody>
 </table>
 <p>where制約は複数宣言することができます。その場合は</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>where T:struct,class,Object
+<pre data-role="codeBlock" data-info="" class="language-text"><code>where T:struct,class,Object
 </code></pre><p>のように記述できます。</p>
 <h2 id="list">List </h2>
 <p>ジェネリックを使った要素として一番よく使う要素はListというクラスです。<br>
@@ -203,26 +199,26 @@ Hello
 <h3 id="listの使い方">Listの使い方 </h3>
 <h4 id="宣言">宣言 </h4>
 <p>Listの変数宣言は以下のようになります</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>List&lt;型名&gt; 変数名 = new List&lt;型名&gt;();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>List&lt;型名&gt; 変数名 = new List&lt;型名&gt;();
 </code></pre><p>型名はListで扱いたい型を指定します。<br>
 例えばintであれば</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">List<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span> nums <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><p>のように記述できます。</p>
 <h4 id="要素の追加add">要素の追加(Add) </h4>
 <p>要素一番最後に追加する場合は</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>リストの変数名.Add(値);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>リストの変数名.Add(値);
 </code></pre><p>のように記述できます。</p>
 <p>なので先ほどのnumsというListに値を追加する場合は</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>nums<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><p>のようになります。</p>
 <h4 id="任意の場所への要素追加">任意の場所への要素追加 </h4>
 <p>任意の場所に値を追加する場合は以下のように記述できます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>リストの変数名.Insert(添え字,値);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>リストの変数名.Insert(添え字,値);
 </code></pre><p>numsで実際に使用した例は以下のようになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>nums<span class="token punctuation">.</span><span class="token function">Insert</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="要素の取得">要素の取得 </h4>
 <p>指定した場所の要素を取得するには</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = リストの変数名[添え字];
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数名 = リストの変数名[添え字];
 </code></pre><p>のように記述できる<br>
 添え字は要素の番号であり0から始まっています。添え字は変数も使用することが可能です。<br>
 また、戻り値の変数の型はリストを宣言する際に指定した型になっています。</p>
@@ -230,18 +226,18 @@ Hello
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1 <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 </code></pre><h4 id="添え字から要素の削除">添え字から要素の削除 </h4>
 <p>指定した添え字の値を削除するには以下のように記述できます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>リストの変数名.RemoveAt(添え字);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>リストの変数名.RemoveAt(添え字);
 </code></pre><p>添え字については0から始まります。</p>
 <p>numsを使用した例では以下のようになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>nums<span class="token punctuation">.</span><span class="token function">RemoveAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="要素数の取得">要素数の取得 </h4>
 <p>要素数を取得するには以下のように記述できます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = リストの変数名.Count;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数名 = リストの変数名.Count;
 </code></pre><p>numsを使用した例は以下のようになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> c <span class="token operator">=</span> nums<span class="token punctuation">.</span>Count<span class="token punctuation">;</span>
 </code></pre><h4 id="リストから配列の変換">リストから配列の変換 </h4>
 <p>リストを配列に変換するには以下のように記述できます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>配列の変数名 = リスト名.ToArray();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>配列の変数名 = リスト名.ToArray();
 </code></pre><p>numsで使用した例は以下のようになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> numsArray <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">ToArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 </code></pre><h2 id="queue">Queue </h2>
@@ -256,29 +252,29 @@ Queueは要素の入出力が一方通行の要素です。</p>
 <h3 id="queueの使い方">Queueの使い方 </h3>
 <h4 id="queueの宣言">Queueの宣言 </h4>
 <p>実際にQueueを宣言する方法を以下に示します。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>Queue&lt;型&gt; 変数名 = new Queue&lt;型&gt;();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Queue&lt;型&gt; 変数名 = new Queue&lt;型&gt;();
 </code></pre><p>型の部分で扱いたいクラスやinterfaceを指定します。</p>
 <p>実際に記述した例は以下の通りです。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Queue<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span> intqueue <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Queue<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="enqueue">Enqueue </h4>
 <p>エンキューする方法は以下の通りです。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>キューの変数名.Enqueue(値);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>キューの変数名.Enqueue(値);
 </code></pre><p>intqueueで使用した例は以下の通りです</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>intqueue<span class="token punctuation">.</span><span class="token function">Enqueue</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="dequeue">Dequeue </h4>
 <p>デキューする方法を以下に示します。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数=キューの変数名.Dequeue();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数=キューの変数名.Dequeue();
 </code></pre><p>intqueueで使用した方法は以下の通りです。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> num <span class="token operator">=</span> intqueue<span class="token punctuation">.</span><span class="token function">Dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="次の要素の確認">次の要素の確認 </h4>
 <p>次にデキューする値を参照する</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数=キューの変数名.Peek();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数=キューの変数名.Peek();
 </code></pre><p>intqueueで使用した場合は以下の通りです。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2 <span class="token operator">=</span> intqueue<span class="token punctuation">.</span><span class="token function">Peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><p>Peekを使うと値を取り出さずに次に出力される要素を取得できます。</p>
 <h4 id="要素数の取得-1">要素数の取得 </h4>
 <p>キューの現在の要素数を取得する方法は以下の通りです。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = キューの変数名.Count;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数名 = キューの変数名.Count;
 </code></pre><p>intqueueで使用した場合は以下の通りです。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> queueCount <span class="token operator">=</span> intqueue<span class="token punctuation">.</span>Count<span class="token punctuation">;</span>
 </code></pre><h2 id="stack">Stack </h2>
@@ -292,36 +288,35 @@ Queueは要素の入出力が一方通行の要素です。</p>
 <h3 id="stackの使い方">Stackの使い方 </h3>
 <h4 id="stackの宣言">Stackの宣言 </h4>
 <p>Stack変数の宣言方法は以下の通りです。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>Stack&lt;型&gt; スタックの変数名 = new Stack&lt;型&gt;();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Stack&lt;型&gt; スタックの変数名 = new Stack&lt;型&gt;();
 </code></pre><p>型の部分ではStackで扱いたい型を指定できます。</p>
 <p>例えばintを扱うStackのintStackという変数を宣言する場合は以下の通りになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Stack<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span> intStack <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Stack<span class="token punctuation">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="push">Push </h4>
 <p>StackにPushする方法は以下の通りです。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>スタックの変数名.Push(値);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>スタックの変数名.Push(値);
 </code></pre><p>intStackに10をPushする場合は以下の通りになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>intStack<span class="token punctuation">.</span><span class="token function">Push</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="pop">Pop </h4>
 <p>StackからPopする方法は以下の通りです。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = スタックの変数名.Pop();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数名 = スタックの変数名.Pop();
 </code></pre><p>intStackからPopする方法は以下の通りになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1 <span class="token operator">=</span> intStack<span class="token punctuation">.</span><span class="token function">Pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="次の値を参照">次の値を参照 </h4>
 <p>Stackにも次に出力する要素の値を参照する方法があります。<br>
 使い方はQueueと同様で以下の通りです。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名=スタックの変数名.Peek();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数名=スタックの変数名.Peek();
 </code></pre><p>intStackからPeekする場合は以下の通りになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> peekValue <span class="token operator">=</span> intStack<span class="token punctuation">.</span><span class="token function">Peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="要素数の取得-2">要素数の取得 </h4>
 <p>Stackの要素数を取得する方法は以下の通りです。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = スタックの変数名.Count;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数名 = スタックの変数名.Count;
 </code></pre><p>intStackから要素数を取得する方法は以下の通りになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> stackCount <span class="token operator">=</span> intStack<span class="token punctuation">.</span>Count<span class="token punctuation">;</span>
 </code></pre><h2 id="練習問題">練習問題 </h2>
 <h4 id="1-文字列を入力しその値がcallではない場合はその値をqueueにエンキューしその値がcallだった場合にデキューしその値を出力するプログラムを作ってくださいまたcallが入力され-値を出力した時点で要素数が0の場合はプログラムを終了してください">1. 文字列を入力しその値が「Call」ではない場合はその値をQueueにエンキューしその値が「Call」だった場合にデキューしその値を出力するプログラムを作ってください。また「Call」が入力され、値を出力した時点で要素数が0の場合はプログラムを終了してください。 </h4>
 <details><summary>解答例</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -345,8 +340,7 @@ Queueは要素の入出力が一方通行の要素です。</p>
 </code></pre></details>
 <h4 id="2-endを入力するまで値をlistに入れ続けendが入力されたらendはリストに入れず-値をすべて出力するプログラムを作成してください">2. Endを入力するまで値をListに入れ続けEndが入力されたらEndはリストに入れず、値をすべて出力するプログラムを作成してください。 </h4>
 <details><summary>解答例1</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -369,8 +363,7 @@ Queueは要素の入出力が一方通行の要素です。</p>
 <span class="token punctuation">}</span>
 </code></pre></details>
 <details><summary>解答例2</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -394,7 +387,7 @@ Queueは要素の入出力が一方通行の要素です。</p>
 </code></pre></details>
 <h4 id="3-ジェネリックの型がilistから派生しているかを確認する構文を記述しなさい">3. ジェネリックの型がIListから派生しているかを確認する構文を記述しなさい。 </h4>
 <p>解答の仕方</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>Where T:Object
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Where T:Object
 </code></pre><details><summary>解答例</summary>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-where">where</span> <span class="token class-name">T</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">IList</span></span>
 </code></pre></details>

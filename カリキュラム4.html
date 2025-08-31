@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -33,7 +33,7 @@
 <p>複数の処理を一つにまとめることで効率よくコードを書いたり、コードをきれいにすることができます。</p>
 <p>今までMainの中にプログラムを書いていたと思いますが、Main自体がメソッドそのものでMainメソッドとも呼ばれます。</p>
 <p>メソッドの宣言方法は以下の通りです。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>static 戻り値の型 メソッド名(引数の型1 変数名1,引数の型2 変数名2,...)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>static 戻り値の型 メソッド名(引数の型1 変数名1,引数の型2 変数名2,...)
 {
     処理
 } 
@@ -67,10 +67,10 @@
 </code></pre><p>このように使うことができます。</p>
 <p>メソッドを呼び出す際は今まで使用したメソッドとほとんど同じですが、<br>
 今までは</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>型名.メソッド名(引数);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>型名.メソッド名(引数);
 </code></pre><p>であり、型名の指定をする必要がありましたが、<br>
 今回宣言したメソッドであれば型名を省略して以下のように書くことができます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>メソッド名(引数);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>メソッド名(引数);
 </code></pre><p>省略しない場合<code>Print</code>を呼び出す場合は8行目は以下のようになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>Program<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
 </code></pre><p>このように書くことができます。</p>
@@ -136,7 +136,7 @@ returnはメソッドを終了し、結果を返すという意味があり</p>
 <p>カリキュラム2でも学習した変数ですが、変数にはスコープという考え方があります。<br>
 簡単に説明すると宣言したレベル以下でしかその変数を使用できないというルールです。</p>
 <p>以下のコードを見るとわかりやすいですが<br>
-<code>{}</code>は複数の文を一つする役割があり、同じレベルや宣言された部分よりも深いレベルであれば使用可能ですが、宣言した部分より浅いレベル(<code>{}</code>を出た部分)ではアクセスすることができません。</p>
+<code>{}</code>は複数の文を一つにする役割があり、同じレベルや宣言された部分よりも深いレベルであれば使用可能ですが、宣言した部分より浅いレベル(<code>{}</code>を出た部分)ではアクセスすることができません。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> a<span class="token punctuation">;</span>
 a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span><span class="token comment">//問題なし</span>
 <span class="token punctuation">{</span>
@@ -285,7 +285,7 @@ a <span class="token operator">=</span> <span class="token number">10</span><spa
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><details><summary>解答例</summary>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>bbbb
+<pre data-role="codeBlock" data-info="" class="language-text"><code>bbbb
 </code></pre></details>
 <h4 id="4-以下のプログラムの出力は何か実行せずに答えてください">4. 以下のプログラムの出力は何か<strong>実行せずに</strong>答えてください。 </h4>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
@@ -305,7 +305,7 @@ a <span class="token operator">=</span> <span class="token number">10</span><spa
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><details><summary>解答例</summary>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>aaaa
+<pre data-role="codeBlock" data-info="" class="language-text"><code>aaaa
 </code></pre></details>
 
       </div>

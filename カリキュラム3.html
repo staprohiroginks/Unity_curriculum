@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.10\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -33,8 +33,8 @@
 <h3 id="if文">if文 </h3>
 <h4 id="基本的な使い方">基本的な使い方 </h4>
 <p>if文を使用すると条件に応じて実行する処理を変えることができます。<br>
-書き方は以下のようになります。<br>
-また以下のコードはMainの中に書いてください。</p>
+書き方は以下のようになります。</p>
+<p>また以下のコードはMainの中に書いてください。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -53,7 +53,7 @@
 条件式は条件を表すために式のように条件を書いたものになります。<br>
 <code>if</code>の<code>()</code>の中に条件式を書くことで条件を示すことができます。</p>
 <p>そのためifの使い方は</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>if(条件式)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>if(条件式)
 {
     条件を満たしたときに実行する命令
 }
@@ -97,7 +97,7 @@
 </tbody>
 </table>
 <p>そのためaの値が50以上という条件は以下の通り表すことができる</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>a &gt;= 50
+<pre data-role="codeBlock" data-info="" class="language-text"><code>a &gt;= 50
 </code></pre><p>ただし、これだと複雑な条件を表現することができません。<br>
 なので条件を複数つなげることができます。<br>
 つなげる記号と意味は以下のようになっています。</p>
@@ -120,30 +120,30 @@
 </tbody>
 </table>
 <p>そのため、aの値が50以上、100未満の値という場合にはif<code>()</code>の中には</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>a &gt;= 50 &amp;&amp; a &lt; 100
+<pre data-role="codeBlock" data-info="" class="language-text"><code>a &gt;= 50 &amp;&amp; a &lt; 100
 </code></pre><p>のように表すことができる。</p>
 <h4 id="条件の練習問題">条件の練習問題 </h4>
 <h5 id="1aの値が50以下もしくはaの値が100より大きい時の条件式を答えてください">1.aの値が50以下もしくはaの値が100より大きい時の条件式を答えてください。 </h5>
 <details><summary>解答</summary>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>a &lt;=50 || a &gt; 100
+<pre data-role="codeBlock" data-info="" class="language-text"><code>a &lt;=50 || a &gt; 100
 </code></pre></details>
 <h5 id="2aかbの値が30より大きい時の条件式を答えてください">2.aかbの値が30より大きい時の条件式を答えてください。 </h5>
 <details><summary>解答</summary>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>a &gt; 30 || b &gt; 30
+<pre data-role="codeBlock" data-info="" class="language-text"><code>a &gt; 30 || b &gt; 30
 </code></pre></details>
 <h5 id="3aの値が50以下もしくはbの値が100より大きい時の条件式を答えてください">3.aの値が50以下もしくはbの値が100より大きい時の条件式を答えてください。 </h5>
 <details><summary>解答</summary>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>a &lt;= 50 || b &gt; 100
+<pre data-role="codeBlock" data-info="" class="language-text"><code>a &lt;= 50 || b &gt; 100
 </code></pre></details>
 <h5 id="4aとbの値がどちらも100以上の条件式を答えてください">4.aとbの値がどちらも100以上の条件式を答えてください。 </h5>
 <details><summary>解答</summary>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>a &gt;= 100 &amp;&amp; b &gt;= 100
+<pre data-role="codeBlock" data-info="" class="language-text"><code>a &gt;= 100 &amp;&amp; b &gt;= 100
 </code></pre></details>
 <h4 id="複雑なif文">複雑なif文 </h4>
 <p>先ほど学習したif文である程度の制御はできますが、条件を満たしていない場合の処理を実行することができません。</p>
 <p>if文で条件を満たしていない場合に処理を実行するには<code>else</code>という文を使います。</p>
 <p>使い方は次のようになります。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>if(条件式)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>if(条件式)
 {
     条件を満たしたときに実行する処理
 }
@@ -153,7 +153,7 @@ else
 }
 </code></pre><p><code>else</code>の次の<code>{}</code>内の処理を記述することで条件を満たさなかったときに処理を実行することができます。</p>
 <p>elseを使用することで以下のように条件で処理を分類することができます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>if(条件式1)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>if(条件式1)
 {
     //条件1を満たした時に実行する処理 
 }
@@ -170,7 +170,7 @@ else
 }
 </code></pre><p>しかし、これでは<code>{}</code>が多くなり少し読みづらくなってしまいます。<br>
 そのため以下のように書き換えることができます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>if(条件式1)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>if(条件式1)
 {
     //条件1を満たした時に実行する処理 
 }
@@ -184,7 +184,7 @@ else
 }
 </code></pre><p>このように書き換えることでわかりやすく分類わけすることができるようになります。</p>
 <p>また、else ifは複数連結して使うことができるので以下のような書き方も可能です。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>if(条件式1)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>if(条件式1)
 {
     //条件1を満たした時に実行する処理 
 }
@@ -201,7 +201,7 @@ else
     //条件をすべて満たさなかったときの処理
 }
 </code></pre><p>実際にelseを使ったプログラムは以下のようになります。(メインの中に書く)</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>int a=100;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>int a=100;
 
 if(a&gt;=200)
 {
@@ -228,7 +228,7 @@ else
 <h3 id="while文">while文 </h3>
 <p>while文はif文と使い方が少し似ています。if文は条件を満たしている時<code>{}</code>内の処理を実行しますが、while文は<code>{}</code>内の処理を条件を満たしている間に繰り返し続け、繰り返しのたびに条件を確認し条件を満たさなくなったら繰り返しを終了します。</p>
 <p>書き方は以下のようにifという文字をwhileに変えただけになります。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>while(続ける条件式)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>while(続ける条件式)
 {
     //繰り返し実行する処理
 }
@@ -242,14 +242,14 @@ else
 </code></pre><p>最初にiを1としておきiが10以下の間繰り返します。<br>
 繰り返しの最後にiの値を1ずつ大きくすることで10回繰り返すようになっています。</p>
 <p>しかし、5行目の</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>i = i + 1;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>i = i + 1;
 </code></pre><p>を忘れてしまうとずっと繰り返してしまいますし、少しわかりづらいです。</p>
 <p>そこで登場するのがfor文です<br>
 for文は特に繰り返しに特化した制御文です。</p>
 <h3 id="do-while">do-while </h3>
 <p>先ほど使用したwhileは繰り返しが始まる前に確認する文であったがdo-whileを使用するとループが終わった時点で終了するかを判定することができます。</p>
 <p>do-whileは以下のように使用します</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>do
+<pre data-role="codeBlock" data-info="" class="language-text"><code>do
 {
 
 }while(条件);
@@ -267,12 +267,12 @@ Main関数に以下のようなコードを書くことで実装することが�
 しかしdo-whileであれば最初は絶対に実行されるため入力の判定などによく使用されます。</p>
 <h3 id="for文">for文 </h3>
 <p>for文は以下のように書けます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>for(初期化;続ける条件式;増分)
+<pre data-role="codeBlock" data-info="" class="language-text"><code>for(初期化;続ける条件式;増分)
 { 
     //繰り返し実行する処理
 }
 </code></pre><p><code>初期化</code>の部分はwhileの例の1行目の</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>int i = 0;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>int i = 0;
 </code></pre><p>にあたり、繰り返しで使用する変数の初期値を設定することができます。<br>
 <code>続ける条件式</code>はwhileの<code>()</code>内と同様になります。<br>
 <code>増分</code>の部分は5行目にあたり、繰り返しの際に値を変更したい場合に使用できます。</p>
@@ -351,10 +351,10 @@ stringには数値以外の値が入る可能性もありこのような仕様�
 a <span class="token operator">=</span> <span class="token keyword keyword-int">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 </code></pre><p>このように</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変換したい型名.Perse(s);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変換したい型名.Perse(s);
 </code></pre><p>と記述することで任意の<strong>数値型</strong>に変換することができます。</p>
 <p>逆に数値から文字列に変換するには<code>ToString</code>命令を使用します。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>int a = 10;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>int a = 10;
 string b;
 
 b = a.ToString();
@@ -373,7 +373,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <h2 id="配列">配列 </h2>
 <p>配列は複数の変数をまとめたもので長さが固定されたリストのようなものです。</p>
 <p>配列の宣言は以下のようになります。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>型名[] 変数名 = new 型名[配列の要素数];
+<pre data-role="codeBlock" data-info="" class="language-text"><code>型名[] 変数名 = new 型名[配列の要素数];
 </code></pre><p>実際に要素数が100のint型の配列を作成する例を以下に示します。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> a <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name"><span class="token keyword keyword-int">int</span></span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre><p>このように宣言することで100個のint型の変数を扱うことが可能になります。</p>
@@ -381,7 +381,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> a <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name"><span class="token keyword keyword-int">int</span></span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//要素数100のintの配列aを作る</span>
 a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span><span class="token comment">//配列aの一番最初の要素に10を代入する</span>
 </code></pre><p>このように</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>配列名[番号]
+<pre data-role="codeBlock" data-info="" class="language-text"><code>配列名[番号]
 </code></pre><p>で変数と同じように扱うことが可能になります。<br>
 注意が必要なのは1からではなく0から番号が始まっているということです。<br>
 今回は100個の要素数の配列を作ったので0~99番目の値を扱うことができるということになります。<br>
@@ -399,7 +399,7 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
     a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword keyword-int">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><p><code>a.Length</code>というのがありますが</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>配列名.Length
+<pre data-role="codeBlock" data-info="" class="language-text"><code>配列名.Length
 </code></pre><p>とすると要素の数を調べることができます。<br>
 今回であれば10なので0から9の間繰り返すことになります。<br>
 実はこのように個数を取得してループするときに都合がよいので0からループを開始することが多くなっています。<br>
@@ -407,8 +407,7 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
 <h2 id="練習問題">練習問題 </h2>
 <h4 id="1変数aが15未満の時は低温15以上22未満の時は適温22以上の時は高温と表示するプログラムをを使用せずに作成して下さい">1.変数aが15未満の時は「低温」15以上22未満の時は「適温」22以上の時は「高温」と表示するプログラムを<code>&amp;&amp;</code>を使用せずに作成して下さい。 </h4>
 <details><summary>解答</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span> <span class="token comment">//Programというまとまりを作る</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -432,8 +431,7 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
 </code></pre></details>
 <h4 id="210人の点を入力し配列に格納し平均点を出力するプログラムを作成してください">2.10人の点を入力し配列に格納し平均点を出力するプログラムを作成してください。 </h4>
 <details><summary>解答例1</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span> <span class="token comment">//Programというまとまりを作る</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -443,7 +441,7 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
         <span class="token class-name"><span class="token keyword keyword-double">double</span></span> ave<span class="token punctuation">;</span> <span class="token comment">//平均値を格納する変数</span>
         <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"番目の人の点数を入力:"</span><span class="token punctuation">)</span>
+            Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"番目の人の点数を入力:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token class-name"><span class="token keyword keyword-string">string</span></span> tmp <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword keyword-int">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -461,8 +459,7 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
 <span class="token punctuation">}</span>
 </code></pre></details>
 <details><summary>解答例2</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span> <span class="token comment">//Programというまとまりを作る</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -472,7 +469,7 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
         <span class="token class-name"><span class="token keyword keyword-double">double</span></span> ave<span class="token punctuation">;</span> <span class="token comment">//平均値を格納する変数</span>
         <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span> scores<span class="token punctuation">.</span>Length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"番目の人の点数を入力:"</span><span class="token punctuation">)</span>
+            Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"番目の人の点数を入力:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword keyword-int">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//変数に一時的に入れずに型を変更する。</span>
 
         <span class="token punctuation">}</span>
@@ -491,8 +488,7 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
 <h4 id="3-2のプログラムを改造し10人の平均点を出力後平均点以下の人の番号を出力するプログラムを作成してください">3. 2のプログラムを改造し10人の平均点を出力後平均点以下の人の番号を出力するプログラムを作成してください。 </h4>
 <p>※出力する番号は1番から数えていくものとしてください。</p>
 <details><summary>解答例</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span> <span class="token comment">//Programというまとまりを作る</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -502,7 +498,7 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
         <span class="token class-name"><span class="token keyword keyword-double">double</span></span> ave<span class="token punctuation">;</span> <span class="token comment">//平均値を格納する変数</span>
         <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span> scores<span class="token punctuation">.</span>Length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"番目の人の点数を入力:"</span><span class="token punctuation">)</span>
+            Console<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"番目の人の点数を入力:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword keyword-int">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//sumを0で初期化する</span>

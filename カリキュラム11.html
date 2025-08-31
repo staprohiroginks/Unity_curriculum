@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -33,8 +33,7 @@ namespaceにはファイルスコープという概念の元カプセル化す�
 <p>ではnamespaceはどのようなものなのかというと、クラスの本名です</p>
 <p>カリキュラム1などで扱ったプログラムを例に出します。<br>
 「この部分」と記述している行がnamespaceの定義に当たります。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span> <span class="token comment">//この部分</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span> <span class="token comment">//この部分</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
@@ -48,11 +47,11 @@ namespaceにはファイルスコープという概念の元カプセル化す�
 <code>Console</code>というクラスは<code>System</code>というnamespaceを持っているので<br>
 <code>System.Console</code>が本当の名前ということになります。</p>
 <p>namespaceの書き方としては2種類あります。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>namespace ネームスペース{
+<pre data-role="codeBlock" data-info="" class="language-text"><code>namespace ネームスペース{
 
 }
 </code></pre><p>こちらの書き方では<code>{}</code>で囲まれたクラスを指定したネームスペースのクラスとして宣言します。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>namespace ネームスペース;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>namespace ネームスペース;
 </code></pre><p>こちらの書き方では次の行のクラスを指定したネームスペースのクラスとして宣言します。</p>
 <p>複数の同じ名前を宣言できることはわかったと思います。</p>
 <p>しかし、カプセル化の機能があると話しましたがどのようなことかというと通常クラス名だけを指定する状態であれば別のネームスペースからアクセスすることができないようになっています。</p>
@@ -65,15 +64,13 @@ namespaceにはファイルスコープという概念の元カプセル化す�
 <p>usingは先ほど軽く説明しましたが、namespaceを省略することができるようにするための機能です</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> ネームスペース名<span class="token punctuation">;</span>
 </code></pre><p>と入力すると入力されたnamespaceのクラスなどはnamespaceを省略して書くことができるようになります。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-</code></pre><p>は<code>System</code>というネームスペースを読み込んでいることになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code></code></pre><p>は<code>System</code>というネームスペースを読み込んでいることになります。</p>
 <p>カプセル化に寄与するというのはusingを使用していない場合はネームスペースを含んだすべての名前を記述する必要があり間違えた呼び出しを防ぐことができるようになっています。</p>
 <p>もし、エラーが出る場合はusingを追加してみてもいいかもしれません。</p>
 <h2 id="例外処理">例外処理 </h2>
 <p>例外処理はC#を実行している際に想定した動作や入力がない際にプログラムをすべて止める処理で、どのようなエラーが発生したか伝えることができます。</p>
 <p>では実際に例外を起こしてみましょう</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span> <span class="token comment">//この部分</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span> <span class="token comment">//この部分</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
@@ -84,7 +81,7 @@ namespaceにはファイルスコープという概念の元カプセル化す�
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>このプログラムを実行すると</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>System.IndexOutOfRangeException: 'Index was outside the bounds of the array.'
+<pre data-role="codeBlock" data-info="" class="language-text"><code>System.IndexOutOfRangeException: 'Index was outside the bounds of the array.'
 </code></pre><p>とポップアップが表示される</p>
 <p>これはインデックスの範囲外により<code>System.IndexOutOfRangeException</code>という例外が発生している。<br>
 長さが10の配列の場合0~9のインデックスになるので10であればこのようにエラーが発生する。</p>
@@ -94,8 +91,7 @@ namespaceにはファイルスコープという概念の元カプセル化す�
 <p>先ほどエラー用の処理をしたい場合があります。と説明しましたが、その時にtry-catchというものを使用します。</p>
 <p>実際に使い方を説明します。</p>
 <p>先ほどのコードに以下のように記述します。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span> <span class="token comment">//この部分</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span> <span class="token comment">//この部分</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
@@ -158,14 +154,14 @@ TestEnum.csというファイルを作成し以下のように記述する。</p
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">TestEnum</span> te<span class="token punctuation">;</span>
 </code></pre><p>以上のように変数を宣言することができます。</p>
 <p>値を代入する場合は</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>変数名 = 列挙型名.列挙型の要素
+<pre data-role="codeBlock" data-info="" class="language-text"><code>変数名 = 列挙型名.列挙型の要素
 </code></pre><p>とすることが代入できstaticのメンバ変数に近い扱いを受けることがわかります。<br>
 TestEnumのElement1を代入する場合は以下の通りになります</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>te <span class="token operator">=</span> TestEnum<span class="token punctuation">.</span>Element1<span class="token punctuation">;</span>
 </code></pre><h4 id="列挙型の正体">列挙型の正体 </h4>
 <p>列挙型は実はint型の定数を複数持ったクラスとほとんど同じ扱いです。<br>
 そのため、列挙型からint型、int型から列挙型に型を変換することが可能です</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>int n = (int)TestEnum.Element1;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>int n = (int)TestEnum.Element1;
 Console.WriteLine(n);
 
 n = (int)TestEnum.Element2;
@@ -174,7 +170,7 @@ Console.WriteLine(n);
 n = (int)TestEnum.Element3;
 Console.WriteLine(n);
 </code></pre><p>以上のコードをMainメソッドに記述し実行すると以下のような実行結果になると思います</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>0
+<pre data-role="codeBlock" data-info="" class="language-text"><code>0
 1
 2
 </code></pre><p>このように要素に上から順番に数値を打っていることがわかると思います。</p>

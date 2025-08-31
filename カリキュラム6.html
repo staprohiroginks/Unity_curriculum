@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.10\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -29,21 +29,18 @@
 <p>C#には参照型と値型が存在しているその違いについて理解するために以下のプログラムを作成してみる。</p>
 <p>DataTestClassというclassを作成する。<br>
 DataTestClass.csの中身は以下のように記述する。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">DataTestClass</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">DataTestClass</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num<span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token function">DataTestClass</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> n<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token function">DataTestClass</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> n<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            num <span class="token operator">=</span> n<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num<span class="token punctuation">;</span>
+        num <span class="token operator">=</span> n<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>Program.csの中身は以下のようにしてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -65,7 +62,7 @@ DataTestClass.csの中身は以下のように記述する。</p>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>これを実行すると以下の結果になります。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>10
+<pre data-role="codeBlock" data-info="" class="language-text"><code>10
 20
 20
 20
@@ -85,26 +82,22 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
 <p>クラスのように自分で作成することができる値型はないのかという疑問が発生すると思うが、C#には構造体という機能があり、この機能を使うことでクラスのように自分で宣言する値型を作成することが可能である。</p>
 <p>構造体を作成する方法を説明する</p>
 <p>初めにclassと同様でソリューションの上から2番目のプロジェクト名を右クリックし<br>
-<img src="./images/image5-1.png" alt="ソリューション欄"></p>
-<p>その後<br>
-追加&gt;新しいファイル<br>
-をクリックします。<br>
-<img src="./images/image6-1.png" alt=""></p>
-<p>すると画面が変わるので「空の構造体」を選択していることを確認してください<br>
+<img src="./images/rider7.png" alt="ソリューション欄"></p>
+<p>その後<code>追加&gt;クラス/インターフェース</code>をクリックします。</p>
+<p><img src="./images/image5-2.png" alt=""></p>
+<p>すると画面が変わるので「構造体」を選択してください<br>
 <img src="./images/image6-2.png" alt=""></p>
-<p><code>名前:</code>の欄に構造体の名前を入力します。<br>
-今回は<code>DataTestStruct</code>という名前にします。</p>
+<p><code>名前</code>の欄に構造体の名前を入力します。<br>
+今回は<code>DataTestStruct</code>という名前を入力しエンターを押してください</p>
 <p><img src="./images/image6-3.png" alt=""></p>
 <p>作成ボタンを押すと以下のような画面に切り替わります。</p>
 <p><img src="./images/image6-4.png" alt=""></p>
 <p>これで構造体を作成することができました。</p>
 <p>コードは以下のようになっています。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">DataTestStruct</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">DataTestStruct</span>
-    <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>このコードの</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-public">public</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">DataTestStruct</span>
@@ -113,34 +106,29 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
 </code></pre><p>の{}内にメンバ要素を書いていく形になります。</p>
 <p>では実際に動作の違いについて確認していくために以下のコードを用意してください。</p>
 <p><code>DataTestClass.cs</code>は先ほどのコードと同じで以下のように記述してください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">DataTestClass</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">DataTestClass</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num<span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token function">DataTestClass</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> n<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token function">DataTestClass</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> n<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            num <span class="token operator">=</span> n<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num<span class="token punctuation">;</span>
+        num <span class="token operator">=</span> n<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p><code>DataTestStruct.cs</code>は以下のように書き換えてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">DataTestStruct</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">DataTestStruct</span>
+    <span class="token keyword keyword-public">public</span> <span class="token function">DataTestStruct</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> n<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token function">DataTestStruct</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> n<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            num <span class="token operator">=</span> n<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num<span class="token punctuation">;</span>
+        num <span class="token operator">=</span> n<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><p><code>Program.cs</code> は以下のように書き換えてください</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -162,7 +150,7 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>実行結果は以下の通りになると思います。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>20
+<pre data-role="codeBlock" data-info="" class="language-text"><code>20
 20
 10
 20
@@ -188,21 +176,18 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
 <p>通常参照型を引数とした場合参照先の情報をメソッドに渡しているので、その変数に入るインスタンスを変更しても呼び出し元の変数は変わりません。</p>
 <p>実際にコードを作成し、動かして確認してみましょう</p>
 <p>DataTestClass.csファイルは以下のように書き換えてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">DataTestClass</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">DataTestClass</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token function">DataTestClass</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> n<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token function">DataTestClass</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> n<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            num <span class="token operator">=</span> n<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num<span class="token punctuation">;</span>
+        num <span class="token operator">=</span> n<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>Program.cs</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -220,7 +205,7 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>これを実行すると</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>10
+<pre data-role="codeBlock" data-info="" class="language-text"><code>10
 10
 
 </code></pre><p>このように変数の中身自体は変わっていないことがわかります。<br>
@@ -230,8 +215,7 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
 <p><strong>out</strong> と <strong>ref</strong> は変数自体の場所を渡すキーワードです。<br>
 このキーワードを使用することで、Mainで使用している変数の中身の値を書きかえるということができるようになります。</p>
 <p>では先ほどのプログラムの<code>Program.cs</code>ファイルを以下のように買い換えます。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -248,7 +232,7 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>実行すると以下のような結果になります</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>10
+<pre data-role="codeBlock" data-info="" class="language-text"><code>10
 20
 
 </code></pre><p>このようにMain内の変数を書き換えることができました。</p>
@@ -256,7 +240,7 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
 呼び出しの際は 変数名の前にスペースを空け <strong>ref</strong> と書く必要があります。</p>
 <p><strong>out</strong> も同様の使い方で使用できます。</p>
 <p>以下にrefと通常の引数の違いを示した図があります。</p>
-<p><img src="./images/ref%E3%81%AE%E4%BB%95%E6%A7%98.png" alt="refの説明"></p>
+<p><img src="./images/ref_no_shiyou.png" alt="refの説明"></p>
 <p>すぐに理解できなくても大丈夫ですが、refを使うことで呼び出し元の変数の場所を渡します。そのためrefの変数を上書きしたときにはdataTestClassの参照先を書き換えることになります。<br>
 対してrefがない場合ハdataTestClassが参照している値の場所だけを取得しているのでdataTestに値を代入してもdataTestの中身が変わるだけになります。<br>
 これらの仕様については<strong>C言語のポインタ</strong>という機能を学ぶことで深く理解することができると思います。</p>
@@ -269,15 +253,15 @@ classなどの参照型の変数がオブジェクトがどこにあるかを記
 <p>簡単にまとめるとoutは結果を出力する際に使いやすく、refはあくまでも引数として値を渡しつつ、更新も可能なものということになります。</p>
 <p>また、inというキーワードがあり、これは引数として値を入れておき受け取ったメソッドではその変数の中身を置き換えることができないようになっており、読み取りに特化した引数を作成したい時はこちらを利用するとよいでしょう。書き方はoutなどと同様になっています。</p>
 <p>また、outは呼び出す前に値を割り当てることが必須ではないので以下のような書き方も可能です。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>関数名(out 型名 変数名);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>関数名(out 型名 変数名);
 </code></pre><p>この書き方で書くことでメソッド内で変数を宣言し、その結果を受け取り次の処理につなげるということができます。</p>
 <h2 id="outを使用した基本的なメソッド">outを使用した基本的なメソッド </h2>
 <p>文字列から数値などに変換する際にカリキュラム3で使用した<code>Parse</code>メソッドを使用すると変換することができます。しかし、この命令だと数値に変換できない文字列が入力された場合にエラーが発生してしまいます。<br>
 そこで、<code>TryParse</code>メソッドを使用すると変換できるか調べつつ変換することができます。</p>
 <p><code>TryParse</code>メソッドは</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>bool型変数 = 変換したい型.TryParse(入力文字列,out 出力先変数);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>bool型変数 = 変換したい型.TryParse(入力文字列,out 出力先変数);
 </code></pre><p>や</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>bool型変数 = 変換したい型.TryParse(入力文字列,out 変換したい型 出力先変数);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>bool型変数 = 変換したい型.TryParse(入力文字列,out 変換したい型 出力先変数);
 </code></pre><p>のように使うことができます。</p>
 <p><code>TryParse</code>メソッドを使用した例を以下に示します。<br>
 (なおMainメソッド内に書いてあるものとします)</p>
@@ -308,8 +292,7 @@ refは呼び出し時に初期化が必要で、メソッド内で値を絶対�
 </details>
 <h4 id="3-tryparseメソッドを使用し入力された文字列がintに変換できるかを調べ-変換できた場合は入力された数値の2倍の数値を出力し-変換できない場合は変換できませんでしたと出力するプログラムを作成してください">3. TryParseメソッドを使用し入力された文字列がintに変換できるかを調べ、変換できた場合は入力された数値の2倍の数値を出力し、変換できない場合は「変換できませんでした」と出力するプログラムを作成してください。 </h4>
 <details><summary>解答例</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>

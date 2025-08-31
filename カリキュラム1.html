@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.10\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -44,31 +44,111 @@
 <p>このコースではカリキュラム1から13までC#の基礎を学習し、14回からUnityの基礎を学習していきます。</p>
 <h2 id="初めてのc">初めてのC# </h2>
 <p>C#でプログラムを書くためにはエディタや統合開発環境と言われる物を利用する必要があります。<br>
-今回はMicrosoftが使用するVisual Studio for Macを使用して開発することを想定して説明していきます。</p>
+今回はJetBrainsのRiderを使用して開発することを想定して説明していきます。</p>
+<h3 id="環境構築">環境構築 </h3>
+<p>それぞれWindowsとMacでプログラムを書くための準備を行います。</p>
+<details><summary>Macで行う場合</summary>
+<p>以下のサイトにアクセスします<br>
+<a href="https://www.jetbrains.com/ja-jp/rider/download/?section=mac">Rider Download</a></p>
+<p>アクセスできると以下のような画面が開くのでダウンロードボタンをクリックします。</p>
+<p>この時自分の使用しているPCが2020年モデルよりも後の場合.dmg()が.dmg(Apple Silicon)となっていることを確認してください。それより前の場合は.dmg(intel)となっていることを確認してください。</p>
+<p><img src="./images/rider-click-mac.png" alt="ダウンロードをクリック"></p>
+<p>ダウンロードが完了すると以下のようなファイルが追加されるのでダブルクリックをして開いてください</p>
+<p><img src="./images/download-rider-mac.png" alt="ダウンロード時の画面"></p>
+<p>ファイルが開くと以下のような<code>RD</code>と書いてあるアイコンをApplicationsにドラッグアンドドロップしてください。</p>
+<p><img src="./images/rider-install-mac.png" alt="インストーラの表示"></p>
+<p>インストールできるとアプリ一覧に以下のように<code>RD</code>と書かれたアイコンが表示されます<br>
+追加されていることが確認出来たらダブルクリックして起動してください。</p>
+<p><img src="./images/rider-installed-mac.png" alt="インストールされた画面"></p>
+<p>以下のような警告がでることがあるのでその場合は許可をクリックしてください。<br>
+<img src="./images/rider-access-mac.png" alt=""></p>
+<p>起動すると以下のように言語と地域の設定画面が出ますの日本語とアジア(中国を除く)を選択して次へをクリックしてください。</p>
+<p><img src="./images/rider-setting-lang.png" alt=""></p>
+<p>次へをクリックすると以下のような規約の確認が出てきますので、許諾契約を読んだうえで「本ユーザ使用許諾契約の条項を読み、同意したことを認めます。」のチェックボックスにクリックし続行をクリックして下さい。</p>
+<p><img src="./images/rider-user-Agreement-mac.png" alt=""></p>
+<p>続行をクリックすると以下のような画面を切り替わり統計情報を送信するか聞かれるので<strong>送信しない</strong>をクリックしてください。</p>
+<p><img src="./images/rider-send-mac.png" alt=""></p>
+<p>送信しないをクリックすると以下のような画面に切り替わります。</p>
+<p>「(無料) 非商用利用」、「有料ライセンス」、「体験版の開始」の三つのタブがあるので非商用のタブをクリックし<strong>非商用ののログイン</strong>をクリックします。</p>
+<p><img src="./images/rider-signup-mac.png" alt=""></p>
+<p>すると以下のような画面が立ち上がるのでGoogleアカウントでログインを行います。</p>
+<p><img src="./images/rider-signup-2-mac.png" alt=""></p>
+<p>ログインが完了すると以下のような画面に切り替わるので「非商用規約に同意する」のチェックボックスをチェックし<strong>非商用利用の開始をクリックしてください</strong><br>
+<img src="./images/rider-signup-3-mac.png" alt=""></p>
+<p>正しくできていれば以下のような表示となります。</p>
+<p><img src="./images/rider-signup-4-mac.png" alt=""></p>
+<p>閉じるをクリックすると以下のような画面が表示されます。<br>
+以下のような画面が表示されると環境構築は完了なので次のプログラムを動かしてみるに移ってください</p>
+</details>
+<details><summary>Windowsで行う場合</summary>
+<p>下のサイトにアクセスします</p>
+<p><a href="https://www.jetbrains.com/ja-jp/rider/download/?section=windows">Rider Download</a></p>
+<p>アクセスできると以下のような画面が開くのでダウンロードボタンをクリックします。</p>
+<p><img src="./images/rider-click-windows.png" alt="ダウンロードをクリック"></p>
+<p>ダウンロードが完了すると以下のようなファイルが追加されるのでダブルクリックをして開いてください</p>
+<p><img src="./images/rider-download-windows.png" alt="ダウンロード時の画面"></p>
+<p>開くときに警告が出るので<strong>OK</strong>を押してください。</p>
+<p>すると以下のような画面が開くので次へを押してください</p>
+<p><img src="./images/rider-installer1.png" alt="インストーラの表示"></p>
+<p>次へを押すとインストール先の指定画面が出てくるので特段指定がない場合はそのまま<strong>次へ</strong>をクリックしてください。</p>
+<p><img src="./images/rider-installer-2.png" alt="インストール先を指定"></p>
+<p>次へを押すと以下のような画面になります。<br>
+これは何か動作をしたときにRiderを開くようにできる設定です。</p>
+<p><img src="./images/rider-installer-3.png" alt="関連付け"></p>
+<p>まず、<strong>デスクトップショートカット</strong>の作成の<code>JetBrains Rider</code>にチェックを入れます。</p>
+<p>また、関連付けの作成の項目では<code>.sln</code>と<code>.slnx</code>と<code>.scproj</code>にチェックを入れることをおすすめします。(設定しなくても問題ありません)</p>
+<p>以下がおすすめの設定です。<br>
+設定できれば次へをクリックしてください。</p>
+<p><img src="./images/rider-install-4.png" alt="関連付け"></p>
+<p>次へをクリックすると以下のような画面になるのでそのまま<strong>インストール</strong>をクリックします</p>
+<p><img src="./images/rider-installer-5.png" alt="スタートメニュー"></p>
+<p>インストールをクリックすると以下のような画面に切り替わるので終了するまで待ってください。</p>
+<p><img src="./images/rider-installer-6.png" alt="インストール画面"></p>
+<p>インストールが終了すると以下のような画面に変わります。<br>
+画面が変わると完了を押します。</p>
+<p><img src="./images/rider-installer-7.png" alt="インストール終了画面"></p>
+<p>起動すると以下のように言語と地域の設定画面が出ますの日本語とアジア(中国を除く)を選択して次へをクリックしてください。</p>
+<p><img src="./images/rider-location-windows.png" alt="地域・言語選択画面"></p>
+<p>次へをクリックすると以下のような規約の確認が出てきますので、許諾契約を読んだうえで「本ユーザ使用許諾契約の条項を読み、同意したことを認めます。」のチェックボックスにクリックし続行をクリックして下さい。</p>
+<p><img src="./images/rider-user-Agreement-windows.png" alt=""></p>
+<p>また、どこかのタイミングで以下のような警告が表示されることがあるので<strong>許可</strong>をクリックしてください。</p>
+<p><img src="./images/rider-warning-windows.png" alt="権限の確認画面"></p>
+<p>次にデータ共有という画面が出てくるので<strong>送信しない</strong>をクリックしてください</p>
+<p><img src="./images/rider-send-data-windows.png" alt="データ送信についての画面"></p>
+<p>すると以下のようなが画面が出てくるので一旦右上の×を押して閉じてください</p>
+<p><img src="./images/rider-start-windows.png" alt="rider 起動画面"></p>
+<p>その後再度起動すると以下のような画面が出てくるので</p>
+<p>「(無料) 非商用利用」、「有料ライセンス」、「体験版の開始」の三つのタブがあるので非商用のタブをクリックし<strong>非商用ののログイン</strong>をクリックします。</p>
+<p><img src="./images/rider-signup-mac.png" alt=""></p>
+<p>すると以下のような画面が立ち上がるのでGoogleアカウントでログインを行います。</p>
+<p><img src="./images/rider-signup-2-mac.png" alt=""></p>
+<p>ログインが完了すると以下のような画面に切り替わるので「非商用規約に同意する」のチェックボックスをチェックし<strong>非商用利用の開始をクリックしてください</strong><br>
+<img src="./images/rider-signup-3-mac.png" alt=""></p>
+<p>正しくできていれば以下のような表示となります。</p>
+<p><img src="./images/rider-signup-4-mac.png" alt=""></p>
+<p>閉じるをクリックすると以下のような画面が表示されます。<br>
+以下のような画面が表示されると環境構築は完了なので次のプログラムを動かしてみるに移ってください</p>
+</details>
 <h3 id="プログラムを動かしてみる">プログラムを動かしてみる </h3>
-<p>まずこのアイコンを押しVisual Studio for Macを起動します。</p>
-<p><img src="./images/vsmac.png" alt="Visual Studio for Macのアイコン"></p>
-<p>Visual Studio for Macが起動すると以下ような画面になるので <strong>新規</strong> を押し作成するプロジェクトを指定します。</p>
-<p><img src="./images/VisualStudioMac1.png" alt="Visual Stuido 起動画面"></p>
+<p>まずこのアイコンを押しRiderを起動します。</p>
+<p><img src="./images/rider-icon.png" alt="riderのアイコン"></p>
+<p>Riderが起動すると以下ような画面になるので <strong>新規ソリューション</strong> を押し作成するプロジェクトを指定します。</p>
+<p><img src="./images/rider1.png" alt="Visual Stuido 起動画面"></p>
 <p>すると、どのようなプロジェクトを作成するか選択する画面が出てきます。</p>
 <p>ここでスマホアプリの作成やPCソフトの作成などを選択できるようになっています。</p>
-<p>左の欄から<strong>アプリ</strong>のカテゴリを選択します。</p>
-<p><img src="./images/VisualStudioMac2.png" alt="Visual Stuido 選択画面"></p>
-<p>その後<strong>コンソール アプリケーション</strong>を選択した上で<strong>続行</strong>を押してください。</p>
-<p>コンソールアプリケーションは文字ベースのアプリケーションで人間とコンピュータの間のデータのやり取りが文字の入出力であるアプリケーションのことを言います。</p>
-<p><img src="./images/VisualStudioMac3.png" alt="Visual Stuido 選択画面"></p>
-<p>続いて、ターゲットフレームワークの選択画面が出てきますが、最新のバージョンを選択してください。</p>
-<p>また、<strong>最上位レベルのステートメントを使用しない</strong>というチェックボックスがあるのでこれは<strong>必ずチェック</strong>しておいてください。</p>
-<p>これを選択できたら続行を押してください。</p>
-<p><img src="./images/VisualStudioMac4.png" alt="Visual Stuido フレームワーク選択画面"></p>
-<p>その後、プロジェクト名・ソリューション名・保存場所を選択する画面が出てきますので、プロジェクト名とソリューション名は「<strong>ConsoleApp1</strong>」をとします。<br>
-保存場所はメンターの指示に従い指定してください。</p>
-<p>これらの入力が終了すると続行を押してください。</p>
-<p><img src="./images/VisualStudioMac5.png" alt="Visual Stuido プロジェクト指定画面"></p>
-<p>これでプロジェクトの作成は完了です。</p>
+<p>左の欄から<strong>コンソール</strong>のカテゴリを選択します。<br>
+(選択されていることを確認します。)</p>
+<p><img src="./images/rider2.png" alt="rider選択画面"></p>
+<p><strong>コンソール</strong>を選択するとコンソールアプリケーションというは文字ベースのアプリケーションで人間とコンピュータの間のデータのやり取りが文字の入出力であるアプリケーションのことを言います。</p>
+<p>その後以下の画像のように設定します。</p>
+<p><img src="./images/rider3.png" alt="Riderのソリューション作成画面"></p>
+<p>注意事項としては<code>Do not use top-level statements</code>のチェックボックスに<strong>必ずチェックを入れてください</strong>。<br>
+また、<code>ソリューション辞書(D):</code>の項目にはあなたのデータを保存しているフォルダーを選択してください。(よくわからなければ先生に聞いてください)</p>
+<p>ターゲットフレームワークの項目については<code>net 9.0</code>となっていますが、9.0よりも新しいものがある場合はそちらを使用してください</p>
+<p>設定ができたら「作成」ボタンをクリックしてください<br>
+これでプロジェクトの作成は完了です。</p>
 <p>プロジェクトを作成すると以下のようなコードが表示されていると思います。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span> <span class="token comment">//Programというまとまりを作る</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -78,10 +158,10 @@
 <span class="token punctuation">}</span>
 
 </code></pre><h3 id="プログラムを動かしてみよう">プログラムを動かしてみよう </h3>
-<p>このコードを実行するには左上の三角形のボタンを押すことで実行することができます。</p>
-<p><img src="./images/VisualStudioMac7.png" alt="Visual Stuido 実行"></p>
+<p>このコードを実行するには右上の三角ボタンの右の🐞(虫)マークのボタンを押すことで実行することができます。</p>
+<p><img src="./images/rider4.png" alt="実行"></p>
 <p>プログラムを実行すると以下のように下半分の<strong>ターミナル</strong>に「Hello, World」と表示されているのが確認できると思います。</p>
-<p><img src="./images/VisualStudioMac8.png" alt="Visual Stuido実行"></p>
+<p><img src="./images/rider5.png" alt="実行"></p>
 <h3 id="プログラムの解説">プログラムの解説 </h3>
 <h4 id="consolewriteline">Console.WriteLine </h4>
 <p>このプログラムの最も重要な部分は</p>
@@ -133,7 +213,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>このプログラムを実行すると</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>こんにちは、
+<pre data-role="codeBlock" data-info="" class="language-text"><code>こんにちは、
 世界
 </code></pre><p>と二行にわたって表示されたと思います。</p>
 <p>先ほど<br>
@@ -156,7 +236,7 @@ Console.WriteLineを使うと文字が表示できるといいましたが、実
 <span class="token punctuation">}</span>
 </code></pre><h2 id="コラムvisual-studio-for-macの画面の見方">コラム:Visual Studio for Macの画面の見方 </h2>
 <p>Visual Studioの画面はこのように分けることができます。</p>
-<p><img src="./images/VisualStudioMac9.png" alt="Visual Stuido実行"></p>
+<p><img src="./images/rider6.png" alt="Visual Stuido実行"></p>
 <p>緑色の部分は<strong>ソリューションエクスプローラー</strong>と言われファイルの場所などを管理します。</p>
 <p>黄色の部分はコードを書く部分でそれぞれのファイルの中身が表示されます。</p>
 <p>赤色の部分は先ほども説明したターミナルです。コンソールアプリケーションの実行した結果が表示されます。</p>
@@ -172,7 +252,7 @@ Console.WriteLine命令
 \n
 </details>
 <h4 id="3consolewrite命令を1つ使って以下の文章を表示せるプログラムを作りなさい">3.Console.Write命令を1つ使って以下の文章を表示せるプログラムを作りなさい. </h4>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>C#
+<pre data-role="codeBlock" data-info="" class="language-text"><code>C#
 StartProgramming
 Unity
 

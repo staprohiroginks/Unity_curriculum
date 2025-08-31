@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -107,7 +107,7 @@
 <p><img src="./images/TextMeshProTextSetting2.png" alt="TextMeshPro - Text(UI)"></p>
 <p>この部分にテキストを入力することで表示されている内容を編集することができるようになっています。<br>
 では以下のように書き換えてみましょう。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>Unity Text
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Unity Text
 </code></pre><p>書き換えるとシーンウインドウのほうも変わっていることがわかると思います。</p>
 <p>実はTextMeshProではHTMLのような<strong>タグ</strong>を使用し文字を装飾することができます。</p>
 <p>HTMLと近いの使い方ですが使用できるタグの一部を抜粋し以下の表に記述します。</p>
@@ -134,7 +134,7 @@
 </tbody>
 </table>
 <p>ではUnityという文字を赤に変えてみましょう。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>&lt;color="red"&gt;Unity&lt;/color&gt; Text
+<pre data-role="codeBlock" data-info="" class="language-text"><code>&lt;color="red"&gt;Unity&lt;/color&gt; Text
 </code></pre><p>このように記述することでUnityの部分だけ赤色になっていることがわかります。</p>
 <p>次のText Styleについてはh1,h2,h3といった設定ができます。題名などはh1やh2を使うとよいかもしれません。</p>
 <p>Font Assetはフォントを表しています。しかしながら通常のフォントファイルを使用することができないので変換する必要があります。これについては<strong>TextMeshProの日本語対応</strong>で説明します。</p>
@@ -154,7 +154,7 @@
 <p>TextMeshProでは日本語が使えません。</p>
 <p>実際に日本語を先ほどの<code>TextMeshPro - Textのコンポーネント</code>で日本語を指定してみてください。</p>
 <p>設定しても以下の画像のように文字が四角に置き換わってしまいます。</p>
-<p><img src="./images/TextMeshPro%E6%96%87%E5%AD%97%E5%8C%96%E3%81%91.png" alt="TextMeshPro Font Style"></p>
+<p><img src="./images/TextMeshPro_mojibake.png" alt="TextMeshPro Font Style"></p>
 <p>これはフォントが日本語に対応していないことが原因です。<br>
 そのため日本語が使えるように設定する必要があります。</p>
 <p>まずフォントファイルをダウンロードする必要があります。</p>
@@ -200,7 +200,7 @@ Font Assetの右側の丸をクリックして今回作成したフォントフ�
 <p><img src="./images/FontAssetCreator7.png" alt="フォントアセットクリエイター フォント指定"></p>
 <p>今回はNotoSans jP-Mediam SDFを選択します。</p>
 <p>その後表示している内容を以下のように書き換え日本語が正しく表示されていることを確認してください。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>スタプロ
+<pre data-role="codeBlock" data-info="" class="language-text"><code>スタプロ
 </code></pre><p>正しくできていれば以下のように表示されると思います。</p>
 <p><img src="./images/FontAssetCreator8.png" alt="フォントアセットクリエイター フォント指定"></p>
 <h3 id="ボタンを追加する">ボタンを追加する </h3>

@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -167,7 +167,7 @@
 <p><img src="./images/Unity_Move_Console.png" alt="コンソールボタンを押す"></p>
 <p>その後実行してみてください</p>
 <p>すると</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>collisionEnter
+<pre data-role="codeBlock" data-info="" class="language-text"><code>collisionEnter
 collisionStay
 collisionStay
 collisionStay
@@ -180,7 +180,7 @@ collisionStay
 <p><img src="./images/Unity_Move_Scene.png" alt="シーンに移動"></p>
 <p>クリックするとシーンウインドウに移動するのでCube(1)を選択しY座標を10に動かしてみるとcollisionExitが呼び出されていることがわかると思います。</p>
 <h3 id="コードの説明">コードの説明 </h3>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>Debug.Log(変数や定数);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Debug.Log(変数や定数);
 </code></pre><p>を使用することでコンソールに値を出力することができます。</p>
 <p>それぞれのメソッドの引数になっているCollision型の変数については、衝突したもう一つのオブジェクトについての情報を取得することができるようになっています。</p>
 <p>詳しい内容は以下のリンクにありますが、相手のrigidbodyやtransformを取得することができるようになっています。</p>
@@ -248,7 +248,7 @@ collisionStay
 </code></pre><p>コードを書き換えるとプロジェクトウインドウをコンソールに変更し、実行してみてください。<br>
 実際に動かしてみると上のCube(1)が下のCubeを貫通していることが確認できます。</p>
 <p>そして以下のような出力がコンソールにされると思います。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>triggerEnter
+<pre data-role="codeBlock" data-info="" class="language-text"><code>triggerEnter
 triggerStay
 triggerStay
 ・

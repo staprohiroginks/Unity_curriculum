@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -114,31 +114,31 @@ CopyGameObjectには以下のようなコードを記述してください。</p
 <p>Destroyで削除される直前に何か処理をしたい場合があります。<br>
 そのような場合に呼び出されるメソッドを作成することができます。</p>
 <p>以下のようなにスクリプト内に記述することで削除前に処理を行うことができます</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-public class Cube0Script : MonoBehaviour
-{
-    GameObject SendGameObject;
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Cube0Script</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">GameObject</span> SendGameObject<span class="token punctuation">;</span>
 
-    Cube1Script Cube1Script;
-    // Start is called before the first frame update
-    void Start()
-    {
+    <span class="token class-name">Cube1Script</span> Cube1Script<span class="token punctuation">;</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
 
-    }
+    <span class="token punctuation">}</span>
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
 
-    void OnDestroy()
-    {
-        // 削除される直前に実行する処理
-    }
-}
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">OnDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 削除される直前に実行する処理</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 </code></pre><p>実際に動かして動作を確認してみましょう。<br>
 地面にCube0がつくとヒエラルキーウィンドウからCube0が消え表示も消えていることがわかります。</p>
@@ -224,7 +224,7 @@ public class Cube0Script : MonoBehaviour
 </code></pre><p>このように記述できたら実際に実行してみてください。</p>
 <p>実行すると先ほどと同様床についた瞬間Cube0は消えますが、ヒエラルキーウィンドウにはCube0は残ったままだと思います。</p>
 <p>そして、コンソールを確認しつつ再度実行すると、床につくまでは</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>Active
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Active
 Active
 Active
 ・

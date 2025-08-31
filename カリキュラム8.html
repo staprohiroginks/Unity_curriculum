@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -48,46 +48,37 @@
 <span class="token punctuation">}</span> 
 </code></pre><p>アクセス修飾子の前に <code>abstract</code> という文字をつけることで抽象クラスであることを示しています。</p>
 <p>実際に<code>AbstractClass.cs</code>というファイルを作成し以下の記述をしてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AbstractClass</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AbstractClass</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-virtual">virtual</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-virtual">virtual</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called AbstractClass "</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called AbstractClass "</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>また、 <code>AbstractSub1Class.cs</code> というファイルを作成し以下を記述してください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AbstractSub1Class</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">AbstractClass</span></span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AbstractSub1Class</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">AbstractClass</span></span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-override">override</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-override">override</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called AbstractSub1Class "</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called AbstractSub1Class "</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>また、 <code>AbstractSub2Class.cs</code> というファイルを作成し以下を記述してください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AbstractSub2Class</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">AbstractClass</span></span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AbstractSub2Class</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">AbstractClass</span></span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-override">override</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-override">override</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called AbstractSub2Class "</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called AbstractSub2Class "</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p><code>Program.cs</code> を以下のように書き換えてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数作成する。</span>
@@ -104,7 +95,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>このプログラムを実行すると以下のようになります</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>Called AbstractSub1Class 25
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Called AbstractSub1Class 25
 Called AbstractSub2Class 15
 
 </code></pre><p>このように多態性を保持していることが理解できる。</p>
@@ -112,15 +103,13 @@ Called AbstractSub2Class 15
 <h3 id="抽象メソッド">抽象メソッド </h3>
 <p>抽象メソッドは抽象クラスに作成できるメソッドで抽象クラスでメソッドの内容を指定したくない場合に使うことができます</p>
 <p><code>AbstractClass.cs</code> を以下のように書き換えます。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AbstractClass</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AbstractClass</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><p>このように書くことでCallというメソッドがあるということを示すことはできますが、実際に中身はないので派生したクラスでは<code>void Call()</code>メソッドを<code>override</code>する必要があり、overrideし実装していない場合にエラーが発生します。<br>
 このようにメソッドの実装を強制することができます。</p>
@@ -132,30 +121,26 @@ interfaceは純粋に多態性を持たせるための要素と考えること�
 さらにinterfaceはメソッドの実装を強制をしますが変数などを宣言することができません。</p>
 <h3 id="interfaceを作成する">interfaceを作成する </h3>
 <p>interfaceを作成するにはプロジェクト名の部分を右クリックし<br>
-追加→新しいファイルをクリックします</p>
-<p><img src="./images/image8-1.png" alt="ファイル作成"></p>
-<p>新しいファイルをクリックすると以下のような画面に切り替わります。</p>
-<p>全般に移動し「空のインターフェース」を選択します。</p>
+<code>追加→クラス/インターフェース</code>をクリックします</p>
+<p><img src="./images/image5-2.png" alt="ファイル作成"></p>
+<p>クリックすると以下のような画面に切り変わるので「インターフェース」を選択します。</p>
 <p><img src="./images/image8-2.png" alt="ファイルの種類選択"></p>
 <p>そして名前の部分に<code>TestInterface</code>と入力します。</p>
 <p>その後作成をクリックすると以下のようなファイルが作成されます。</p>
 <p><img src="./images/image8-3.png" alt="ファイルの種類選択"></p>
 <p>コードとしては以下のようになっています</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-interface">interface</span> <span class="token class-name">TestInterface</span>
-    <span class="token punctuation">{</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 
-    <span class="token punctuation">}</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-interface">interface</span> <span class="token class-name">TestInterface</span>
+<span class="token punctuation">{</span>
+
 <span class="token punctuation">}</span>
 </code></pre><p>ほとんどclassと同じようになっていますが、唯一違う部分は<code>class</code>と書いてあった部分が<code>interface</code>になった点です。<br>
 その他の違いはありませんので、クラスとしてファイルを作成したのちコードを書き換えても問題ありません。</p>
 <h3 id="interfaceの使い方">interfaceの使い方 </h3>
 <p>実際にinterfaceをどのように使うか説明します。</p>
 <p>まず先ほど作成した<code>TestInterface</code>に以下のコードを書いてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-interface">interface</span> <span class="token class-name">TestInterface</span>
     <span class="token punctuation">{</span>
@@ -164,8 +149,7 @@ interfaceは純粋に多態性を持たせるための要素と考えること�
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>また、<code>TestInterface2</code>というクラスを作成して以下のコードを記述してください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-interface">interface</span> <span class="token class-name">TestInterface2</span>
     <span class="token punctuation">{</span>
@@ -174,8 +158,7 @@ interfaceは純粋に多態性を持たせるための要素と考えること�
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>そして<code>Sub</code>というクラスを作成して(ある場合は書き換えて)以下のコードを記述してください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Sub</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">TestInterface</span><span class="token punctuation">,</span><span class="token class-name">TestInterface2</span></span>
     <span class="token punctuation">{</span>
@@ -213,8 +196,7 @@ interfaceは純粋に多態性を持たせるための要素と考えること�
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>そして<code>Program.cs</code>ファイルも以下のように書き換えてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
@@ -260,7 +242,7 @@ interfaceは純粋に多態性を持たせるための要素と考えること�
 これについてはinterfaceから継承しており実装を強制しているためである。</p>
 <p>また、interfaceの強みは<code>Sub</code>クラスの4行目を見てもらえるとわかる通り、複数継承することができます。</p>
 <p>interfaceで強制したい内容を部品のように扱うことができるのでそれぞれ違う内容を実装し複数継承し一つのクラスを作ることが可能になっています。さらにクラスから継承しつつさらにinterfaceを継承することができるので</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>class クラス名:継承元クラス名,継承元interface名1,継承元interface名2
+<pre data-role="codeBlock" data-info="" class="language-text"><code>class クラス名:継承元クラス名,継承元interface名1,継承元interface名2
 </code></pre><p>のように記述することもできます。ただし、クラスは1つしか継承できず、クラスとinterfaceを混ぜて継承する場合は最初にクラス名を書く必要がある、</p>
 <h2 id="練習問題">練習問題 </h2>
 <h4 id="1-抽象クラスとinterfaceの違いを説明してください">1. 抽象クラスとinterfaceの違いを説明してください。 </h4>

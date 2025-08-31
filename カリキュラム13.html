@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -98,31 +98,31 @@ Avalonia Window         avalonia.window            [C#],F#  Desktop/Xaml/Avaloni
 <p>Visual Studio <strong>Code</strong> を開き以下の画像で赤色の四角で囲まれた検索欄に <code>&gt;</code> を入力してください。</p>
 <p><img src="./images/VSCode_setup.png" alt="VSCodeの初め"></p>
 <p><code>&gt;</code>を入力すると以下のような候補が表示されます。</p>
-<p><img src="./images/VSCode_%E5%80%99%E8%A3%9C.png" alt="VSCode開始"></p>
+<p><img src="./images/VSCode_candidate.png" alt="VSCode開始"></p>
 <p>その後 <code>&gt;</code> に続いて <code>avalonia</code>と入力すると以下のような候補が表示されるので <code>Avaloniaui:Create a new Avalonia Project</code> をクリックしてください。</p>
-<p><img src="./images/VSCode_%E5%80%99%E8%A3%9C2.png" alt="VSCodeプロジェクトを選択"></p>
+<p><img src="./images/VSCode_candidate2.png" alt="VSCodeプロジェクトを選択"></p>
 <p>クリックすると以下の画像のようにプロジェクトの種類を選択できるようになるので、<code>Avalonia App</code>を選択します。<br>
 <code>Avalonia Cross Platform App</code>を選択するとiOSやAndroidといったスマホにも対応することができるのですが、今回はMac/Windows/Linuxのみの対応となります。</p>
-<p><img src="./images/VSCode_Project%E7%A8%AE%E9%A1%9E.png" alt="VSCodeプロジェクト種類選択"></p>
+<p><img src="./images/VSCode_Project_type.png" alt="VSCodeプロジェクト種類選択"></p>
 <p>その後以下のようにプロジェクト名を指定できるようになるのでプロジェクト名を指定します。<br>
 今回は<code>ExamScore</code>という名前を入力しエンターします。</p>
 <p><img src="./images/Project_name.png" alt="Project_name"></p>
 <p>すると以下の画像のように保存先フォルダを指定する画面が表示されるので自分のフォルダを選択してください。</p>
-<p><img src="./images/%E4%BF%9D%E5%AD%98%E5%85%88%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80.png" alt="Projectの場所を指定"></p>
+<p><img src="./images/save_destination_folder.png" alt="Projectの場所を指定"></p>
 <p>選択後少し待つとVSCodeのウインドウの右下に以下のような通知が表示されるのでOpenをクリックします。</p>
 <p><img src="./images/examcalc_project_created.png" alt="プロジェクト作成完了"></p>
 <p>Openボタンを押して少しすると以下のような画面が表示されます。</p>
 <p><img src="./images/VSCode_Avalonia_CSharp.png" alt="プロジェクトを開く"></p>
 <p>このまま作業してもいいですが、作業する際に使わないファイルなどがたくさん見えており分かりやすくないです。<br>
 そのため必要な部分だけ表示するように変更します。</p>
-<p><img src="./images/%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC.png" alt="ソリューションエクスプローラー"></p>
+<p><img src="./images/solution_explorer.png" alt="ソリューションエクスプローラー"></p>
 <p>まず赤い四角で囲まれた<code>EXAMCALC</code>という部分をクリックしファイル一覧を非表示にします。<br>
 その後黄色四角に囲まれた<code>ソリューションエクスプローラー</code>というところをクリックすることで以下のような画面になります。</p>
-<p><img src="./images/%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC2.png" alt="ソリューションエクスプローラー2"></p>
+<p><img src="./images/solution_explorer2.png" alt="ソリューションエクスプローラー2"></p>
 <p>この状態で以下の画像の赤い四角で囲まれた<code>ExamCalc</code>の <code>&gt;</code> の部分をクリックします。</p>
-<p><img src="./images/%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC3.png" alt="ソリューションエクスプローラー3"></p>
+<p><img src="./images/solution_explorer3.png" alt="ソリューションエクスプローラー3"></p>
 <p>すると以下の画像のような今まで使用していたVisual Studioの左側にあるソリューションエクスプローラーのような見た目になります。</p>
-<p><img src="./images/%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC4.png" alt="ソリューションエクスプローラー3"></p>
+<p><img src="./images/solution_explorer4.png" alt="ソリューションエクスプローラー3"></p>
 <h4 id="プロジェクトの開き方">プロジェクトの開き方 </h4>
 <p>まず、Visual Studio Codeを起動します。</p>
 <p>その後以下の画像の赤い四角で囲まれた<code>ファイル</code>の部分をクリックします。</p>
@@ -135,7 +135,7 @@ Avalonia Window         avalonia.window            [C#],F#  Desktop/Xaml/Avaloni
 <h4 id="実行してみよう">実行してみよう </h4>
 <p>プロジェクトができたので一度動かしてみましょう。</p>
 <p>まず以下の画像の赤い四角で囲まれた部分を右クリックします。</p>
-<p><img src="./images/%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC3.png" alt="ソリューションエクスプローラー3"></p>
+<p><img src="./images/solution_explorer3.png" alt="ソリューションエクスプローラー3"></p>
 <p>するとメニューが表示されるので以下のように<code>Debug&gt;新しいインスタンスの開始</code>をクリックします。</p>
 <p><img src="./images/VSCode_Debug_run.png" alt="デバッグスタート"></p>
 <p>デバッグを開始すると以下のような画面が表示されます。</p>

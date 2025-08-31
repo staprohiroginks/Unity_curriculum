@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -138,7 +138,8 @@
 今回はSerializeFieldという属性がついています。この属性はUnity Editor上で値を設定できるということを示しています。</p>
 <p>8行目の</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-public">public</span> <span class="token class-name">GameObject</span> SendGameObject<span class="token punctuation">;</span>
-</code></pre><p>の部分については今までの説明通り外からアクセスできるGameObject型のSendGameObject変数を宣言しいることを示しています。</p>
+</code></pre><p>の部分については今までの説明通り外からアクセスできるGameObject型のSendGameObject変数を宣言しいることを示しています。<br>
+また、アクセス修飾子についてはpublicである必要はありません。</p>
 <p>OnCollisionEnterメソッドが呼び出されたときにSendGameObject.transform.positionの値を変えることでSendGameObjectのゲームオブジェクトをアタッチしたゲームオブジェクトと同じ高さに移動するようになっています。</p>
 <h4 id="アタッチと値の指定">アタッチと値の指定 </h4>
 <p>Cube0に先ほど作成したCube0Scriptをアタッチしてください。</p>
@@ -153,10 +154,10 @@
 <h3 id="gameobjectからスクリプトを取り出す">GameObjectからスクリプトを取り出す。 </h3>
 <p>GameObjectからScriptを取り出し、そのスクリプトのメソッドを呼び出す方法法を説明します。</p>
 <p>Scriptを取得する構文は以下のようになっています。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>取得したいスクリプトの型の変数 = スクリプトがアタッチされたGameObject.GetComponent&lt;取得したいスクリプトの型&gt;();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>取得したいスクリプトの型の変数 = スクリプトがアタッチされたGameObject.GetComponent&lt;取得したいスクリプトの型&gt;();
 </code></pre><p>GetComponentメソッドはジェネリックで指定した型のインスタンスをゲームオブジェクトから取得するというメソッドになっています。</p>
 <p>もし取得したいスクリプトが同じ型で複数ある場合は以下のように取得可能です。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>取得したいスクリプトの型の配列 = スクリプトがアタッチされたGameObject.GetComponents&lt;取得したいスクリプトの型&gt;();
+<pre data-role="codeBlock" data-info="" class="language-text"><code>取得したいスクリプトの型の配列 = スクリプトがアタッチされたGameObject.GetComponents&lt;取得したいスクリプトの型&gt;();
 </code></pre><p>GetComponentというメソッドは過去にも使ったことがあると思います。<br>
 Rigidbodyの取得の際に使用しました。</p>
 <p>これが何を示すのかというとスクリプトはコンポーネントの一つであると言えます。</p>

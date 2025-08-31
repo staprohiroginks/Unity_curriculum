@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -34,31 +34,27 @@
 この機能を使用することで、型の扱いが楽になったり、同じコードを複数書かなくてよいというメリットがあります。</p>
 <p>ではどのように継承できるか例を見ていきましょう</p>
 <p>まず<code>Super.cs</code>というファイルを作成し以下のように記述してください</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Super</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Super</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called"</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called"</span><span class="token operator">+</span><span class="token punctuation">(</span>num1<span class="token operator">+</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
+
 </code></pre><p>続いて<code>Sub.cs</code>というファイルを作成し以下のように</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Sub</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">Super</span></span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Sub</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">Super</span></span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num3<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num3<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 </code></pre><p>続いて<code>Program</code>ファイルに以下のプログラムを記述します</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数を作成する。</span>
@@ -108,38 +104,32 @@ Called15
 <p>先ほどのように基底クラスを使用することができると変数などを同様に扱うことができる一方メソッドの中身は変わっていないので使用する変数が増えた場合でもメソッドの動作を変えることができません。そのような問題を解決するためにできた機能が <strong>override</strong> (オーバーライド)という機能です。<br>
 overrideはその名の通りメソッドを上書きできる機能です。</p>
 <p>先ほどの<code>Super.cs</code>のファイルのプログラムを以下のように書き換えてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください</span>
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Super</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Super</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num1<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num2<span class="token punctuation">;</span>
 
-        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-virtual">virtual</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called Super "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>num1 <span class="token operator">+</span> num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-virtual">virtual</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called Super "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>num1 <span class="token operator">+</span> num2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
+
 </code></pre><p>続いて先ほどの<code>Sub.cs</code>というファイルを以下のように書き換えます。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> ConsoleApp1<span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span><span class="token comment">//「ConsoleApp1」の部分は作成した時点の状態から書き換えないでください。</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Sub</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Super</span></span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Sub</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Super</span></span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num3<span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-override">override</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token class-name"><span class="token keyword keyword-int">int</span></span> num3<span class="token punctuation">;</span>
-
-        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-override">override</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called Sub "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>num1 <span class="token operator">+</span> num2 <span class="token operator">+</span> num3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Called Sub "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>num1 <span class="token operator">+</span> num2 <span class="token operator">+</span> num3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-
 <span class="token punctuation">}</span>
 </code></pre><p>続いて<code>Program</code>ファイルに以下のプログラムを記述します</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数を作成する。</span>
@@ -220,8 +210,7 @@ int型からstring型への変換やint.Parseでのstring型からint型への�
 <h3 id="配列などに使用する">配列などに使用する </h3>
 <p>継承は配列など複数の変数を一気に扱う際とても扱いやすくなります。</p>
 <p>先ほどのプログラムから<code>Program.cs</code>を以下のように書き換えてください。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数を作成する。</span>
@@ -261,8 +250,7 @@ Called Super 35
 これはC++という言語で<a href="https://ja.wikipedia.org/wiki/%E8%8F%B1%E5%BD%A2%E7%B6%99%E6%89%BF%E5%95%8F%E9%A1%8C">菱形継承問題</a>が発生してしまったため複数の親クラスを持つことができなくなっています。<br>
 しかしながら複数の親クラスを持つような動きをさせる必要がある場合があり、そのような場合は次回説明するinterface(インターフェイス)という要素を使用します。</p>
 <p>継承していないクラスを作成することがあると思います。しかし、実際にはすべてのクラスはObjectというクラスから派生している要素のため先ほど使用したProgramクラスでも</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span><span class="token punctuation">:</span><span class="token type-list"><span class="token class-name">Object</span></span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> <span class="token comment">//Mainという関数を作成する。</span>

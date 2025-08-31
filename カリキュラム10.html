@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\Takeuchi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.11\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
       
       
       
@@ -33,32 +33,30 @@
 <h4 id="基本的な書き方">基本的な書き方 </h4>
 <p>まず、PropertyTestClassを作成してください。<br>
 そして以下のように記述してください</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">PropertyTestClass</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">PropertyTestClass</span>
+    <span class="token class-name"><span class="token keyword keyword-string">string</span></span> _Word<span class="token punctuation">;</span>
+    <span class="token keyword keyword-public">public</span> <span class="token return-type class-name"><span class="token keyword keyword-string">string</span></span> Word
     <span class="token punctuation">{</span>
-        <span class="token class-name"><span class="token keyword keyword-string">string</span></span> _Word<span class="token punctuation">;</span>
-        <span class="token keyword keyword-public">public</span> <span class="token return-type class-name"><span class="token keyword keyword-string">string</span></span> Word
+        <span class="token keyword keyword-get">get</span><span class="token comment">//値を出力する時の処理</span>
         <span class="token punctuation">{</span>
-            <span class="token keyword keyword-get">get</span><span class="token comment">//値を出力する時の処理</span>
+            <span class="token keyword keyword-return">return</span> _Word<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-set">set</span><span class="token comment">//値が入力された時の処理</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// valueが引数として渡される</span>
+            <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span><span class="token keyword keyword-value">value</span> <span class="token operator">!=</span> <span class="token keyword keyword-null">null</span><span class="token operator">&amp;&amp;</span><span class="token keyword keyword-value">value</span><span class="token punctuation">.</span>Length<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span>
             <span class="token punctuation">{</span>
-                <span class="token keyword keyword-return">return</span> _Word<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword keyword-set">set</span><span class="token comment">//値が入力された時の処理</span>
-            <span class="token punctuation">{</span>
-                <span class="token comment">// valueが引数として渡される</span>
-                <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span><span class="token keyword keyword-value">value</span> <span class="token operator">!=</span> <span class="token keyword keyword-null">null</span><span class="token operator">&amp;&amp;</span><span class="token keyword keyword-value">value</span><span class="token punctuation">.</span>Length<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                    _Word <span class="token operator">=</span> <span class="token keyword keyword-value">value</span><span class="token punctuation">;</span><span class="token comment">//valueがnullではなく文字数が0より大きい時だけ_Wordに値を代入する。</span>
-                <span class="token punctuation">}</span>
+                _Word <span class="token operator">=</span> <span class="token keyword keyword-value">value</span><span class="token punctuation">;</span><span class="token comment">//valueがnullではなく文字数が0より大きい時だけ_Wordに値を代入する。</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
+
 </code></pre><p>Program.csファイルを以下のように書き換えてください</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
@@ -69,11 +67,12 @@
         propertyTestClass<span class="token punctuation">.</span>Word <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
         Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>propertyTestClass<span class="token punctuation">.</span>Word<span class="token punctuation">)</span><span class="token punctuation">;</span>
         propertyTestClass<span class="token punctuation">.</span>Word <span class="token operator">=</span> <span class="token string">"b"</span><span class="token punctuation">;</span>
-        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>propertyTestClass<span class="token punctuation">.</span>Word<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>propertyTestClass<span class="token punctuation">.</span>Word<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+
 <span class="token punctuation">}</span>
 </code></pre><p>実行結果は以下のようになります。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>aaaa
+<pre data-role="codeBlock" data-info="" class="language-text"><code>aaaa
 aaaa
 b
 </code></pre><p>このプログラムはWordに入力された文字をチェックし文字列が0よりも大きい時のみ更新するというプログラムになっています。このように入力された値をチェックしたり、出力したする値を変えたりすることができるようになっています。</p>
@@ -82,7 +81,7 @@ b
 <p>また、プロパティはメソッドを変数のように扱えるようにする機能のため値を保持することはできないためクラス内の別の変数やリスト、配列に保存しておく必要があります。よくあるのは<code>_プロパティ名</code>という変数にいれるパターンです。今回も<code>_Word</code>という変数に代入しています。<br>
 またプロパティからメソッドを呼び出せるので別のメソッドを呼び出し処理をするなども可能です。</p>
 <p>これらからプロパティは以下のように書けるといえます</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 扱う型 プロパティ名{
+<pre data-role="codeBlock" data-info="" class="language-text"><code>アクセス修飾子 扱う型 プロパティ名{
     get{
         
     }
@@ -120,24 +119,23 @@ b
 if文などで実行する処理を変更することは可能ですが、メソッドをメソッドの引数として渡しメソッド自体の処理を変えるなどのことはできなくなっています。<br>
 そのような望みをかなえる機能としてdelegateがあります。</p>
 <h3 id="使い方">使い方 </h3>
-<p>まず、delegateはどのようなメソッドを扱うか定義してあげる必要があり、その定義はクラスとして使用されるようになっています。そのインスタンスにメソッドをいれるようになっています。</p>
 <p>delegateの定義はクラス内もしくはクラスの外に以下のように行えます。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>アクセス修飾子 <span class="token keyword keyword-delegate">delegate</span> <span class="token keyword keyword-delegate">delegate</span>の戻り値の型 <span class="token keyword keyword-delegate">delegate</span>の名前<span class="token punctuation">(</span>引数の型<span class="token number">1</span> 引数の変数名<span class="token number">1</span><span class="token punctuation">,</span>引数の型<span class="token number">2</span> 引数の変数名<span class="token number">2</span><span class="token punctuation">,</span><span class="token range operator">..</span><span class="token punctuation">.</span><span class="token punctuation">)</span> 
-</code></pre><p>実際に戻り値の型がvoidでTestの引数が<code>int x</code>であった場合は以下のような記述をします</p>
+</code></pre><p>delegateはどのようなメソッドを扱うか定義してあげる必要があり、その定義はクラスとして使用されるようになっています。そのインスタンスにメソッドをいれるようになっています。</p>
+<p>実際に戻り値の型がvoidでTestの引数が<code>int x</code>であった場合は以下のような記述をします</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-delegate">delegate</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 </code></pre><p>delegateの変数の宣言はクラス内もしくはメソッド内で通常の変数宣言と同様に以下のように行えます。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>delegate名 変数名;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>delegate名 変数名;
 </code></pre><p>初期値を入れる方法は代入する方法と同様なので割愛します。</p>
 <p>実際に先ほど作成したTestというdelegateの変数を使う場合は以下のようになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Test</span> test<span class="token punctuation">;</span>
 </code></pre><p>delegateの変数にはメソッドを入れることができます。<br>
 どのようにメソッドを代入するのかというと通常の変数を代入するのと変わりません。</p>
 <p>なので</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>delegateの変数名 = メソッド名;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>delegateの変数名 = メソッド名;
 </code></pre><p>となります。</p>
 <p>全体のプログラムの例を示すと以下のようになります</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-delegate">delegate</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -155,13 +153,12 @@ if文などで実行する処理を変更することは可能ですが、メソ
 </code></pre><p>このようにPrintという引数をコンソールに出力するメソッドを変数として扱えるようにしています。<br>
 他のクラスであってもメソッドにアクセスできる状態であれば代入することが可能である。</p>
 <p>delegateの変数から実行する場合は以下のように実行できます</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>delegateの変数名(引数);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>delegateの変数名(引数);
 </code></pre><p>または</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>delegateの変数名.Invoke(引数);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>delegateの変数名.Invoke(引数);
 </code></pre><p>このように呼び出せます。</p>
 <p>先ほどのプログラムで呼び出しを入れると以下のようになります。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-delegate">delegate</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -179,11 +176,10 @@ if文などで実行する処理を変更することは可能ですが、メソ
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>実行すると以下のようになります。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>10
+<pre data-role="codeBlock" data-info="" class="language-text"><code>10
 20
 </code></pre><p>さらに途中でdelegateの変数の中身は書き換えることができる</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-delegate">delegate</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -207,7 +203,7 @@ if文などで実行する処理を変更することは可能ですが、メソ
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>実行した結果以下の通りになります</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>10
+<pre data-role="codeBlock" data-info="" class="language-text"><code>10
 20です
 </code></pre><p>このように変数としてメソッドを扱うことができるのでifなどを使用することなく処理の中身を変えることができる機能である。</p>
 <p>また他のクラスのメソッドを使用できるので実装を外部に任せたい場合などに使うことも可能です。</p>
@@ -217,38 +213,34 @@ delegateはプロパティを利用できないわけでないがプロパティ
 <p>今回はプロパティのように追加などする処理を追加する方法は説明しませんが、メソッドを追加/削除することができます。</p>
 <h3 id="使い方-1">使い方 </h3>
 <p>イベントの最も基本的な宣言の方法は以下の通りです</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>アクセス修飾子 event delegate名 イベント名; 
+<pre data-role="codeBlock" data-info="" class="language-text"><code>アクセス修飾子 event delegate名 イベント名; 
 </code></pre><p>eventに使用されるdelegateは慣例的に〇〇Handlerという名前にすることが多いです。</p>
 <p>またeventにメソッドを登録する際は以下のように登録できます</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>イベント名 += メソッド名;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>イベント名 += メソッド名;
 </code></pre><p>逆に削除する際は</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>イベント名 -= メソッド名;
+<pre data-role="codeBlock" data-info="" class="language-text"><code>イベント名 -= メソッド名;
 </code></pre><p>で削除することが可能です。</p>
 <p>またイベントに登録されたメソッドは以下のように実行できます</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>イベント名?.Invoke(引数);
+<pre data-role="codeBlock" data-info="" class="language-text"><code>イベント名?.Invoke(引数);
 </code></pre><p>このように呼び出すことができますが、呼び出すことができるのはイベントが存在するクラス内からしか呼び出すことができないので、他のクラスから呼び出せるようにするためにはこの命令を呼び出す用のメソッドを用意する方法があります。</p>
 <h2 id="練習問題">練習問題 </h2>
 <h4 id="1-以下の問題に答えなさい">1. 以下の問題に答えなさい </h4>
 <p><code>Methods.cs</code> ファイルを作成し以下を記述し、 <code>Program.cs</code>からInputメソッドで入力しPrintメソッドでその値を出力するプログラムを作成しなさい。また、*<strong>delegateを使用して呼び出しなさい</strong></p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Methods</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Methods</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Print</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span></span> s<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Print</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span></span> s<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-string">string</span></span> <span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword keyword-return">return</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-string">string</span></span> <span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-
 </code></pre><details><summary>解答例</summary>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-delegate">delegate</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Delegate1</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span></span> word<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -265,8 +257,7 @@ delegateはプロパティを利用できないわけでないがプロパティ
 </code></pre></details>
 <h4 id="2-以下の問題に答えなさい">2. 以下の問題に答えなさい。 </h4>
 <p>以下のプログラムを実行した場合どのような出力になるか <strong>実行せず</strong> に答えなさい。</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ConsoleApp1</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
 <span class="token punctuation">{</span>
     <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span> 
@@ -290,7 +281,7 @@ delegateはプロパティを利用できないわけでないがプロパティ
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><details><summary>解答</summary>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>Hello
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Hello
 set:Hello
 get:Hello
 Hello
