@@ -1,382 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>カリキュラム13.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="unity13%E7%B0%A1%E5%8D%98%E3%81%AA%E4%BD%9C%E5%93%81%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86">Unity13:簡単な作品を作ってみよう</h1>
+<!DOCTYPE html><html><head>
+      <title>カリキュラム13</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="unity13簡単な作品を作ってみよう">Unity13:簡単な作品を作ってみよう </h1>
 <p>過去12回の知識やドキュメントの情報を使用することで基本的な処理はできるようになっていると思います。</p>
 <p>その知識を利用して簡単な作品を作っていきましょう。</p>
-<h2 id="ui">UI</h2>
+<h2 id="ui">UI </h2>
 <p>UI(ユーザーインターフェース)とはユーザーがアプリに対して操作するための画面や操作のことを指します。</p>
-<h2 id="cui%E3%81%A8gui">CUIとGUI</h2>
-<p>CUI(Character User interface)はUIの中でも文字とキーボードの操作だけでユーザーとやり取りをするUIのことです。
+<h2 id="cuiとgui">CUIとGUI </h2>
+<p>CUI(Character User interface)はUIの中でも文字とキーボードの操作だけでユーザーとやり取りをするUIのことです。<br>
 カリキュラム12までの間で作ってきたものはすべてこれになります。</p>
-<p>GUI(graphical user interface)はUIの中でもボタンや文字、画像などを使用してユーザーとやり取りをするUIです。
+<p>GUI(graphical user interface)はUIの中でもボタンや文字、画像などを使用してユーザーとやり取りをするUIです。<br>
 皆さんが使うソフトは基本こちらになると思います。</p>
-<h2 id="avaloniaui">AvaloniaUI</h2>
-<p>AvaloniaUIというUIフレームワークがあります。
+<h2 id="avaloniaui">AvaloniaUI </h2>
+<p>AvaloniaUIというUIフレームワークがあります。<br>
 AvaloniaUIはHTMLに似たXMLという言語で画面配置を定義することができ、ボタンが押された際の動作などはC#で記述します。</p>
 <p>また、AvaloniaUIはWindows/Mac/Linux/Android/iOSの5つのOSに対応しています。</p>
 <p>今回はこちらを使用してアプリを作っていきます。</p>
@@ -386,21 +45,21 @@ AvaloniaUIはHTMLに似たXMLという言語で画面配置を定義すること
 <li>問題出題アプリ</li>
 <li>メモ帳</li>
 </ul>
-<h3 id="%E3%83%86%E3%82%B9%E3%83%88%E8%A8%88%E7%AE%97%E3%82%A2%E3%83%97%E3%83%AA">テスト計算アプリ</h3>
-<p>テストの合計点を計算するアプリです。
+<h3 id="テスト計算アプリ">テスト計算アプリ </h3>
+<p>テストの合計点を計算するアプリです。<br>
 国語・数学・英語・理科・社会の点数を入れることで合計点と平均点を計算することが可能できます。</p>
-<p>完成したアプリのイメージ画像は以下の通りです。
+<p>完成したアプリのイメージ画像は以下の通りです。<br>
 <img src="./images/calcexam.png" alt="テスト計算アプリ"></p>
 <p>計算のボタンを押すことで合計点と平均点が表示されます。</p>
-<h2 id="%E3%83%86%E3%82%B9%E3%83%88%E8%A8%88%E7%AE%97%E3%82%A2%E3%83%97%E3%83%AA">テスト計算アプリ</h2>
-<h3 id="%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90">プロジェクトの作成</h3>
-<h4 id="dotnet%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">dotnetのインストール</h4>
+<h2 id="テスト計算アプリ-1">テスト計算アプリ </h2>
+<h3 id="プロジェクトの作成">プロジェクトの作成 </h3>
+<h4 id="dotnetのインストール">dotnetのインストール </h4>
 <p>この章はテンプレートのインストールができなかった方のみ行ってください。</p>
 <p><a href="https://dotnet.microsoft.com/ja-jp/download/dotnet">dotnetのインストールリンク</a></p>
 <p>このページより最新版(プレビューと書かれているものは除外)を選択しインストーラをダウンロードしてください。</p>
 <p>その後そのインストーラを実行しインストールしてください。</p>
-<h4 id="%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">テンプレートのインストール</h4>
-<p>テンプレートとはプログラムのベースをあらかじめ作っているものを指します。
+<h4 id="テンプレートのインストール">テンプレートのインストール </h4>
+<p>テンプレートとはプログラムのベースをあらかじめ作っているものを指します。<br>
 今回はテンプレートからプログラムを作るのでテンプレートをインストールする必要があります。</p>
 <p>テンプレートをインストールするにはまず、terminalを開く必要があります。</p>
 <p>Macの場合画面上部に<code>ターミナル</code>というメニューがあるので、クリック後メニューが表示されるので<code>新しいターミナル</code>をクリックします。</p>
@@ -409,10 +68,9 @@ AvaloniaUIはHTMLに似たXMLという言語で画面配置を定義すること
 <p><img src="./images/VSCode_terminal.png" alt="ターミナル"></p>
 <p>この部分にコマンドを打ちます。</p>
 <p>以下のコマンドをコピー&amp;ペーストしエンターを押してコマンドを実行してください。</p>
-<pre class="hljs"><code><div>dotnet new install Avalonia.Templates
-</div></code></pre>
-<p>正しく実行できると以下のように表示されます</p>
-<pre class="hljs"><code><div>次のパッケージがインストールされます:
+<pre data-role="codeBlock" data-info="" class="language-text"><code>dotnet new install Avalonia.Templates
+</code></pre><p>正しく実行できると以下のように表示されます</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>次のパッケージがインストールされます:
    Avalonia.Templates
 
 成功: Avalonia.Templates::11.0.6により次のテンプレートがインストールされました。
@@ -426,9 +84,8 @@ Avalonia Styles         avalonia.styles                     Desktop/Xaml/Avaloni
 Avalonia TemplatedC...  avalonia.templatedcontrol  [C#],F#  Desktop/Xaml/Avalonia/Windows/Linux/macOS
 Avalonia UserControl    avalonia.usercontrol       [C#],F#  Desktop/Xaml/Avalonia/Windows/Linux/macOS
 Avalonia Window         avalonia.window            [C#],F#  Desktop/Xaml/Avalonia/Windows/Linux/macOS
-</div></code></pre>
-<p>バージョン番号などは異なるかもしれませんが、似たように出力されれば大丈夫です。</p>
-<h4 id="%E6%8B%A1%E5%BC%B5%E6%A9%9F%E8%83%BD%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">拡張機能のインストール</h4>
+</code></pre><p>バージョン番号などは異なるかもしれませんが、似たように出力されれば大丈夫です。</p>
+<h4 id="拡張機能のインストール">拡張機能のインストール </h4>
 <p>まずVisual Studio CodeにAvalonia for VSCodeをインストールします。</p>
 <p><img src="./images/avalonia_for_vscode.png" alt="Avalonia拡張機能"></p>
 <p>赤色の四角で囲まれた部分をクリックし拡張機能を追加する画面に移動します。</p>
@@ -437,57 +94,57 @@ Avalonia Window         avalonia.window            [C#],F#  Desktop/Xaml/Avaloni
 <p>インストール終了後同様の手順でC# Dev Kitをインストールしてください。</p>
 <p><img src="./images/CSharp_dev_kit.png" alt="C#"></p>
 <p>インストールが終了するとVSCodeを再起動してください。</p>
-<h4 id="%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90">プロジェクトの作成</h4>
+<h4 id="プロジェクトの作成-1">プロジェクトの作成 </h4>
 <p>Visual Studio <strong>Code</strong> を開き以下の画像で赤色の四角で囲まれた検索欄に <code>&gt;</code> を入力してください。</p>
 <p><img src="./images/VSCode_setup.png" alt="VSCodeの初め"></p>
 <p><code>&gt;</code>を入力すると以下のような候補が表示されます。</p>
-<p><img src="./images/VSCode_候補.png" alt="VSCode開始"></p>
+<p><img src="./images/VSCode_candidate.png" alt="VSCode開始"></p>
 <p>その後 <code>&gt;</code> に続いて <code>avalonia</code>と入力すると以下のような候補が表示されるので <code>Avaloniaui:Create a new Avalonia Project</code> をクリックしてください。</p>
-<p><img src="./images/VSCode_候補2.png" alt="VSCodeプロジェクトを選択"></p>
-<p>クリックすると以下の画像のようにプロジェクトの種類を選択できるようになるので、<code>Avalonia App</code>を選択します。
+<p><img src="./images/VSCode_candidate2.png" alt="VSCodeプロジェクトを選択"></p>
+<p>クリックすると以下の画像のようにプロジェクトの種類を選択できるようになるので、<code>Avalonia App</code>を選択します。<br>
 <code>Avalonia Cross Platform App</code>を選択するとiOSやAndroidといったスマホにも対応することができるのですが、今回はMac/Windows/Linuxのみの対応となります。</p>
-<p><img src="./images/VSCode_Project種類.png" alt="VSCodeプロジェクト種類選択"></p>
-<p>その後以下のようにプロジェクト名を指定できるようになるのでプロジェクト名を指定します。
+<p><img src="./images/VSCode_Project_type.png" alt="VSCodeプロジェクト種類選択"></p>
+<p>その後以下のようにプロジェクト名を指定できるようになるのでプロジェクト名を指定します。<br>
 今回は<code>ExamScore</code>という名前を入力しエンターします。</p>
 <p><img src="./images/Project_name.png" alt="Project_name"></p>
 <p>すると以下の画像のように保存先フォルダを指定する画面が表示されるので自分のフォルダを選択してください。</p>
-<p><img src="./images/保存先フォルダ.png" alt="Projectの場所を指定"></p>
+<p><img src="./images/save_destination_folder.png" alt="Projectの場所を指定"></p>
 <p>選択後少し待つとVSCodeのウインドウの右下に以下のような通知が表示されるのでOpenをクリックします。</p>
 <p><img src="./images/examcalc_project_created.png" alt="プロジェクト作成完了"></p>
 <p>Openボタンを押して少しすると以下のような画面が表示されます。</p>
 <p><img src="./images/VSCode_Avalonia_CSharp.png" alt="プロジェクトを開く"></p>
-<p>このまま作業してもいいですが、作業する際に使わないファイルなどがたくさん見えており分かりやすくないです。
+<p>このまま作業してもいいですが、作業する際に使わないファイルなどがたくさん見えており分かりやすくないです。<br>
 そのため必要な部分だけ表示するように変更します。</p>
-<p><img src="./images/ソリューションエクスプローラー.png" alt="ソリューションエクスプローラー"></p>
-<p>まず赤い四角で囲まれた<code>EXAMCALC</code>という部分をクリックしファイル一覧を非表示にします。
+<p><img src="./images/solution_explorer.png" alt="ソリューションエクスプローラー"></p>
+<p>まず赤い四角で囲まれた<code>EXAMCALC</code>という部分をクリックしファイル一覧を非表示にします。<br>
 その後黄色四角に囲まれた<code>ソリューションエクスプローラー</code>というところをクリックすることで以下のような画面になります。</p>
-<p><img src="./images/ソリューションエクスプローラー2.png" alt="ソリューションエクスプローラー2"></p>
+<p><img src="./images/solution_explorer2.png" alt="ソリューションエクスプローラー2"></p>
 <p>この状態で以下の画像の赤い四角で囲まれた<code>ExamCalc</code>の <code>&gt;</code> の部分をクリックします。</p>
-<p><img src="./images/ソリューションエクスプローラー3.png" alt="ソリューションエクスプローラー3"></p>
+<p><img src="./images/solution_explorer3.png" alt="ソリューションエクスプローラー3"></p>
 <p>すると以下の画像のような今まで使用していたVisual Studioの左側にあるソリューションエクスプローラーのような見た目になります。</p>
-<p><img src="./images/ソリューションエクスプローラー4.png" alt="ソリューションエクスプローラー3"></p>
-<h4 id="%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E9%96%8B%E3%81%8D%E6%96%B9">プロジェクトの開き方</h4>
+<p><img src="./images/solution_explorer4.png" alt="ソリューションエクスプローラー3"></p>
+<h4 id="プロジェクトの開き方">プロジェクトの開き方 </h4>
 <p>まず、Visual Studio Codeを起動します。</p>
 <p>その後以下の画像の赤い四角で囲まれた<code>ファイル</code>の部分をクリックします。</p>
 <p><img src="./images/Open_Project_VSCode.png" alt="ファイルメニューを開く"></p>
 <p><code>ファイル</code>の部分をクリックすると以下のようなメニューが表示されるので画像中の赤い四角で囲まれた<code>フォルダーを開く</code>の部分をクリックしてください。</p>
 <p><img src="./images/Open_Project_VSCode2.png" alt="ファイルメニューを開く"></p>
-<p><code>フォルダーを開く</code>を選択すると開くフォルダーを選択する画面が表示されるので<code>.sln</code>のファイルがあるフォルダを選択します。
+<p><code>フォルダーを開く</code>を選択すると開くフォルダーを選択する画面が表示されるので<code>.sln</code>のファイルがあるフォルダを選択します。<br>
 今回は<code>ExamCalc</code>というフォルダを選択します。</p>
 <p>その後はプロジェクトの作成時の操作と同様です。</p>
-<h4 id="%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86">実行してみよう</h4>
+<h4 id="実行してみよう">実行してみよう </h4>
 <p>プロジェクトができたので一度動かしてみましょう。</p>
 <p>まず以下の画像の赤い四角で囲まれた部分を右クリックします。</p>
-<p><img src="./images/ソリューションエクスプローラー3.png" alt="ソリューションエクスプローラー3"></p>
+<p><img src="./images/solution_explorer3.png" alt="ソリューションエクスプローラー3"></p>
 <p>するとメニューが表示されるので以下のように<code>Debug&gt;新しいインスタンスの開始</code>をクリックします。</p>
 <p><img src="./images/VSCode_Debug_run.png" alt="デバッグスタート"></p>
 <p>デバッグを開始すると以下のような画面が表示されます。</p>
 <p><img src="./images/AvaloniaSample.png" alt="起動時の画面"></p>
 <p>この画面を変更していきます。</p>
-<h3 id="avaloniaui%E3%81%AE%E7%B0%A1%E5%8D%98%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9">AvaloniaUIの簡単な使い方</h3>
-<p>画面を作成する上で始めにXMLファイルを記述します。avaloniaで使用されるXMLファイルを<code>axaml</code>ファイルと言います。
+<h3 id="avaloniauiの簡単な使い方">AvaloniaUIの簡単な使い方 </h3>
+<p>画面を作成する上で始めにXMLファイルを記述します。avaloniaで使用されるXMLファイルを<code>axaml</code>ファイルと言います。<br>
 XMLファイルはHTMLの親戚のような言語でHTMLと似た形で記述できますが、少しルールが厳しいという特徴があります。</p>
-<p>axamlではHTMLとCSSをまとめて記述することが可能になっています。
+<p>axamlではHTMLとCSSをまとめて記述することが可能になっています。<br>
 今回は以下の要素を使用し作成します。</p>
 <ul>
 <li>Label
@@ -511,343 +168,318 @@ XMLファイルはHTMLの親戚のような言語でHTMLと似た形で記述で
 </ul>
 </li>
 </ul>
-<p>まず、<code>MainWindow.xaml</code>を開きます。
-<code>MainWindow.xaml</code>はメインの画面を定義する部分です。
+<p>まず、<code>MainWindow.xaml</code>を開きます。<br>
+<code>MainWindow.xaml</code>はメインの画面を定義する部分です。<br>
 このファイルを書き換えて表示していきます。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
     Welcome to Avalonia!
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p><code>&lt;Window ~~~&gt;</code>から<code>&lt;/window&gt;</code>の間に先ほどのGridやLabelなどの要素を追加していきます。</p>
-<h4 id="label">Label</h4>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p><code>&lt;Window ~~~&gt;</code>から<code>&lt;/window&gt;</code>の間に先ほどのGridやLabelなどの要素を追加していきます。</p>
+<h4 id="label">Label </h4>
 <p>Labelの書き方は以下の通りです。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"表示する文字"</span> <span class="hljs-attr">x:Name</span> = <span class="hljs-string">"Label1"</span>&gt;</span>
-</div></code></pre>
-<p><code>content=</code>の後に<code>&quot;</code>で囲った文字を表示します。
-<code>x:name=</code>の後に<code>&quot;</code>で囲んだ文字がそのLabelの名前になります。
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>表示する文字<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Label1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre><p><code>content=</code>の後に<code>"</code>で囲った文字を表示します。<br>
+<code>x:name=</code>の後に<code>"</code>で囲んだ文字がそのLabelの名前になります。<br>
 これはプログラムから操作する際に使用するので特にプログラムから文字を変えるなどをしない限りは指定する必要はありません。</p>
 <p>では先ほどの<code>MainWindow.axaml</code>ファイルにLabelを書いてみましょう</p>
 <p>以下のように<code>Welcome to Avalonia!</code>と書いてある部分を</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Hello Avalonia"</span>/&gt;</span>
-</div></code></pre>
-<p>と書き換えます。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Hello Avalonia"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>その後実行すると以下のように表示されると思います。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Hello Avalonia<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre><p>と書き換えます。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Hello Avalonia<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>その後実行すると以下のように表示されると思います。</p>
 <p><img src="./images/avalona_Label_VSCode.png" alt="Labelを変えた画像"></p>
-<p>ではLabelを二つにするとどうなるでしょうか？
+<p>ではLabelを二つにするとどうなるでしょうか？<br>
 以下のように二つにして実行してみましょう</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Hello Avalonia"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Hello Avalonia1"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>これを実行しようとすると<code>Build失敗</code>と表示されます。
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Hello Avalonia<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Hello Avalonia1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>これを実行しようとすると<code>Build失敗</code>と表示されます。<br>
 これはWindowの要素の中には一つの要素しか持つことができません。</p>
 <p>これを解決するにはGridという要素を使用します。</p>
-<h4 id="grid">Grid</h4>
+<h4 id="grid">Grid </h4>
 <p>Gridは一つの空間を複数に分割し指定の位置にボタンなどを複数配置することができる要素です。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Grid</span>&gt;</span>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span><span class="token punctuation">&gt;</span></span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-</div></code></pre>
-<p>とタグに囲まれた空間に要素を追加することでGrid内に要素があることを示すことができます。</p>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>とタグに囲まれた空間に要素を追加することでGrid内に要素があることを示すことができます。</p>
 <p>ではGridでは複数の要素を含むことができるのか確認してみましょう。</p>
 <p>以下のように<code>MainWindow.axaml</code>ファイルのコードを書き換えてください</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"abc"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"def"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"ghi"</span>/&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>abc<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>def<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghi<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>書き換えたうえで実行してみると
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>書き換えたうえで実行してみると<br>
 以下の画像のように表示されると思います。</p>
 <p><img src="./images/Avalonia_Grid_Test.png" alt="文字が重なっている"></p>
 <p>理想は</p>
-<pre class="hljs"><code><div>abc
+<pre data-role="codeBlock" data-info="" class="language-text"><code>abc
 def
 ghi
-</div></code></pre>
-<p>と表示されるのが理想ですがGridでは位置がデフォルトでは座標が(0,0)になっていて、Avaloniaでは左端が(0,0)となっているので左端に集中してしまいます。</p>
-<pre class="hljs"><code><div>abc
+</code></pre><p>と表示されるのが理想ですがGridでは位置がデフォルトでは座標が(0,0)になっていて、Avaloniaでは左端が(0,0)となっているので左端に集中してしまいます。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>abc
 def
 ghi
-</div></code></pre>
-<p>と表示させるのにHTMLのようにmarginを使用することで隙間を空けることができます。</p>
-<p>marginのイメージは以下のようになっています。
-水色の部分だけ隙間を空けることができます。
+</code></pre><p>と表示させるのにHTMLのようにmarginを使用することで隙間を空けることができます。</p>
+<p>marginのイメージは以下のようになっています。<br>
+水色の部分だけ隙間を空けることができます。<br>
 画像はLabelになっていますが、ButtonでもGridでも同様です。</p>
 <p><img src="./images/Avalonia_Label_Margin.png" alt="marginのイメージ"></p>
-<p>marginを指定するにはLabelの場合以下のように指定できます。
+<p>marginを指定するにはLabelの場合以下のように指定できます。<br>
 <code>n1</code>,<code>n2</code>,<code>n3</code>,<code>n4</code>は画像と対応しており、左、上、右、下の順で指定できます。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"abc"</span> <span class="hljs-attr">Margin</span> = <span class="hljs-string">"n1,n2,n3,n4"</span>/&gt;</span>
-</div></code></pre>
-<p>これを利用して文字が被らないようにしましょう</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"abc"</span> <span class="hljs-attr">Margin</span> = <span class="hljs-string">"0,0,0,0"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"def"</span> <span class="hljs-attr">Margin</span> = <span class="hljs-string">"0,20,0,0"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"ghi"</span> <span class="hljs-attr">Margin</span> = <span class="hljs-string">"0,40,0,0"</span>/&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>abc<span class="token punctuation">"</span></span> <span class="token attr-name">Margin</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>n1,n2,n3,n4<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre><p>これを利用して文字が被らないようにしましょう</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>abc<span class="token punctuation">"</span></span> <span class="token attr-name">Margin</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0,0,0,0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>def<span class="token punctuation">"</span></span> <span class="token attr-name">Margin</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0,20,0,0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghi<span class="token punctuation">"</span></span> <span class="token attr-name">Margin</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0,40,0,0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>ghiと表示するところのMarginが<code>0,40,0,0</code>とdefと表示するLabelにクラ寝て二つ目が2倍の40となっていると思います。
-このMarginは要素のスタート地点(今回は左上)からの隙間を示しており、同じ20にしてしまうと文字が被ってしまうのでそれを防ぐ目的です。
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>ghiと表示するところのMarginが<code>0,40,0,0</code>とdefと表示するLabelにクラ寝て二つ目が2倍の40となっていると思います。<br>
+このMarginは要素のスタート地点(今回は左上)からの隙間を示しており、同じ20にしてしまうと文字が被ってしまうのでそれを防ぐ目的です。<br>
 Grid意外にも複数要素を持つことができる要素がありますが、物によっては上の要素の下がスタート地点になる場合もありますが、今回は扱いません。</p>
-<h5 id="%E7%A9%BA%E9%96%93%E3%81%AE%E5%88%86%E5%89%B2">空間の分割</h5>
+<h5 id="空間の分割">空間の分割 </h5>
 <p>このようにして任意の位置に要素を配置することができたと思いますが、Gridには空間を分割する機能があると説明があったと思います。</p>
 <p>要素を空間を分割する機能について説明します。</p>
-<p>まず縦方向に分割する方法を説明します。　
-Gridを縦に分割するにはGridの中に<code>Grid.RowDefinitions</code>を書きその中に<code>RowDefinition</code>のタグを書くことで分割できます。
+<p>まず縦方向に分割する方法を説明します。　<br>
+Gridを縦に分割するにはGridの中に<code>Grid.RowDefinitions</code>を書きその中に<code>RowDefinition</code>のタグを書くことで分割できます。<br>
 では実際にやってみましょう。</p>
 <p><code>MainWindow.axaml</code>を以下のように書き換えてください。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Grid.RowDefinitions</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">Grid.RowDefinitions</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>これで縦方向に3分割することができていますが、確認することができません。
-そこで以下のように<code>&lt;Grid</code>の後に<code>ShowGridLines=&quot;True&quot;</code>を入れ実行してみてください。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span> <span class="hljs-attr">ShowGridLines</span>=<span class="hljs-string">"True"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Grid.RowDefinitions</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">Grid.RowDefinitions</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>すると以下のように分割されていることがわかります。
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid.RowDefinitions</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid.RowDefinitions</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>これで縦方向に3分割することができていますが、確認することができません。<br>
+そこで以下のように<code>&lt;Grid</code>の後に<code>ShowGridLines="True"</code>を入れ実行してみてください。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span> <span class="token attr-name">ShowGridLines</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>True<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid.RowDefinitions</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid.RowDefinitions</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>すると以下のように分割されていることがわかります。<br>
 <img src=".images/../images/Avalonia_Grid_Row.png" alt="grid縦方向の分割"></p>
 <p>ではここにLabelをそれぞれおいてみましょう</p>
 <p><code>MainWindow.axaml</code>を以下のようにコードを書き換えてください。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span> <span class="hljs-attr">ShowGridLines</span>=<span class="hljs-string">"True"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Grid.RowDefinitions</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">Grid.RowDefinitions</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"abc"</span> <span class="hljs-attr">Grid.Row</span> = <span class="hljs-string">"0"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"def"</span> <span class="hljs-attr">Grid.Row</span> = <span class="hljs-string">"1"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"ghi"</span> <span class="hljs-attr">Grid.Row</span> = <span class="hljs-string">"2"</span>/&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>これを実行すると以下のように表示されます。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span> <span class="token attr-name">ShowGridLines</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>True<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid.RowDefinitions</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid.RowDefinitions</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>abc<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Row</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>def<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Row</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghi<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Row</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>これを実行すると以下のように表示されます。</p>
 <p><img src="./images/Avalonia_Grid_Row2.png" alt="Labelを置いて表示する"></p>
-<p><code>Grid.Row = </code> の後に分割したGridの番号を指定するとその分割した空間に配置されます。
+<p><code>Grid.Row = </code> の後に分割したGridの番号を指定するとその分割した空間に配置されます。<br>
 分割した空間に移動するとMarginも分割された空間の左上からの隙間を指定することになります。</p>
-<p>また、Gridで分割するとウインドウの大きさを変えた場合に均等な割合で変更されます。
+<p>また、Gridで分割するとウインドウの大きさを変えた場合に均等な割合で変更されます。<br>
 実際にウインドウを縦方向に小さくした場合以下のようになります。</p>
 <p><img src="./images/Avalonia_Grid_Row3.png" alt="Labelを置いて表示する"></p>
 <p>このように全体に応じてサイズを変更することができます。</p>
-<p>しかしながらサイズを一定にしたい場合や割合で指定したい場合があります。
+<p>しかしながらサイズを一定にしたい場合や割合で指定したい場合があります。<br>
 実際に固定や分割する方法を試してみましょう。</p>
-<p><code>MainWindow.axaml</code>ファイルを以下のように書き換えてください。
+<p><code>MainWindow.axaml</code>ファイルを以下のように書き換えてください。<br>
 このコードはabcと表示するLabelの入っている要素は高さ30で固定、defと表示するLabelの入っている要素とghiと表示するLabelの入っている要素が1:4の割合で表示されるようになっています。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span> <span class="hljs-attr">ShowGridLines</span>=<span class="hljs-string">"True"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Grid.RowDefinitions</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"30"</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"1*"</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"4*"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">Grid.RowDefinitions</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"abc"</span> <span class="hljs-attr">Grid.Row</span> = <span class="hljs-string">"0"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"def"</span> <span class="hljs-attr">Grid.Row</span> = <span class="hljs-string">"1"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"ghi"</span> <span class="hljs-attr">Grid.Row</span> = <span class="hljs-string">"2"</span>/&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>実際に実行すると以下のように表示されます。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span> <span class="token attr-name">ShowGridLines</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>True<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid.RowDefinitions</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>30<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>4*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid.RowDefinitions</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>abc<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Row</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>def<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Row</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghi<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Row</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>実際に実行すると以下のように表示されます。</p>
 <p><img src="./images/Avalonia_Grid_Row4.png" alt="Labelを置いて表示する"></p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span>/&gt;</span>
-</div></code></pre>
-<p>の部分に</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"30"</span>/&gt;</span>
-</div></code></pre>
-<p>と指定することで縦方向の大きさを固定することおができます。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span><span class="token punctuation">/&gt;</span></span>
+</code></pre><p>の部分に</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>30<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre><p>と指定することで縦方向の大きさを固定することおができます。</p>
 <p>一方</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"4*"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"1*"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"1*"</span>/&gt;</span>
-</div></code></pre>
-<p>のように指定すると4:1:1の割合で分割されるようになっています。</p>
-<p>ただし、割合で分割したときに最小の大きさを指定したい場合もあると思います。
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>4*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre><p>のように指定すると4:1:1の割合で分割されるようになっています。</p>
+<p>ただし、割合で分割したときに最小の大きさを指定したい場合もあると思います。<br>
 その場合は以下のように<code>MinHeight = </code>の後に固定値を指定することでそれ以上小さくならなくなっています。最大値も同じように<code>MaxHeight = </code>の後に固定値を置くことで指定できます。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"4*"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"1*"</span> <span class="hljs-attr">MinHeight</span> = <span class="hljs-string">"40"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">RowDefinition</span> <span class="hljs-attr">Height</span> = <span class="hljs-string">"1*"</span>/&gt;</span>
-</div></code></pre>
-<p>次に横方向に分割する方法を説明します。
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>4*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1*<span class="token punctuation">"</span></span> <span class="token attr-name">MinHeight</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>40<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RowDefinition</span> <span class="token attr-name">Height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre><p>次に横方向に分割する方法を説明します。<br>
 横方向もほとんど同様でRowがColumになりHeightがWidthになっています。</p>
 <p>実際に横方向に3分割するように<code>MainWindow.axaml</code>書き換えてみましょう。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span> <span class="hljs-attr">ShowGridLines</span>=<span class="hljs-string">"True"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Grid.ColumnDefinitions</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span>/&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">Grid.ColumnDefinitions</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>実際に実行すると以下のようになります。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span> <span class="token attr-name">ShowGridLines</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>True<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid.ColumnDefinitions</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid.ColumnDefinitions</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>実際に実行すると以下のようになります。</p>
 <p><img src="./images/Avalonia_Grid_Column.png" alt="横方向に分割"></p>
 <p>このように三分割されていることがわかります。</p>
-<p>実際にLabelを置いてみましょう。
+<p>実際にLabelを置いてみましょう。<br>
 以下のように<code>MainWindow.axaml</code>を書き換えます。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span> <span class="hljs-attr">ShowGridLines</span>=<span class="hljs-string">"True"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Grid.ColumnDefinitions</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span>/&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">Grid.ColumnDefinitions</span>&gt;</span>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span> <span class="token attr-name">ShowGridLines</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>True<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid.ColumnDefinitions</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid.ColumnDefinitions</span><span class="token punctuation">&gt;</span></span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"abc"</span> <span class="hljs-attr">Grid.Column</span> = <span class="hljs-string">"0"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"def"</span> <span class="hljs-attr">Grid.Column</span> = <span class="hljs-string">"1"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"ghi"</span> <span class="hljs-attr">Grid.Column</span> = <span class="hljs-string">"2"</span>/&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>実行すると以下のように分割された領域にそれぞれLabelが表示されていることがわかります。</p>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>abc<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Column</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>def<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Column</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghi<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Column</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>実行すると以下のように分割された領域にそれぞれLabelが表示されていることがわかります。</p>
 <p><img src="./images/Avalonia_Grid_Column2.png" alt="横方向に分割ラベルあり"></p>
 <p>横方向の領域を指定するにはLabelなどに<code>Grid.Column = </code>の後に左からゼロから数えて何個目か指定することで指定できます。</p>
 <p>割合などの指定方法も縦方向の分割の方法とほぼ同様です。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span> <span class="hljs-attr">ShowGridLines</span>=<span class="hljs-string">"True"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Grid.ColumnDefinitions</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span> <span class="hljs-attr">Width</span> = <span class="hljs-string">"50"</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span> <span class="hljs-attr">Width</span> = <span class="hljs-string">"2*"</span>/&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span> <span class="hljs-attr">Width</span> = <span class="hljs-string">"3*"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">Grid.ColumnDefinitions</span>&gt;</span>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span> <span class="token attr-name">ShowGridLines</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>True<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid.ColumnDefinitions</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span> <span class="token attr-name">Width</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>50<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span> <span class="token attr-name">Width</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>2*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span> <span class="token attr-name">Width</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>3*<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid.ColumnDefinitions</span><span class="token punctuation">&gt;</span></span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"abc"</span> <span class="hljs-attr">Grid.Column</span> = <span class="hljs-string">"0"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"def"</span> <span class="hljs-attr">Grid.Column</span> = <span class="hljs-string">"1"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Content</span>=<span class="hljs-string">"ghi"</span> <span class="hljs-attr">Grid.Column</span> = <span class="hljs-string">"2"</span>/&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>一番左の領域だけ50で固定、その後の二つの領域は2:3で分割するように指定することができました。</p>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>abc<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Column</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>def<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Column</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name">Content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghi<span class="token punctuation">"</span></span> <span class="token attr-name">Grid.Column</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>一番左の領域だけ50で固定、その後の二つの領域は2:3で分割するように指定することができました。</p>
 <p>最大値と最小値を指定する場合も先ほどとほぼ同様で、</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span> <span class="hljs-attr">Width</span> = <span class="hljs-string">2*</span> <span class="hljs-attr">MinWidth</span> = <span class="hljs-string">20</span> <span class="hljs-attr">MaxWidth</span> = <span class="hljs-string">400/</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">ColumnDefinition</span> <span class="hljs-attr">Width</span> = <span class="hljs-string">3*/</span>&gt;</span>
-</div></code></pre>
-<p>のように指定することができるようになっています。</p>
-<h4 id="button">Button</h4>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span> <span class="token attr-name">Width</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> 2*</span> <span class="token attr-name">MinWidth</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> 20</span> <span class="token attr-name">MaxWidth</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> 400/</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ColumnDefinition</span> <span class="token attr-name">Width</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> 3*/</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>のように指定することができるようになっています。</p>
+<h4 id="button">Button </h4>
 <p>次にButtonの使い方を説明します。</p>
 <p>Buttonはクリックされたときに一定の処理を行うことができる要素です。</p>
 <p>まずボタンは以下のように記述することで描画できます。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Click!"</span> <span class="hljs-attr">x:Name</span> = <span class="hljs-string">"Button1"</span> /&gt;</span>
-</div></code></pre>
-<p>基本的にはLabelと同様に使用することができます。</p>
-<p>ただし<code>x:Name</code>はできるだけ指定するようにしてください。
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Click!<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Button1<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+</code></pre><p>基本的にはLabelと同様に使用することができます。</p>
+<p>ただし<code>x:Name</code>はできるだけ指定するようにしてください。<br>
 指定がない場合プログラムからの操作が難しくなります。</p>
 <p>では実際に動作を確認してみましょう</p>
 <p><code>MainWindow.axaml</code>を以下のように記述してください。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">x:Name</span> = <span class="hljs-string">"Button1"</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Click!"</span>/&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p>これを実行すると以下のように表示されていると思います。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Button1<span class="token punctuation">"</span></span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Click!<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>これを実行すると以下のように表示されていると思います。</p>
 <p><img src="./images/Avalonia_Button.png" alt="Buttonの表示"></p>
-<h5 id="horizontalalignment%E3%81%A8verticalalignment">HorizontalAlignmentとVerticalAlignment</h5>
+<h5 id="horizontalalignmentとverticalalignment">HorizontalAlignmentとVerticalAlignment </h5>
 <p>Labelの場合左上に表示されていましたがButtonの場合は左の真ん中に表示されているようになっていると思います。</p>
-<p>これには<code>HorizontalAlignment</code>と<code>VerticalAlignment</code>が深くかかわっています。
-<code>HorizontalAlignment</code>は縦方向の位置を指定をすることができます。
+<p>これには<code>HorizontalAlignment</code>と<code>VerticalAlignment</code>が深くかかわっています。<br>
+<code>HorizontalAlignment</code>は縦方向の位置を指定をすることができます。<br>
 <code>HorizontalAlignment</code>には以下の値を指定することができます。</p>
 <table>
 <thead>
@@ -905,181 +537,180 @@ Gridを縦に分割するにはGridの中に<code>Grid.RowDefinitions</code>を�
 </table>
 <p>というように指定することができます。</p>
 <p>今回は縦横ともに真ん中に表示させていので以下のようにButtonの部分を書き換えます。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">x:Name</span> = <span class="hljs-string">"Button1"</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Click!"</span> <span class="hljs-attr">VerticalAlignment</span> = <span class="hljs-string">"Center"</span> <span class="hljs-attr">HorizontalAlignment</span> = <span class="hljs-string">"Center"</span>/&gt;</span>
-</div></code></pre>
-<p>Buttonの部分をに書き換え実行すると以下のように表示されます。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Button1<span class="token punctuation">"</span></span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Click!<span class="token punctuation">"</span></span> <span class="token attr-name">VerticalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Center<span class="token punctuation">"</span></span> <span class="token attr-name">HorizontalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Center<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre><p>Buttonの部分をに書き換え実行すると以下のように表示されます。</p>
 <p><img src="./images/Avalonia_Button2.png" alt="Buttonの表示中央"></p>
-<h5 id="button%E3%81%A7%E5%87%A6%E7%90%86%E3%82%92%E3%81%97%E3%82%88%E3%81%86">Buttonで処理をしよう</h5>
+<h5 id="buttonで処理をしよう">Buttonで処理をしよう </h5>
 <p>この状態ではButtonをクリックしても何も動作しません。</p>
 <p>では実際にButtonをクリックするとクリックした回数をカウントするプログラムを追加してみましょう</p>
 <p>しかし今まで記述してきた<code>.axaml</code>ファイルでは動作を指定することができません。なので<code>MainWindow.axaml.cs</code>ファイルを開き動作を記述する必要があります。</p>
 <p><code>MainWindow.axaml.cs</code>を開くにはソリューションエクスプローラーの<code>MainWindow.axaml</code>の横の<code>&gt;</code>ボタンを押すことで<code>MainWindow.axaml.cs</code>が表示されるのでそれをクリックしてください。</p>
 <p>ファイルを開けると以下のようなコードが表示されます。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> Avalonia.Controls;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">Avalonia<span class="token punctuation">.</span>Controls</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ExamCalc</span>;
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ExamCalc</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span> : <span class="hljs-title">Window</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-params"></span>)</span>
-    {
-        InitializeComponent();
-    }
-}
-</div></code></pre>
-<p>8行目のコンストラクタ内に記述されている<code>InitializeComponent()</code>の部分は先ほど記述した<code>MainWindow.axaml</code>内の指定を表示するためのメソッドですので消さないようにしてください。</p>
-<p>では動作を指定するためにイベントを登録します。
-AvaloniaUIでは<code>Button</code>の<code>Click</code>イベントにメソッドを登録してクリックされた時の動作を指定する形になっています。
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-partial">partial</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MainWindow</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Window</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token function">MainWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>8行目のコンストラクタ内に記述されている<code>InitializeComponent()</code>の部分は先ほど記述した<code>MainWindow.axaml</code>内の指定を表示するためのメソッドですので消さないようにしてください。</p>
+<p>では動作を指定するためにイベントを登録します。<br>
+AvaloniaUIでは<code>Button</code>の<code>Click</code>イベントにメソッドを登録してクリックされた時の動作を指定する形になっています。<br>
 このようなプログラムの書き方を<strong>イベント思考プログラミング</strong>と言います。</p>
 <p>実際に<code>Click</code>イベントを登録してみましょう</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> Avalonia.Controls;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">Avalonia<span class="token punctuation">.</span>Controls</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ExamCalc</span>;
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ExamCalc</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span> : <span class="hljs-title">Window</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-params"></span>)</span>
-    {
-        InitializeComponent();
-        Button1.Click += Button1_Click;
-    }
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-partial">partial</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MainWindow</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Window</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token function">MainWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Button1<span class="token punctuation">.</span>Click <span class="token operator">+=</span> Button1_Click<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
     
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button1_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span>? sender, Avalonia.Interactivity.RoutedEventArgs e</span>)</span>
-    {
+    <span class="token keyword keyword-private">private</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Button1_Click</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-object">object</span><span class="token punctuation">?</span></span> sender<span class="token punctuation">,</span> <span class="token class-name">Avalonia<span class="token punctuation">.</span>Interactivity<span class="token punctuation">.</span>RoutedEventArgs</span> e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-}
-</div></code></pre>
-<p>9行目にある</p>
-<pre class="hljs"><code><div>Button1.Click += Button1_Click;
-</div></code></pre>
-<p>は
-Button1の部分でButton1という変数を指定していますが、
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>9行目にある</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Button1.Click += Button1_Click;
+</code></pre><p>は<br>
+Button1の部分でButton1という変数を指定していますが、<br>
 これは先ほどの<code>MainWindow.axaml</code>ファイルで記述した</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">x:Name</span> = <span class="hljs-string">"Button1"</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Click!"</span> <span class="hljs-attr">VerticalAlignment</span> = <span class="hljs-string">"Center"</span> <span class="hljs-attr">HorizontalAlignment</span> = <span class="hljs-string">"Center"</span>/&gt;</span>
-</div></code></pre>
-<p>の要素を指定していることになります。</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Button1<span class="token punctuation">"</span></span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Click!<span class="token punctuation">"</span></span> <span class="token attr-name">VerticalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Center<span class="token punctuation">"</span></span> <span class="token attr-name">HorizontalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Center<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre><p>の要素を指定していることになります。</p>
 <p><code>x:Name</code>で記述した名前は<code>MainWindow.axaml.cs</code>ファイルでも操作・指定することが可能です。</p>
 <p>このButton1という変数の<code>Click</code>イベントに14行目で宣言した<code>Button1_Click</code>というメソッドを指定していることになっています。</p>
 <p>これでボタンが押された時に<code>Button1_Click</code>メソッドが実行されるようになりました。</p>
 <p>しかしこのままではボタンの文字は変更されないのでボタンの文字をカウントに変えるようにしましょう。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> Avalonia.Controls;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">Avalonia<span class="token punctuation">.</span>Controls</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ExamCalc</span>;
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ExamCalc</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span> : <span class="hljs-title">Window</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-params"></span>)</span>
-    {
-        InitializeComponent();
-        Button1.Click += Button1_Click;
-    }
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-partial">partial</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MainWindow</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Window</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token function">MainWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Button1<span class="token punctuation">.</span>Click <span class="token operator">+=</span> Button1_Click<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">int</span> Count = <span class="hljs-number">0</span>;
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button1_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span>? sender, Avalonia.Interactivity.RoutedEventArgs e</span>)</span>
-    {
-        Count = Count + <span class="hljs-number">1</span>;
-        Button1.Content = Count.ToString();
-    }
-}
-</div></code></pre>
-<p>13行目にint型のCountという変数を用意しました。
+    <span class="token class-name"><span class="token keyword keyword-int">int</span></span> Count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-private">private</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Button1_Click</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-object">object</span><span class="token punctuation">?</span></span> sender<span class="token punctuation">,</span> <span class="token class-name">Avalonia<span class="token punctuation">.</span>Interactivity<span class="token punctuation">.</span>RoutedEventArgs</span> e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Count <span class="token operator">=</span> Count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        Button1<span class="token punctuation">.</span>Content <span class="token operator">=</span> Count<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>13行目にint型のCountという変数を用意しました。<br>
 クリックされるとこのCountという変数の数値が1ずつ上がっていきます。</p>
-<p>17行目は<code>Button1</code>の<code>Content</code>という要素を書き換えています。
-<code>Content</code>という部分は<code>.axaml</code>ファイルで指定したように表示されている文字を指定する変数になっています。
+<p>17行目は<code>Button1</code>の<code>Content</code>という要素を書き換えています。<br>
+<code>Content</code>という部分は<code>.axaml</code>ファイルで指定したように表示されている文字を指定する変数になっています。<br>
 実は<code>.axaml</code>ファイルで指定できる要素はC#でも指定できるようになっているので今回のように指定できます。</p>
 <p><code>変数.ToString</code>の部分については、変数を無理やり文字列に変更するというものになっています。数値以外のものであれば型の名前に変換されることもあるのでどのような値に変換されるかよく確認して使ってください。</p>
 <p>実際に実行して3回クリックすると以下のようになります。</p>
 <p><img src="./images/Avalonia_Button3.png" alt="Buttonのイベント"></p>
 <p>このように3と表示されていたら正しく作成することができています。</p>
-<h5 id="text">Text</h5>
+<h5 id="text">Text </h5>
 <p>Text要素は文字を入力できる要素になっています。</p>
-<p>基本的な使い方は変わりませんがButtonとLabelとは大きく異なる点があります。
-それは表示する文字を指定するプロパティ名です
+<p>基本的な使い方は変わりませんがButtonとLabelとは大きく異なる点があります。<br>
+それは表示する文字を指定するプロパティ名です<br>
 今までは<code>Content</code>でしたがTextは<code>Text</code>となっています。</p>
 <p>実際に使いながら動作を確認しましょう。</p>
 <p><code>MainWindow.axaml</code>を以下のように書き換えてください。</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://github.com/avaloniaui"</span>
-        <span class="hljs-attr">xmlns:x</span>=<span class="hljs-string">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
-        <span class="hljs-attr">xmlns:d</span>=<span class="hljs-string">"http://schemas.microsoft.com/expression/blend/2008"</span>
-        <span class="hljs-attr">xmlns:mc</span>=<span class="hljs-string">"http://schemas.openxmlformats.org/markup-compatibility/2006"</span>
-        <span class="hljs-attr">mc:Ignorable</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">d:DesignWidth</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">d:DesignHeight</span>=<span class="hljs-string">"450"</span>
-        <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"ExamCalc.MainWindow"</span>
-        <span class="hljs-attr">Title</span>=<span class="hljs-string">"ExamCalc"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">TextBox</span> <span class="hljs-attr">x:Name</span> = <span class="hljs-string">"TextBox1"</span> <span class="hljs-attr">VerticalAlignment</span> = <span class="hljs-string">"Top"</span> <span class="hljs-attr">HorizontalAlignment</span> = <span class="hljs-string">"Stretch"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">x:Name</span> = <span class="hljs-string">"Label1"</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"NoInput"</span> <span class="hljs-attr">Margin</span> = <span class="hljs-string">"0,30,0,0"</span> <span class="hljs-attr">VerticalAlignment</span> = <span class="hljs-string">"Top"</span> <span class="hljs-attr">HorizontalAlignment</span> = <span class="hljs-string">"Left"</span>/&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">x:Name</span> = <span class="hljs-string">"Button1"</span> <span class="hljs-attr">Content</span> = <span class="hljs-string">"Click!"</span> <span class="hljs-attr">Margin</span> = <span class="hljs-string">"0,50,0,0"</span> <span class="hljs-attr">VerticalAlignment</span> = <span class="hljs-string">"Top"</span> <span class="hljs-attr">HorizontalAlignment</span> = <span class="hljs-string">"Left"</span>/&gt;</span>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Window</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://github.com/avaloniaui<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/winfx/2006/xaml<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/expression/blend/2008<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">xmlns:</span>mc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.openxmlformats.org/markup-compatibility/2006<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">mc:</span>Ignorable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">d:</span>DesignHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>450<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">x:</span>Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc.MainWindow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">Title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ExamCalc<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grid</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TextBox</span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>TextBox1<span class="token punctuation">"</span></span> <span class="token attr-name">VerticalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Top<span class="token punctuation">"</span></span> <span class="token attr-name">HorizontalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Stretch<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Label</span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Label1<span class="token punctuation">"</span></span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>NoInput<span class="token punctuation">"</span></span> <span class="token attr-name">Margin</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0,30,0,0<span class="token punctuation">"</span></span> <span class="token attr-name">VerticalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Top<span class="token punctuation">"</span></span> <span class="token attr-name">HorizontalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Left<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Button1<span class="token punctuation">"</span></span> <span class="token attr-name">Content</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Click!<span class="token punctuation">"</span></span> <span class="token attr-name">Margin</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>0,50,0,0<span class="token punctuation">"</span></span> <span class="token attr-name">VerticalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Top<span class="token punctuation">"</span></span> <span class="token attr-name">HorizontalAlignment</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>Left<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
                 
-        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span>
-</div></code></pre>
-<p><code>MainWindow.axaml.cs</code>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Grid</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Window</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p><code>MainWindow.axaml.cs</code><br>
 を以下のように記述します。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> Avalonia.Controls;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">Avalonia<span class="token punctuation">.</span>Controls</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ExamCalc</span>;
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ExamCalc</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span> : <span class="hljs-title">Window</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-params"></span>)</span>
-    {
-        InitializeComponent();
-        Button1.Click += Button1_Click;
-    }
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-partial">partial</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MainWindow</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Window</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token function">MainWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Button1<span class="token punctuation">.</span>Click <span class="token operator">+=</span> Button1_Click<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button1_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span>? sender, Avalonia.Interactivity.RoutedEventArgs e</span>)</span>
-    {
-        Label1.Content = TextBox1.Text;
-    }
-}
-</div></code></pre>
-<p>このプログラムはボタンを押すと一番上のTextBoxに表示された文字をLabelに表示するというプログラムになっています。</p>
-<pre class="hljs"><code><div>TextBox1.Text
-</div></code></pre>
-<p>と指定することで値を取得できます。</p>
+    <span class="token keyword keyword-private">private</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Button1_Click</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-object">object</span><span class="token punctuation">?</span></span> sender<span class="token punctuation">,</span> <span class="token class-name">Avalonia<span class="token punctuation">.</span>Interactivity<span class="token punctuation">.</span>RoutedEventArgs</span> e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Label1<span class="token punctuation">.</span>Content <span class="token operator">=</span> TextBox1<span class="token punctuation">.</span>Text<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>このプログラムはボタンを押すと一番上のTextBoxに表示された文字をLabelに表示するというプログラムになっています。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>TextBox1.Text
+</code></pre><p>と指定することで値を取得できます。</p>
 <p>逆に値を設定することもできるので文字が入力された後TextBoxの中を空にするようにプログラムを修正してみます。</p>
 <p><code>MainWindow.axaml.cs</code>を以下のように書き換えます。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> Avalonia.Controls;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">Avalonia<span class="token punctuation">.</span>Controls</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ExamCalc</span>;
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">ExamCalc</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span> : <span class="hljs-title">Window</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-params"></span>)</span>
-    {
-        InitializeComponent();
-        Button1.Click += Button1_Click;
-    }
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-partial">partial</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">MainWindow</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Window</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token function">MainWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Button1<span class="token punctuation">.</span>Click <span class="token operator">+=</span> Button1_Click<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Button1_Click</span>(<span class="hljs-params"><span class="hljs-keyword">object</span>? sender, Avalonia.Interactivity.RoutedEventArgs e</span>)</span>
-    {
-        Label1.Content = TextBox1.Text;
-        TextBox1.Text = <span class="hljs-string">""</span>;
-    }
-}
-</div></code></pre>
-<p>これを実行しTextBoxに値を入力しボタンを押すとLabelにその文字が表示されTextBoxの文字は消えると思います。</p>
-<h3 id="%E4%BD%9C%E5%93%81%E3%82%92%E4%BD%9C%E3%82%8B">作品を作る</h3>
-<h4 id="ui%E3%81%AE%E4%BD%9C%E6%88%90">UIの作成</h4>
+    <span class="token keyword keyword-private">private</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Button1_Click</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-object">object</span><span class="token punctuation">?</span></span> sender<span class="token punctuation">,</span> <span class="token class-name">Avalonia<span class="token punctuation">.</span>Interactivity<span class="token punctuation">.</span>RoutedEventArgs</span> e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Label1<span class="token punctuation">.</span>Content <span class="token operator">=</span> TextBox1<span class="token punctuation">.</span>Text<span class="token punctuation">;</span>
+        TextBox1<span class="token punctuation">.</span>Text <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>これを実行しTextBoxに値を入力しボタンを押すとLabelにその文字が表示されTextBoxの文字は消えると思います。</p>
+<h3 id="作品を作る">作品を作る </h3>
+<h4 id="uiの作成">UIの作成 </h4>
 <p>以下に解答例としてファイルがダウンロードできるので実際に動かして同じように動くようにプログラムを作成してみてください。</p>
-<h5 id="mac">Mac</h5>
+<h5 id="mac">Mac </h5>
 <p>2019年以前に発売ののMacを使用している場合はMac x64をダウンロードしてくださいそれ以降のMacを使用している方はMac armをダウンロードしてください。</p>
-<p><a href = "./Files/ExamCalcMac_x64.zip" Download="ExamCalc.zip">Download Mac x64</a></p>
-<p><a href = "./Files/ExamCalcMac_arm64.zip" Download="ExamCalc.zip">Download Mac arm64</a></p>
-<h5 id="windows">Windows</h5>
+<p><a href="./Files/ExamCalcMac_x64.zip" download="ExamCalc.zip">Download Mac x64</a></p>
+<p><a href="./Files/ExamCalcMac_arm64.zip" download="ExamCalc.zip">Download Mac arm64</a></p>
+<h5 id="windows">Windows </h5>
 <p>基本的にWindows x64をダウンロードしてください。動かない場合はWindows x86それでも動かない場合はWindows arm64をダウンロードしてください。</p>
-<p><a href = "./Files/ExamCalcWindows_x64.zip" Download="ExamCalc.zip">Download Windows x64</a></p>
-<p><a href = "./Files/ExamCalcWindows_x64.zip" Download="ExamCalc.zip">Download Windows x86</a></p>
-<p><a href = "./Files/ExamCalcWindows_arm64.zip" Download="ExamCalc.zip">Download Windows arm64</a></p>
-<h5 id="linux">Linux</h5>
-<p>通常のパソコンであればLinux x64をダウンロードしてください。
-もし、Raspberry Pi 3以前のRaspberry Piを使用している場合はLunux armをダウンロードしてください。
+<p><a href="./Files/ExamCalcWindows_x64.zip" download="ExamCalc.zip">Download Windows x64</a></p>
+<p><a href="./Files/ExamCalcWindows_x64.zip" download="ExamCalc.zip">Download Windows x86</a></p>
+<p><a href="./Files/ExamCalcWindows_arm64.zip" download="ExamCalc.zip">Download Windows arm64</a></p>
+<h5 id="linux">Linux </h5>
+<p>通常のパソコンであればLinux x64をダウンロードしてください。<br>
+もし、Raspberry Pi 3以前のRaspberry Piを使用している場合はLunux armをダウンロードしてください。<br>
 それ以降のRaspberry Piを使用している場合はLinux arm64をダウンロードしてください。</p>
-<p><a href = "./Files/ExamCalcLinux_x64.zip" Download="ExamCalc.zip">Download Linux x64</a></p>
-<p><a href = "./Files/ExamCalcLinux_arm.zip" Download="ExamCalc.zip">Download Linux arm</a></p>
-<p><a href = "./Files/ExamCalcLinux_arm64.zip" Download="ExamCalc.zip">Download Linux arm64</a></p>
+<p><a href="./Files/ExamCalcLinux_x64.zip" download="ExamCalc.zip">Download Linux x64</a></p>
+<p><a href="./Files/ExamCalcLinux_arm.zip" download="ExamCalc.zip">Download Linux arm</a></p>
+<p><a href="./Files/ExamCalcLinux_arm64.zip" download="ExamCalc.zip">Download Linux arm64</a></p>
 
-</body>
-</html>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

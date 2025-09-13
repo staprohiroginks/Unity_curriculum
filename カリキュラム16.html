@@ -1,374 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>カリキュラム16.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="unity16%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E7%89%A9%E4%BD%93%E3%82%92%E5%8B%95%E3%81%8B%E3%81%99">Unity16:プログラムを使って物体を動かす</h1>
-<p>今までの学習である程度Unityの使い方を理解できたと思います。
+<!DOCTYPE html><html><head>
+      <title>カリキュラム16</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Binary_number\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.19\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="unity16プログラムを使って物体を動かす">Unity16:プログラムを使って物体を動かす </h1>
+<p>今までの学習である程度Unityの使い方を理解できたと思います。<br>
 この回からはどのようにプログラムを関連付けるのか、どのようにオブジェクトを動かすのかを学習します。</p>
-<h2 id="unity%E3%81%AE%E5%BA%A7%E6%A8%99%E9%96%A2%E4%BF%82">Unityの座標関係</h2>
+<h2 id="unityの座標関係">Unityの座標関係 </h2>
 <p>Unityの座標は以下の座標のように物体から見てx軸が前、y軸が上、z軸が左のようになっています。</p>
 <p><img src="./images/Unity-X-Y-Z.png" alt="座標1"></p>
 <p>しかし、物体の向きが変わってしまった場合物体から見る座標のワールドの二種類が存在します。</p>
@@ -376,103 +35,96 @@ code {
 <p>このような場合にはゲームオブジェクトから見た座標をワールド座標や相対座標といいます。</p>
 <p>逆にゲームオブジェクトの向きを考えずにワールド座標で考えると以下のような図になります</p>
 <p><img src="./images/Unity-X-Y-Z3.png" alt="座標2"></p>
-<h2 id="script%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">Scriptを作成する。</h2>
+<h2 id="scriptを作成する">Scriptを作成する。 </h2>
 <p>UnityはC#で動きなどを指定します。Unity内ではプログラムのことをスクリプトと呼んでいます。</p>
 <p>スクリプトを作成するにはマテリアルと同様Assets内を右クリックし<strong>作成&gt;C# スクリプト</strong>とクリックすることで追加することができます。</p>
 <p>では<code>SampleScript</code>というファイルを作成してみましょう。</p>
 <p>もし、異なる名前で保存された場合はファイルを右クリック&gt;<code>名前を変更</code>で変更することができます。</p>
 <p>ファイルができたのちファイルをダブルクリックするとVisual Studio(など)が起動します。</p>
 <p>新しく作ったファイルには以下のようなコードが記述されています。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">SampleScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
-}
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</div></code></pre>
-<p>Startというメソッドは実行時に一度だけ実行されるメソッドです、</p>
+</code></pre><p>Startというメソッドは実行時に一度だけ実行されるメソッドです、</p>
 <p>Updateは定期的に呼び出されるメソッドです。</p>
 <p>Startは初期化や設定、Updateは更新という使い方が多くされます。</p>
-<p>このほかにFixedUpdateというメソッドなどが使用できFixedUpdateは物理エンジンを使用した移動などの際に使用します。
+<p>このほかにFixedUpdateというメソッドなどが使用できFixedUpdateは物理エンジンを使用した移動などの際に使用します。<br>
 また、FixedUpdateは基本的に一定間隔で実行されるため物体を移動させる時は基本的にFixedUpdate内に書いたほうが良いでしょう。今回はUpdate内に書いていますが、場面に応じて判断してください。</p>
-<p>Unityでプログラムを書く上で気を付けることがあります。
-それはメソッド内で無限ループや極端に長いループを書かないことです。　
+<p>Unityでプログラムを書く上で気を付けることがあります。<br>
+それはメソッド内で無限ループや極端に長いループを書かないことです。　<br>
 無限ループなどを書くとクラッシュの原因になります。</p>
-<h3 id="%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%A8%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%AE%E9%96%A2%E4%BF%82">ゲームオブジェクトとスクリプトの関係</h3>
-<p>スクリプトはゲームオブジェクトに紐づけることができるようになっています。
+<h3 id="ゲームオブジェクトとスクリプトの関係">ゲームオブジェクトとスクリプトの関係 </h3>
+<p>スクリプトはゲームオブジェクトに紐づけることができるようになっています。<br>
 このゲームオブジェクトにスクリプトを紐づけることをアタッチといいます。</p>
 <p>アタッチする方法を説明します。</p>
 <p>アタッチするにはゲームオブジェクトにスクリプトをドラッグアンドドロップします。</p>
 <p>今回はCubeにSampleScriptをアタッチしてみましょう。</p>
 <p>画像のようにスクリプトをドラッグアンドドロップします。</p>
 <p><img src="./images/UnityScriptAttach.png" alt=""></p>
-<p>ドラッグアンドドロップした後
+<p>ドラッグアンドドロップした後<br>
 Cubeのインスペクターウインドウを見てみるとSampleScriptがアタッチされていることがわかります。</p>
 <p><img src="./images/SampleScriptAttached.png" alt="アタッチ後のインスペクターウインドウ"></p>
 <p>ここからスクリプトのアタッチ解除や今後説明するパラメータの設定ができるようになっています。</p>
 <p>もし、二つのゲームオブジェクトにアタッチした場合でもそれぞれのプログラムでインスタンスが作成され、独立して動作します。</p>
-<h3 id="%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86">動かしてみよう。</h3>
+<h3 id="動かしてみよう">動かしてみよう。 </h3>
 <p>Unityにはゲームオブジェクトを動かす方法が複数あります。</p>
 <p>それぞれの動作と使い分けの違いなどを確認していきます。</p>
-<h4 id="transformposition%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">transform.positionを使用する。</h4>
-<p>物体を動かすには対象のゲームオブジェクトのTransform型の値が必要になります。
-Transformは物体の位置や方向などを指定するためのクラスです。
+<h4 id="transformpositionを使用する">transform.positionを使用する。 </h4>
+<p>物体を動かすには対象のゲームオブジェクトのTransform型の値が必要になります。<br>
+Transformは物体の位置や方向などを指定するためのクラスです。<br>
 この変数はSampleScriptの派生元クラスに<code>transform</code>という変数として設定されています。</p>
 <p>これは実行されているゲームオブジェクトの位置情報などを取得することができるようになっています。</p>
 <p>この<code>transform</code>のメソッドを呼び出すことで位置を移動したり、方向を変えたりすることができます。</p>
 <p>物体を動かすには二つの方法がありますが、簡単な<code>transform.position</code>の値を変える方法を説明します。</p>
-<p><code>transform.position</code>はx,y,z軸の座標Vecter3という型でpositionに保存されています。
+<p><code>transform.position</code>はx,y,z軸の座標Vecter3という型でpositionに保存されています。<br>
 これらの数値を変えることで位置を移動することができる。というものです。</p>
 <p>では実際に動かしてみましょう。</p>
 <p>以下のようにUpddateメソッドを書き換えてください</p>
-<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-{
-    transform.position = transform.position + <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0.01f</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
-}
-</div></code></pre>
-<p>このプログラムはx軸方向に0.01mづつ一定の速度で移動します。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    transform<span class="token punctuation">.</span>position <span class="token operator">=</span> transform<span class="token punctuation">.</span>position <span class="token operator">+</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Vector3</span><span class="token punctuation">(</span><span class="token number">0.01f</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>このプログラムはx軸方向に0.01mづつ一定の速度で移動します。</p>
 <p>実行してみるとCubeが移動しているのを確認することができると思います。</p>
-<p>しかし、これでは移動というより座標を0.01づつ動かしているだけなので移動というより、瞬間移動を連続で行っている状況に近くなります。
-そのため、正しく動作しない可能性があります。
+<p>しかし、これでは移動というより座標を0.01づつ動かしているだけなので移動というより、瞬間移動を連続で行っている状況に近くなります。<br>
+そのため、正しく動作しない可能性があります。<br>
 例えば移動速度を上げすぎると瞬間移動ですのであたるはずの壁を通り抜けてしまうなどの不具合が発生するかもしれません。</p>
 <p>実際に以下のページより正しく動作しないことが確認できます。</p>
 <p><a href="https://qiita.com/soutarouzaurusu/items/ea32ed6338f9d1004d42">なぜRigidbodyオブジェクトをTransformで移動させてはいけないのか</a></p>
-<h5 id="%E3%82%B3%E3%83%A9%E3%83%A0transformforward%E3%81%A8transformposition%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">コラム:transform.forwardとtransform.positionを使用する</h5>
-<p><code>transform.forward</code>はtransformを持っているオブジェクトの前の向き(ゲームオブジェクトのローカル座標上のZ軸)を絶対座標のVector3型で調べることができます。
+<h5 id="コラムtransformforwardとtransformpositionを使用する">コラム:transform.forwardとtransform.positionを使用する </h5>
+<p><code>transform.forward</code>はtransformを持っているオブジェクトの前の向き(ゲームオブジェクトのローカル座標上のZ軸)を絶対座標のVector3型で調べることができます。<br>
 以下のように取得することができます。</p>
-<pre class="hljs"><code><div>Vector3型変数 = transform.forward.forward
-</div></code></pre>
-<p>なのでこのコードを使用すると</p>
-<pre class="hljs"><code><div>transform.position = transform.position + transform.forward;
-</div></code></pre>
-<p>のように指定することで前に進むことができます。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>Vector3型変数 <span class="token operator">=</span> transform<span class="token punctuation">.</span>forward<span class="token punctuation">.</span>forward
+</code></pre><p>なのでこのコードを使用すると</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>transform<span class="token punctuation">.</span>position <span class="token operator">=</span> transform<span class="token punctuation">.</span>position <span class="token operator">+</span> transform<span class="token punctuation">.</span>forward<span class="token punctuation">;</span>
+</code></pre><p>のように指定することで前に進むことができます。</p>
 <p>またtransform.forwardは前に1進むような値を持っているので距離3だけ進みたい場合は以下のように記述することで実現できます。</p>
-<pre class="hljs"><code><div>transform.position = transform.position + transform.forward * <span class="hljs-number">3</span>;
-</div></code></pre>
-<h4 id="transformtranslate%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">transform.Translateメソッドを使用する。</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>transform<span class="token punctuation">.</span>position <span class="token operator">=</span> transform<span class="token punctuation">.</span>position <span class="token operator">+</span> transform<span class="token punctuation">.</span>forward <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
+</code></pre><h4 id="transformtranslateメソッドを使用する">transform.Translateメソッドを使用する。 </h4>
 <p>transform.positionは絶対座標を示しています。positionの値を変更することでゲームオブジェクトの場所を移動するようになっています。</p>
 <p>transform.Translateメソッドを使用すると現在座標からどれだけ移動するか指定することが可能になっています。</p>
 <p>transform.Translateの使用方法は以下のように使用することができます。</p>
-<pre class="hljs"><code><div>transform.Translate(Vector3の変数,Space);
-</div></code></pre>
-<p>また、以下のようにx,y,zを独立して指定することも可能です。</p>
-<pre class="hljs"><code><div>transform.Translate(x方向の移動量,y方向の移動量,z方向の移動量,Space);
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>transform<span class="token punctuation">.</span><span class="token function">Translate</span><span class="token punctuation">(</span>Vector3の変数<span class="token punctuation">,</span>Space<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>また、以下のようにx,y,zを独立して指定することも可能です。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>transform<span class="token punctuation">.</span><span class="token function">Translate</span><span class="token punctuation">(</span>x方向の移動量<span class="token punctuation">,</span>y方向の移動量<span class="token punctuation">,</span>z方向の移動量<span class="token punctuation">,</span>Space<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-</div></code></pre>
-<p>Vector3の変数の値は現在の位置からどれだけ移動させるかの値を示します。
+</code></pre><p>Vector3の変数の値は現在の位置からどれだけ移動させるかの値を示します。<br>
 Spaceに指定できる値は以下の二種類になっています。</p>
 <table>
 <thead>
@@ -494,94 +146,87 @@ Spaceに指定できる値は以下の二種類になっています。</p>
 </table>
 <p>このようにどこを基準にどれだけ動かすか指定できます。</p>
 <p>ではUpdateメソッドを以下のように書き換え先ほどと同様に動作することが確認できると思います。</p>
-<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-{
-    transform.Translate(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.01f</span>),Space.World);
-}
-</div></code></pre>
-<p>先ほどの通りx軸方向に移動することができるようになります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    transform<span class="token punctuation">.</span><span class="token function">Translate</span><span class="token punctuation">(</span><span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Vector3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.01f</span><span class="token punctuation">)</span><span class="token punctuation">,</span>Space<span class="token punctuation">.</span>World<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>先ほどの通りx軸方向に移動することができるようになります。</p>
 <p>また、以下のような記述も可能です</p>
-<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-{
-    transform.Translate(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.01f</span>,Space.World);
-}
-</div></code></pre>
-<p>しかしながらtransform.positionと同様で瞬間移動を繰り返しているような動作なので正しく動作しない場合があります。</p>
-<h4 id="rigidbodyposition%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">Rigidbody.positionを使用する</h4>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    transform<span class="token punctuation">.</span><span class="token function">Translate</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.01f</span><span class="token punctuation">,</span>Space<span class="token punctuation">.</span>World<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>しかしながらtransform.positionと同様で瞬間移動を繰り返しているような動作なので正しく動作しない場合があります。</p>
+<h4 id="rigidbodypositionを使用する">Rigidbody.positionを使用する </h4>
 <p>Trasformを使用すると移動することはできましたが、前述したように瞬間移動を繰り返していることになるので物理演算を適応させた場合正しく動かない可能性がありますので基本的にはRigidbody(物理演算)を追加しているゲームオブジェクトはTransformを使用してはいけません。</p>
 <p>これを解決するのにRigidbody.positionを使用することで解決できます。</p>
-<h5 id="rigidbody%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B">Rigidbodyを取得する。</h5>
+<h5 id="rigidbodyを取得する">Rigidbodyを取得する。 </h5>
 <p>Rigidbody.positionを使用するにはRigidbodyを取得する必要があります。</p>
 <p>以下のようにRigidbodyを取得することができます。</p>
-<pre class="hljs"><code><div>Rigidbody 変数名 = GetComponent&lt;Rigidbody&gt;();
-</div></code></pre>
-<p>rigidbodyは一度取得すると何度も取得しなおす必要はないのでStartメソッドで取得するのが望ましいでしょう。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>Rigidbody 変数名 <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>rigidbodyは一度取得すると何度も取得しなおす必要はないのでStartメソッドで取得するのが望ましいでしょう。</p>
 <p>SampleScript.csを以下のように書くことでメンバ変数として値を取得することができるようになっています。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">SampleScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
 
-    Rigidbody rb; <span class="hljs-comment">// 取得したStartメソッドで取得したRigidBodyを保存しておくための変数</span>
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span> <span class="token comment">// 取得したStartメソッドで取得したRigidBodyを保存しておくための変数</span>
 
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb = GetComponent&lt;Rigidbody&gt;()
-    }
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
 
-    }
-}
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</div></code></pre>
-<h5 id="rigidbodyposition%E3%81%A7%E7%A7%BB%E5%8B%95%E3%81%99%E3%82%8B">Rigidbody.positionで移動する。</h5>
+</code></pre><h5 id="rigidbodypositionで移動する">Rigidbody.positionで移動する。 </h5>
 <p>Rigidbody.positionは以下のように動作させることが可能です。</p>
-<pre class="hljs"><code><div>Rigidbodyの変数.position = <span class="hljs-keyword">new</span> Vector3(新しいx座標の位置,新しいy座標の位置,新しいz座標の位置);
-</div></code></pre>
-<p>以下のコードをコードを実行してみましょう</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>Rigidbodyの変数<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Vector3</span><span class="token punctuation">(</span>新しいx座標の位置<span class="token punctuation">,</span>新しいy座標の位置<span class="token punctuation">,</span>新しいz座標の位置<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>以下のコードをコードを実行してみましょう</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">SampleScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
 
-    Rigidbody rb; <span class="hljs-comment">// 取得したStartメソッドで取得したRigidBodyを保存しておくための変数</span>
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span> <span class="token comment">// 取得したStartメソッドで取得したRigidBodyを保存しておくための変数</span>
 
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb = GetComponent&lt;Rigidbody&gt;();
-    }
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
 
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>(<span class="hljs-params"></span>)</span>{
-        rb.position = rb.position + <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0.05f</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>); 
-    }
-}
-</div></code></pre>
-<p>このコードを実行すると先ほどほぼ同様の動きをしますが、よく見ると少し摩擦を受けたような動きをすると思います。このように物理演算をしていることがわかると思います。</p>
-<p>このプログラムが先ほどと大きく異なる点はUpdate内ではなくFixedUpdate内で処理を書いていることが大きな違いの一つだと思います。
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">FixedUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        rb<span class="token punctuation">.</span>position <span class="token operator">=</span> rb<span class="token punctuation">.</span>position <span class="token operator">+</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Vector3</span><span class="token punctuation">(</span><span class="token number">0.05f</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>このコードを実行すると先ほどほぼ同様の動きをしますが、よく見ると少し摩擦を受けたような動きをすると思います。このように物理演算をしていることがわかると思います。</p>
+<p>このプログラムが先ほどと大きく異なる点はUpdate内ではなくFixedUpdate内で処理を書いていることが大きな違いの一つだと思います。<br>
 FixedUpdateは物理演算をする際に呼び出されるメソッドです。Updateでも動作はしますが、正しく動作しない可能性がありますのでRigidbodyを使用する際はFixedUpdateを使用してください。</p>
-<h4 id="rigidbodyaddforce%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">Rigidbody.AddForceメソッドを使用する</h4>
+<h4 id="rigidbodyaddforceメソッドを使用する">Rigidbody.AddForceメソッドを使用する </h4>
 <p>AddForceメソッドは先ほどのpositionのパラメータを変える動作とは異なり、ゲームオブジェクトに力を加えることで動き追加します。</p>
 <p>ではAddForceメソッドを実際に使ってみましょう。</p>
 <p>AddForceメソッドは以下のように使用することができます</p>
-<pre class="hljs"><code><div>Rigidbodyの変数.AddForce(Vector3型の各方向への力,力の加え方);
-</div></code></pre>
-<p>第二引数の力の加え方には4つの種類があります。
-これはForceModeというEnum型で表現されています。
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>Rigidbodyの変数<span class="token punctuation">.</span><span class="token function">AddForce</span><span class="token punctuation">(</span>Vector3型の各方向への力<span class="token punctuation">,</span>力の加え方<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>第二引数の力の加え方には4つの種類があります。<br>
+これはForceModeというEnum型で表現されています。<br>
 それぞれ以下のようなプロパティがあります。</p>
 <table>
 <thead>
@@ -597,7 +242,7 @@ FixedUpdateは物理演算をする際に呼び出されるメソッドです。
 </tr>
 <tr>
 <td>ForceMode.Acceleration</td>
-<td>加速度($m/s^2$)として力を与えます。</td>
+<td>加速度(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi mathvariant="normal">/</mi><msup><mi>s</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">m/s^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal">m</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>)として力を与えます。</td>
 </tr>
 <tr>
 <td>ForceMode.Impulse</td>
@@ -611,209 +256,203 @@ FixedUpdateは物理演算をする際に呼び出されるメソッドです。
 </table>
 <p>このようにそれぞれのForceModeの使い方で動作が異なるので場面に応じて使い分けてください。</p>
 <p>また、AddForceもTranslateと同様x,y,z座標を個別に指定することも可能です。</p>
-<pre class="hljs"><code><div>
-Rigidbodyの変数.AddForce(x方向のパラメータ,y方向のパラメータ,z方向のパラメータ,力の加え方);
-</div></code></pre>
-<p>また、Vector3やx,y,zの値は絶対座標で表現されます。
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>Rigidbodyの変数<span class="token punctuation">.</span><span class="token function">AddForce</span><span class="token punctuation">(</span>x方向のパラメータ<span class="token punctuation">,</span>y方向のパラメータ<span class="token punctuation">,</span>z方向のパラメータ<span class="token punctuation">,</span>力の加え方<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>また、Vector3やx,y,zの値は絶対座標で表現されます。<br>
 なのでブロックがどの方向を向いていても同じ方向に力を与えます。</p>
-<p>今回は動作がどのように変わるかわかりやすくするためにCubeのインスペクターウインドウからY座標4にしてください。
+<p>今回は動作がどのように変わるかわかりやすくするためにCubeのインスペクターウインドウからY座標4にしてください。<br>
 ブロックの動きがわかりやすいようにPlaneのスケールをx=5,y=5,z=5にしてください。</p>
 <p>今回は物体を一定の速度で動かすために、FoceModeはvelocityChangeを使用します。</p>
 <p>実際の動きのように最初はゆっくりと動かしたい場合はForceMode.Forceなどを使用するようにしましょう。</p>
 <p>その後以下のようにコードを書き換えてください。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">SampleScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
 
-    Rigidbody rb; <span class="hljs-comment">// 取得したStartメソッドで取得したRigidBodyを保存しておくための変数</span>
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb = GetComponent&lt;Rigidbody&gt;()
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span> <span class="token comment">// 取得したStartメソッドで取得したRigidBodyを保存しておくための変数</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
 
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>(<span class="hljs-params"></span>)</span>
-    {
-        <span class="hljs-keyword">float</span> targetSpeed = <span class="hljs-number">3.5f</span>; 
-        <span class="hljs-keyword">float</span> speed = rb.velocity.x;
-        rb.Force(targetSpeed - speed, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, ForceMode.VelocityChange);
-    }
-}
-</div></code></pre>
-<p>実際に動かしてみると先ほどと異なりCubeが転がるようにして動作すると思います。</p>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">FixedUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-float">float</span></span> targetSpeed <span class="token operator">=</span> <span class="token number">3.5f</span><span class="token punctuation">;</span> 
+        <span class="token class-name"><span class="token keyword keyword-float">float</span></span> speed <span class="token operator">=</span> rb<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+        rb<span class="token punctuation">.</span><span class="token function">Force</span><span class="token punctuation">(</span>targetSpeed <span class="token operator">-</span> speed<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> ForceMode<span class="token punctuation">.</span>VelocityChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>実際に動かしてみると先ほどと異なりCubeが転がるようにして動作すると思います。</p>
 <p>このように物理演算を加味した上で動作させることができました。</p>
 <p>FixedUpdate内では速度の指定のプログラムが記述されています。</p>
 <p><code>targetSpeed</code>で目標とする速度を指定します。</p>
 <p>次の行の</p>
-<pre class="hljs"><code><div>speed = rb.velocity.x
-</div></code></pre>
-<p>でx軸方向の現在の速度を取得することができます。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>speed = rb.velocity.x
+</code></pre><p>でx軸方向の現在の速度を取得することができます。</p>
 <p>その後<code>targetSpeed - speed</code>で追加する速度を計算し<code>rb.Force()</code>で力を与えます。</p>
 <p>このように力を加えることで移動することができるようになっています。</p>
 <p>また、ForceのForceModeがImpulseであった場合は瞬間的な処理のため、Updateメソッドで呼び出しても他の物理演算に影響しないため大丈夫です。</p>
-<h4 id="rigidbodyaddrelativeforce%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">Rigidbody.AddRelativeForceメソッドを使用する</h4>
+<h4 id="rigidbodyaddrelativeforceメソッドを使用する">Rigidbody.AddRelativeForceメソッドを使用する </h4>
 <p>Rigidbody.AddRelativeForceの使用方法はRigidbody.AddForceの使用方法と基本的に同じですが、AddRelativeForceはローカル座標(相対座標)なのに対しRigidbody.AddForceは絶対座標(ワールド座標)です。</p>
 <p>その他に大きな違いはありません。</p>
-<h3 id="%E5%9B%9E%E8%BB%A2%E3%81%97%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86">回転してみよう</h3>
-<p>回転させる方法も移動と同様に複数あります。
+<h3 id="回転してみよう">回転してみよう </h3>
+<p>回転させる方法も移動と同様に複数あります。<br>
 複数あるのでよく使われると思うものに絞って紹介します。</p>
 <p>今回はy軸を軸として回転させてみます。</p>
 <p>回転する前に重力などが働くと動作がわかりにくいのでCubeのRigidbodyの<code>重力を使用</code>のチェックを外してください。</p>
 <p><img src="./images/Unity_Cube_Gravity.png" alt="キネティックにする"></p>
-<h4 id="transformlocaleulerangles">transform.localEulerAngles</h4>
-<p>transform.localEulerAnglesは現在のゲームオブジェクトの向きを保存したプロパティです。transform.localEulerAnglesを取得・再設定することでゲームオブジェクトを回転することができます。
+<h4 id="transformlocaleulerangles">transform.localEulerAngles </h4>
+<p>transform.localEulerAnglesは現在のゲームオブジェクトの向きを保存したプロパティです。transform.localEulerAnglesを取得・再設定することでゲームオブジェクトを回転することができます。<br>
 transform.localEulerAnglesはVector3型で指定することができます。</p>
 <p>ゲームオブジェクトから見てのy軸を軸に45度に回転させるには以下のようになコードで実現可能です。</p>
-<pre class="hljs"><code><div>transform.localEulerAngles = <span class="hljs-keyword">new</span> Vector(<span class="hljs-number">0</span>,<span class="hljs-number">45</span>,<span class="hljs-number">0</span>);
-</div></code></pre>
-<p>何かの条件を満たした際に向きを変えるなどに使用可能です。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>transform<span class="token punctuation">.</span>localEulerAngles <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Vector</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>何かの条件を満たした際に向きを変えるなどに使用可能です。</p>
 <p>1度ずつ回転させるには以下のようなコードで実行可能です。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">SampleScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
-        transform.localEulerAngles = transform.localEulerAngles + <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">0</span>);
-    }
-}
-</div></code></pre>
-<p>transform.localEulerAnglesで取得された値にさらに1度回転させる値を追加させることで回転し続けることができます。</p>
-<h4 id="transformrotation">transform.rotation</h4>
-<p>transform.rotationはQuaternion型のプロパティになっています。
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        transform<span class="token punctuation">.</span>localEulerAngles <span class="token operator">=</span> transform<span class="token punctuation">.</span>localEulerAngles <span class="token operator">+</span> <span class="token keyword keyword-new">new</span> <span class="token constructor-invocation class-name">Vector3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>transform.localEulerAnglesで取得された値にさらに1度回転させる値を追加させることで回転し続けることができます。</p>
+<h4 id="transformrotation">transform.rotation </h4>
+<p>transform.rotationはQuaternion型のプロパティになっています。<br>
 Quaternionは現在のゲームオブジェクトの向きや回転に関する情報を一元に管理しています。</p>
 <p>多くのことが可能ですが、難しいので今回は角度を指定した向きの変え方を説明します。</p>
 <p>以下に先ほどと同様にy軸を軸に45度に向けるプログラムです。</p>
-<pre class="hljs"><code><div>Quaternion moveQuaternion = Quaternion.Euler(<span class="hljs-number">0</span>,<span class="hljs-number">45</span>,<span class="hljs-number">0</span>);
-transform.rotation = moveQuaternion;
-</div></code></pre>
-<p>また、一度づつ回転するプログラムは以下の通りなります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Quaternion</span> moveQuaternion <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+transform<span class="token punctuation">.</span>rotation <span class="token operator">=</span> moveQuaternion<span class="token punctuation">;</span>
+</code></pre><p>また、一度づつ回転するプログラムは以下の通りなります。</p>
 <p>1度ずつ回転させるには以下のようなコードで実行可能です。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">SampleScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
-        transform.rotation = transform.rotation * Quaternion.Euler(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);
-    }
-}
-</div></code></pre>
-<p>transform.localEulerAnglesとほぼ同じように見えますが<code>+</code>であった部分は<code>*</code>になります。</p>
-<p>Quaternion型では今までの角度に新しい角度を追加するときは行列の掛け算として扱われるため注意してください。
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        transform<span class="token punctuation">.</span>rotation <span class="token operator">=</span> transform<span class="token punctuation">.</span>rotation <span class="token operator">*</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>transform.localEulerAnglesとほぼ同じように見えますが<code>+</code>であった部分は<code>*</code>になります。</p>
+<p>Quaternion型では今までの角度に新しい角度を追加するときは行列の掛け算として扱われるため注意してください。<br>
 行列については詳しく記述しませんが、<strong>掛け算する順番で意味が変わってきます。</strong></p>
-<pre class="hljs"><code><div>現在の座標 * 移動させた量
-</div></code></pre>
-<p>であればローカル座標となります。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>現在の座標 * 移動させた量
+</code></pre><p>であればローカル座標となります。</p>
 <p>逆に</p>
-<pre class="hljs"><code><div>移動させたい量 * 現在の座標
-</div></code></pre>
-<p>であればワールド座標となります。
+<pre data-role="codeBlock" data-info="" class="language-text"><code>移動させたい量 * 現在の座標
+</code></pre><p>であればワールド座標となります。<br>
 回転させる際はしっかりと確認するようにしてください。</p>
-<h4 id="rigidbodyrotation">Rigidbody.rotation</h4>
-<p>RigidbodyはlocalEulerAnglesに当たるものがありません。
+<h4 id="rigidbodyrotation">Rigidbody.rotation </h4>
+<p>RigidbodyはlocalEulerAnglesに当たるものがありません。<br>
 そのため、transform.rotationと同じようにRigidbodyでも指定する必要があります。</p>
 <p>以下のように回転することができます。</p>
-<pre class="hljs"><code><div>Quaternion moveQuaternion = Quaternion.Euler(<span class="hljs-number">0</span>,<span class="hljs-number">45</span>,<span class="hljs-number">0</span>);
-rigidbodyの変数.rotation = moveQuaternion;
-</div></code></pre>
-<p>当然ですがrigidbodyの変数は先に取得しておく必要があります。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name">Quaternion</span> moveQuaternion <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+rigidbodyの変数<span class="token punctuation">.</span>rotation <span class="token operator">=</span> moveQuaternion<span class="token punctuation">;</span>
+</code></pre><p>当然ですがrigidbodyの変数は先に取得しておく必要があります。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    Rigidbody rb;
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb =  GetComponent&lt;Rigidbody&gt;();
-    }
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">SampleScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span>  <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
         
-    }
+    <span class="token punctuation">}</span>
     
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>(<span class="hljs-params"></span>)</span>{
-        rb.rotation = rb.rotation * Quaternion.Euler(<span class="hljs-number">0</span>,<span class="hljs-number">4</span>,<span class="hljs-number">0</span>);
-    }
-}
-</div></code></pre>
-<p>基本的に使い方は同様です。</p>
-<h4 id="rigidbodyaddtorque%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">Rigidbody.AddTorqueメソッドを使用する。</h4>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">FixedUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        rb<span class="token punctuation">.</span>rotation <span class="token operator">=</span> rb<span class="token punctuation">.</span>rotation <span class="token operator">*</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>基本的に使い方は同様です。</p>
+<h4 id="rigidbodyaddtorqueメソッドを使用する">Rigidbody.AddTorqueメソッドを使用する。 </h4>
 <p>回転も移動と同様にRigidbodyを適応していると力を加えることが可能になっています。</p>
 <p>使用方法は基本的にRigidbody.AddForceと同様でワールド座標(絶対座標)を基準に回転させる力を与えます。</p>
 <p>メソッドのパラメータも基本的にはAddForceメソッドと同じ形になっています。</p>
 <p>以下のように記述可能です。</p>
-<pre class="hljs"><code><div>Rigidbodyの変数.AddToraue(Vector3型の各方向への力,力の加え方);
-</div></code></pre>
-<p>力の与え方についてもAddForceのForceModeと同様になっています。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>Rigidbodyの変数<span class="token punctuation">.</span><span class="token function">AddToraue</span><span class="token punctuation">(</span>Vector3型の各方向への力<span class="token punctuation">,</span>力の加え方<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>力の与え方についてもAddForceのForceModeと同様になっています。</p>
 <p>また、AddForce同様x,y,z軸を軸にする力を個別に指定することも可能です。</p>
-<pre class="hljs"><code><div>Rigidbodyの変数.AddToraue(x軸のパラメータ,y軸のパラメータ,z軸のパラメータ,力の加え方);
-</div></code></pre>
-<p>では以下のコードを記述し動作を確認してみましょう。</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
-<span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> UnityEngine;
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code>Rigidbodyの変数<span class="token punctuation">.</span><span class="token function">AddToraue</span><span class="token punctuation">(</span>x軸のパラメータ<span class="token punctuation">,</span>y軸のパラメータ<span class="token punctuation">,</span>z軸のパラメータ<span class="token punctuation">,</span>力の加え方<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>では以下のコードを記述し動作を確認してみましょう。</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-using">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleScript</span> : <span class="hljs-title">MonoBehaviour</span>
-{
-    Rigidbody rb;
-    <span class="hljs-comment">// Start is called before the first frame update</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
-    {
-        rb = GetComponent&lt;Rigidbody&gt;();
-    }
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">SampleScript</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">Rigidbody</span> rb<span class="token punctuation">;</span>
+    <span class="token comment">// Start is called before the first frame update</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        rb <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Rigidbody<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">// Update is called once per frame</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
-    {
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
 
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>(<span class="hljs-params"></span>)</span>
-    {
-        <span class="hljs-keyword">float</span> targetSpeed = <span class="hljs-number">3.5f</span>;
-        <span class="hljs-keyword">float</span> speed = rb.angularVelocity.y;
-        rb.AddTorque(<span class="hljs-number">0</span>, targetSpeed - speed, <span class="hljs-number">0</span>, ForceMode.VelocityChange);
+    <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">FixedUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword keyword-float">float</span></span> targetSpeed <span class="token operator">=</span> <span class="token number">3.5f</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword keyword-float">float</span></span> speed <span class="token operator">=</span> rb<span class="token punctuation">.</span>angularVelocity<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+        rb<span class="token punctuation">.</span><span class="token function">AddTorque</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> targetSpeed <span class="token operator">-</span> speed<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> ForceMode<span class="token punctuation">.</span>VelocityChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
         
-    }
-}
-</div></code></pre>
-<p>このコードについてもAddForceのコードとほぼ同様でRigidbody.angularVelocityでワールド座標基準で各軸の回転する速度が取得できるのでその速度になるように速度を与えるという挙動になっています。</p>
-<p>またAddForce同様に相対座標で回転する力を与えるAddRelativeTorqueというメソッドもあります。
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>このコードについてもAddForceのコードとほぼ同様でRigidbody.angularVelocityでワールド座標基準で各軸の回転する速度が取得できるのでその速度になるように速度を与えるという挙動になっています。</p>
+<p>またAddForce同様に相対座標で回転する力を与えるAddRelativeTorqueというメソッドもあります。<br>
 これはAddForceとAddRelativeFoceの関係性と同じで、使用方法もAddTorqueと同様です。</p>
 
-</body>
-</html>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

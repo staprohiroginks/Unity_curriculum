@@ -17,6 +17,10 @@ body {
 	padding: 0 26px;
 	line-height: var(--vscode-markdown-line-height, 22px);
 	word-wrap: break-word;
+    max-width: 800px;   /* 読みやすい横幅を制限 */
+  margin: 0 auto;     /* 中央寄せ */
+  padding: 20px;      /* 余白を追加 */
+  line-height: 1.8;   /* 行間を少し広げて可読性UP */
 }
 
 #code-csp-warning {
@@ -367,13 +371,13 @@ code {
   </script>
 <h1 id="unity2c%E3%81%AE%E5%A4%89%E6%95%B0">Unity2:C#の変数</h1>
 <p>これまで学習した言語でも変数という物を扱ってきたと思います。
-しかし、今まで扱ってきたComputerCraftで使われるLuaやScratch、JavaScriptなどの言語では<strong>動的型付け言語</strong>と呼ばれ型を指定せずに変数を作成することができましたが、C#では型を指定する必要があります。
+しかし、今まで扱ってきた Minecraftで使われるLuaやScratch、JavaScriptなどの言語では<strong>動的型付け言語</strong>と呼ばれ型を指定せずに変数を作成することができましたが、C#では型を指定する必要があります。
 このような言語を<strong>静的型付け言語</strong>と言います。</p>
 <p>今回は静的型付け言語や型、変数について説明していきます。</p>
 <h2 id="%E5%9E%8B%E3%81%A8%E3%81%AF">型とは</h2>
 <p>動的型付け言語や静的型付け言語と言われるようにプログラミング言語には型という概念があります。</p>
 <p>型というのはざっくりと説明するとどのようなデータを扱えるのか示した物になります。</p>
-<p>詳しくはカリキュラム5で説明しますが、型という概念を取り入れることで、その変数がどのように扱えるを示したり、同じ型を持つ変数の扱いを一元化することができます。</p>
+<p>詳しくはカリキュラム5で説明しますが、型という概念を取り入れることで、その変数がどのように扱えるかを示したり、同じ型を持つ変数の扱いを一元化することができます。</p>
 <h2 id="%E9%9D%99%E7%9A%84%E5%9E%8B%E4%BB%98%E3%81%91%E8%A8%80%E8%AA%9E%E3%81%A8%E5%8B%95%E7%9A%84%E5%9E%8B%E4%BB%98%E3%81%91%E8%A8%80%E8%AA%9E">静的型付け言語と動的型付け言語</h2>
 <p>型についてなんとなくイメージができたと思いますが、動的や静的と言うのがわかりにくいと思います。</p>
 <p>プログラミングにおいて、動的というのは<strong>プログラムが動いているとき</strong>という意味で使われる言葉です。
@@ -460,8 +464,8 @@ code {
 </tbody>
 </table>
 <p>これらの型はプリミティブ型や組み込み型と呼ばれ、言語に組み組まれており、プログラミングの基礎となる型です。</p>
-<p>しっかりと用途をを理解し説明できるようになっておきましょう。</p>
-<p>また、静的型付け言語であるが動的な型を使用したい場合がある、そのような場合使用するのがdynamic型であるが、基本的な内容を逸脱しているので詳しい使い方などは割愛します。</p>
+<p>しっかりと用途を理解し説明できるようになっておきましょう。</p>
+<p>また、静的型付け言語であるが動的な型を使用したい場合があります。そのような場合使用するのがdynamic型ですが、基本的な内容を逸脱しているので詳しい使い方などは割愛します。</p>
 <h3 id="%E5%A4%89%E6%95%B0%E5%AE%A3%E8%A8%80">変数宣言</h3>
 <p>C#における値には型があり、その値の型に合う変数でないと代入することができないので、型についての理解をしっかりと深める必要があります。</p>
 <h4 id="%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%A3%E8%A8%80%E6%96%B9%E6%B3%95">変数の宣言方法</h4>
@@ -472,11 +476,10 @@ code {
 <pre class="hljs"><code><div>型名 変数名=初期値;
 </div></code></pre>
 <p>と書くことで変数を宣言することが可能です。</p>
-<p>なので
-aという変数を宣言する場合は</p>
+<p>そのため、aという変数を宣言する場合は</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">int</span> a;
 </div></code></pre>
-<p>と書けば良い。</p>
+<p>と書けば良いです。</p>
 <p>string型やfloat型も同様です。</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">string</span> b;
 <span class="hljs-keyword">float</span> c;
@@ -484,7 +487,7 @@ aという変数を宣言する場合は</p>
 <p>また、複数の変数を一度に宣言したい場合は</p>
 <pre class="hljs"><code><div>型名 変数名1,変数名2,変数名3;
 </div></code></pre>
-<p>のように変数名を<code>,</code>で区切ることでまとめて宣言することができる。</p>
+<p>のように変数名を<code>,</code>で区切ることでまとめて宣言することができます。</p>
 <p>また、初期値も同様に含めることができ、</p>
 <pre class="hljs"><code><div>型名 変数名1,変数名2=初期値2,変数名3;
 </div></code></pre>
@@ -497,10 +500,10 @@ aという変数を宣言する場合は</p>
 <p>また、別の変数から代入するには以下のように示せます。</p>
 <pre class="hljs"><code><div>変数1 = 変数2;
 </div></code></pre>
-<p>このように書くことで変数1に変数2の中身を代入することができる。</p>
+<p>このように書くことで変数1に変数2の中身を代入することができます。</p>
 <h4 id="%E6%96%87%E5%AD%97%E3%81%A8%E6%96%87%E5%AD%97%E5%88%97%E3%81%AE%E6%89%B1%E3%81%84">文字と文字列の扱い</h4>
 <h5 id="%E6%96%87%E5%AD%97">文字</h5>
-<p>C#では文字と文字列は明確に分けられており、文字列は<code>&quot;</code>で囲むのに対し文字は<code>'</code>で囲む必要がある。</p>
+<p>C#では文字と文字列は明確に分けられており、文字列は<code>&quot;</code>で囲むのに対し文字は<code>'</code>で囲む必要があります。</p>
 <p>使用例としては以下の通りです</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">char</span> b = <span class="hljs-string">'w'</span>;
 </div></code></pre>
@@ -514,12 +517,12 @@ aという変数を宣言する場合は</p>
 <p>そのため、string型の変数に値を代入する際も以下のように代入することができます。</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">string</span> b = <span class="hljs-string">"Word"</span>;
 </div></code></pre>
-<p>また、文字が1文字である場合は文字型を使わないとといけないというわけではなく文字列は0文字以上を扱うことができる変数であるため文字が0文字の時に</p>
+<p>また、文字が1文字である場合は文字型を使わないといけないというわけではなく文字列は0文字以上を扱うことができる変数であるため文字が0文字の時に</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">string</span> c = <span class="hljs-string">""</span>;
 </div></code></pre>
 <p>といった使い方も可能です。</p>
 <h4 id="%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E6%9B%B8%E3%81%84%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86">プログラムを書いてみよう</h4>
-<p>以下はカリキュラム1で使用したプログラムである。このプログラムを変数を使ったプログラムに変更します。</p>
+<p>以下はカリキュラム1で使用したプログラムです。このプログラムを変数を使ったプログラムに変更します。</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
 <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span> <span class="hljs-comment">//Programというまとまりを作る</span>
@@ -545,7 +548,6 @@ aという変数を宣言する場合は</p>
 </div></code></pre>
 <p>実行すると元のプログラムと同様</p>
 <pre class="hljs"><code><div>Hello, World
-
 </div></code></pre>
 <p>と表示されます。</p>
 <p>では変数の中身を表示後に変更し、再度表示されるプログラムを書いてみましょう。</p>
@@ -566,7 +568,6 @@ aという変数を宣言する場合は</p>
 <p>このプログラムを実行すると</p>
 <pre class="hljs"><code><div>Hello, World
 goodbye
-
 </div></code></pre>
 <p>と表示され変数の中身が書き換えられたことがわかります。</p>
 <p>文字列以外も同様に扱うことができます。</p>
@@ -587,7 +588,6 @@ goodbye
 <p>このプログラムを実行すると</p>
 <pre class="hljs"><code><div>10
 5
-
 </div></code></pre>
 <p>と表示されるはずです。</p>
 <p>このように他の型でも同様に扱うことができます。</p>
@@ -638,9 +638,9 @@ goodbye
 </tr>
 </tbody>
 </table>
-<p>基本的な使用方法は通常の算数の計算と同じだが<code>/</code>の動作が通常の計算と異なり、int型同士の計算である場合割り算の結果は <strong>切り捨て</strong> られます。</p>
+<p>基本的な使用方法は通常の算数の計算と同じですが、<code>/</code>の動作が通常の計算と異なり、int型同士の計算である場合割り算の結果は <strong>切り捨て</strong> られます。</p>
 <p>ただし、float型やdouble型、decimal型が含まれている計算である場合小数点以下が存在するdouble型の結果となります。</p>
-<p>また、もし<code>()</code>がある場合は<code>()</code>の中から計算され、優先度は高い順に計算される。しかし優先度が同じ場合は左側から計算されます。</p>
+<p>また、もし<code>()</code>がある場合は<code>()</code>の中から計算され、優先度は高い順に計算されます。しかし優先度が同じ場合は左側から計算されます。</p>
 <p>演算子の使い方としては以下の通りです。</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
@@ -666,7 +666,7 @@ goodbye
             c = a % b; <span class="hljs-comment">//1</span>
             Console.WriteLine(c);
 
-            c = <span class="hljs-number">2</span> + a % b ; <span class="hljs-comment">//2</span>
+            c = <span class="hljs-number">2</span> + a % b ; <span class="hljs-comment">//3</span>
             Console.WriteLine(c);
             c = (<span class="hljs-number">2</span> + a) % b ; <span class="hljs-comment">//0</span>
             Console.WriteLine(c);
@@ -680,9 +680,8 @@ goodbye
 3
 3.3333333333333335
 1
-2
+3
 0
-
 </div></code></pre>
 <p>また、計算した結果をもとの変数に戻すことも可能なので以下のような書き方も可能です。</p>
 <pre class="hljs"><code><div>int a = 10;
@@ -708,7 +707,6 @@ a = a + 1;//11
 </div></code></pre>
 <p>実行した結果以下のように表示されます。</p>
 <pre class="hljs"><code><div>Hello, World
-
 </div></code></pre>
 <p>このように値と混ぜて結合することも可能です。</p>
 <p>また、文字列の結合時に他の型の変数が混ざっていた場合は文字列に変換され結合されます</p>
@@ -728,10 +726,9 @@ a = a + 1;//11
 }
 </div></code></pre>
 <pre class="hljs"><code><div>Hello1
-
 </div></code></pre>
 <p>このように変換されて結合されていることがわかります。</p>
-<p>しかし計算などをしたのち表示したい場合があるそういった場合は<code>()</code>で囲むことで計算結果を結合することができます。</p>
+<p>しかし、計算などをした後に表示したい場合は<code>()</code>で囲むことで計算結果を結合することができます。</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
 <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span> <span class="hljs-comment">//Programというまとまりを作る</span>
@@ -751,7 +748,6 @@ a = a + 1;//11
 </div></code></pre>
 <p>結果は以下の通りになります</p>
 <pre class="hljs"><code><div>Hello3
-
 </div></code></pre>
 <p>このように計算結果を表示することができます。</p>
 <h2 id="%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C">練習問題</h2>
@@ -773,7 +769,7 @@ sbyte,short,int,longなど
     }
 }
 </div></code></pre>
-<details><summary>解答例1</summary>
+<details><summary>解答例</summary>
 <pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
 <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span> <span class="hljs-comment">//Programというまとまりを作る</span>
@@ -788,22 +784,7 @@ sbyte,short,int,longなど
 }
 </div></code></pre>
 </details>
-<details><summary>解答例2</summary>
-<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
-<span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
-<span class="hljs-keyword">class</span> <span class="hljs-title">Program</span> <span class="hljs-comment">//Programというまとまりを作る</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>) <span class="hljs-comment">//Mainという関数作成する。</span></span>
-    {
-        <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
-        <span class="hljs-keyword">int</span> b = <span class="hljs-number">7</span>;
-
-        Console.WriteLine(a/b)
-    }
-}
-</div></code></pre>
-</details>
-<h4 id="3int%E5%9E%8B%E3%81%AE%E5%A4%89%E6%95%B0a%E3%81%AE%E4%B8%AD%E3%81%AB%E5%85%A5%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E5%80%A4%E3%82%92%E4%BD%BF%E3%81%84%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AB%E8%BF%BD%E8%A8%98%E3%81%97%E5%A4%89%E6%95%B0a%E3%81%AE%E4%B8%AD%E8%BA%AB%E3%81%AF%E3%81%A7%E3%81%99%E3%81%A8%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%AA%E3%81%95%E3%81%84">3.int型の変数aの中に入っている値を使い以下のプログラムに追記し「変数aの中身は~~です」と表示するプログラムを作成しなさい。</h4>
+<h4 id="3int%E5%9E%8B%E3%81%AE%E5%A4%89%E6%95%B0a%E3%81%AE%E4%B8%AD%E3%81%AB%E5%85%A5%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E5%80%A4%E3%82%92%E4%BD%BF%E3%81%84%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AB%E8%BF%BD%E8%A8%98%E3%81%97%E5%A4%89%E6%95%B0a%E3%81%AE%E4%B8%AD%E8%BA%AB%E3%81%AF255%E3%81%A7%E3%81%99%E3%81%A8%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%AA%E3%81%95%E3%81%84">3.int型の変数aの中に入っている値を使い以下のプログラムに追記し「変数aの中身は255です」と表示するプログラムを作成しなさい。</h4>
 <pre class="hljs"><code><div><span class="hljs-keyword">using</span> System;
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">ConsoleApp1</span>;
 <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span> <span class="hljs-comment">//Programというまとまりを作る</span>
