@@ -26,7 +26,7 @@
       
 <h1 id="unity3制御文標準入出力配列について理解する">Unity3:制御文・標準入出力・配列について理解する </h1>
 <p>カリキュラム1,2の学習で変数やデータの出力方法について学んできました。<br>
-今回はデータの入力方法や変数の値によって動作を変える方法やデータを一元に扱う方法などを学びます。</p>
+今回はデータの入力方法、変数の値によって動作を変える方法、データを一元に扱う方法などを学びます。</p>
 <h2 id="制御文">制御文 </h2>
 <p>制御文とは変数の値などの条件によって実行する処理を変えることができる文のことです。<br>
 制御文を理解することで自由自在に繰り返しや動きを指定することができるようになります。</p>
@@ -40,10 +40,9 @@
 <span class="token punctuation">{</span>
     Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"aは0です"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-
 </code></pre><p><code>if</code> の<code>()</code>中に条件を書きその条件を満たした場合には<code>{}</code>の中に書かれた処理を実行します。<br>
 ただし、<code>()</code>の中の条件を満たさなかった場合には<code>{}</code>の中の処理は実行されることはありません。<br>
-そのためこのプログラムを実行してもaの値が0ではないので何も表示されません。<br>
+そのため、このプログラムを実行してもaの値が0ではないので何も表示されません。<br>
 しかし、最初の行の</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 </code></pre><p>を</p>
@@ -96,7 +95,7 @@
 </tr>
 </tbody>
 </table>
-<p>そのためaの値が50以上という条件は以下の通り表すことができる</p>
+<p>そのためaの値が50以上という条件は以下の通り表すことができます。</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>a &gt;= 50
 </code></pre><p>ただし、これだと複雑な条件を表現することができません。<br>
 なので条件を複数つなげることができます。<br>
@@ -121,21 +120,21 @@
 </table>
 <p>そのため、aの値が50以上、100未満の値という場合にはif<code>()</code>の中には</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>a &gt;= 50 &amp;&amp; a &lt; 100
-</code></pre><p>のように表すことができる。</p>
+</code></pre><p>のように表すことができます。</p>
 <h4 id="条件の練習問題">条件の練習問題 </h4>
-<h5 id="1aの値が50以下もしくはaの値が100より大きい時の条件式を答えてください">1.aの値が50以下もしくはaの値が100より大きい時の条件式を答えてください。 </h5>
+<h5 id="1aの値が50以下もしくはaの値が100より大きい時の条件式をコードに書いてください">1.aの値が50以下もしくはaの値が100より大きい時の条件式をコードに書いてください。 </h5>
 <details><summary>解答</summary>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>a &lt;=50 || a &gt; 100
 </code></pre></details>
-<h5 id="2aかbの値が30より大きい時の条件式を答えてください">2.aかbの値が30より大きい時の条件式を答えてください。 </h5>
+<h5 id="2aかbの値が30より大きい時の条件式をコードに書いてください">2.aかbの値が30より大きい時の条件式をコードに書いてください。 </h5>
 <details><summary>解答</summary>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>a &gt; 30 || b &gt; 30
 </code></pre></details>
-<h5 id="3aの値が50以下もしくはbの値が100より大きい時の条件式を答えてください">3.aの値が50以下もしくはbの値が100より大きい時の条件式を答えてください。 </h5>
+<h5 id="3aの値が50以下もしくはbの値が100より大きい時の条件式をコードに書いてください">3.aの値が50以下もしくはbの値が100より大きい時の条件式をコードに書いてください。 </h5>
 <details><summary>解答</summary>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>a &lt;= 50 || b &gt; 100
 </code></pre></details>
-<h5 id="4aとbの値がどちらも100以上の条件式を答えてください">4.aとbの値がどちらも100以上の条件式を答えてください。 </h5>
+<h5 id="4aとbの値がどちらも100以上の条件式をコードに書いてください">4.aとbの値がどちらも100以上の条件式をコードに書いてください。 </h5>
 <details><summary>解答</summary>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>a &gt;= 100 &amp;&amp; b &gt;= 100
 </code></pre></details>
@@ -182,7 +181,7 @@ else
 {
     //条件をすべて満たさなかったときの処理
 }
-</code></pre><p>このように書き換えることでわかりやすく分類わけすることができるようになります。</p>
+</code></pre><p>このように書き換えることでわかりやすく分類分けをすることができるようになります。</p>
 <p>また、else ifは複数連結して使うことができるので以下のような書き方も可能です。</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>if(条件式1)
 {
@@ -223,7 +222,7 @@ else
 {
     Console.WriteLine("10未満です");
 }
-</code></pre><p>最初にaに代入する値を10,55,130,400にしそれぞれ実行結果を確認してください。</p>
+</code></pre><p>aに代入する値を10,55,130,400にして、それぞれ実行結果を確認してください。</p>
 <h2 id="繰り返し文">繰り返し文 </h2>
 <h3 id="while文">while文 </h3>
 <p>while文はif文と使い方が少し似ています。if文は条件を満たしている時<code>{}</code>内の処理を実行しますが、while文は<code>{}</code>内の処理を条件を満たしている間に繰り返し続け、繰り返しのたびに条件を確認し条件を満たさなくなったら繰り返しを終了します。</p>
@@ -243,21 +242,21 @@ else
 繰り返しの最後にiの値を1ずつ大きくすることで10回繰り返すようになっています。</p>
 <p>しかし、5行目の</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>i = i + 1;
-</code></pre><p>を忘れてしまうとずっと繰り返してしまいますし、少しわかりづらいです。</p>
-<p>そこで登場するのがfor文です<br>
+</code></pre><p>を忘れてしまうとずっと繰り返してしまう上に、少しわかりづらいです。</p>
+<p>そこで登場するのがfor文です。（後ほど登場します）<br>
 for文は特に繰り返しに特化した制御文です。</p>
 <h3 id="do-while">do-while </h3>
-<p>先ほど使用したwhileは繰り返しが始まる前に確認する文であったがdo-whileを使用するとループが終わった時点で終了するかを判定することができます。</p>
+<p>先ほど使用したwhileは繰り返しが始まる前に確認する文でしたが、do-whileを使用するとループが終わった時点で終了するかを判定することができます。</p>
 <p>do-whileは以下のように使用します</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>do
 {
 
 }while(条件);
-</code></pre><p><code>{}</code>内の命令は最初の条件にかかわらず実行されますがwhileの条件を満たしている場合にもう一度繰り返しを行います。<br>
+</code></pre><p><code>{}</code>内の命令は最初の条件に関わらず実行されますが、whileの条件を満たしている場合にもう一度繰り返しを行います。<br>
 whileとは異なる点は最初に条件を判定されないという点です。</p>
-<p>do-whileがよく使われる場面は入力の判定をするときなどによく使われます<br>
-例えば文字数が10文字以下になるまで何度も値を入力するというプログラムの実装によく使われます<br>
-Main関数に以下のようなコードを書くことで実装することができます</p>
+<p>do-whileは入力の判定をするときなどによく使われます。<br>
+例えば文字数が10文字以下になるまで何度も値を入力するというプログラムの実装によく使われます。<br>
+Main関数に以下のようなコードを書くことで実装することができます。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-string">string</span></span> input<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>
 <span class="token keyword keyword-do">do</span>
 <span class="token punctuation">{</span>
@@ -294,9 +293,7 @@ Main関数に以下のようなコードを書くことで実装することが�
     Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"回目"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><p>なぜ、0からのカウントが多いのかについては今後説明しますが、初期値は0からにすることをお勧めします。</p>
-<p>また、ループの中にループを作ることはできますが、ループ変数は<strong>別の変数</strong>にする必要があるのでi以外に別名で作成する必要があります。<br>
-よくある変数の名前の付け方としてはループ変数では<br>
-i,j,k,ii,ij,ik,ji,jj,jkとしていくことが多いですが、任意の名前で構いません。</p>
+<p>また、ループの中にループを作ることはできますが、ループ変数は<strong>別の変数</strong>にする必要があるのでi以外に別名で作成する必要があります。</p>
 <h3 id="break文continue文">break文・continue文 </h3>
 <p>break文はループで任意のタイミングでループを抜け出すことができる命令です。<br>
 whileやforで指定した条件より早くループを終了したい際に使用します。<br>
@@ -311,8 +308,8 @@ whileやforで指定した条件より早くループを終了したい際に使
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><p>このプログラムであればiが100になるまでの間でbが250より大きくなる場合は繰り返しを抜けるということになります。<br>
-比較的よく使う文ですのでしっかりと覚えていてください。</p>
-<p>continue文はcontinue文が呼ばれた時点で次のループに移る命令です<br>
+比較的よく使う文ですので理解を深めていきましょう。</p>
+<p>continue文はcontinue文が呼ばれた時点で次のループに移る命令です。<br>
 実際に使ったプログラムは以下のようになります。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">100</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -337,7 +334,7 @@ a <span class="token operator">=</span> Console<span class="token punctuation">.
 そのため入力した値を数値として扱うには数値型への変換が必要になります。</p>
 <h3 id="文字列型から数値型への変換">文字列型から数値型への変換 </h3>
 <p>文字列型から数値に変換する型について説明します。</p>
-<p>通常double型からint型やint型からfloat型などの数値型同士はキャスト演算子というものを使い型の変換を行います。</p>
+<p>通常double型からint型やint型からfloat型などの数値型同士は、キャスト演算子というものを使い型の変換を行います。</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp cs"><code><span class="token class-name"><span class="token keyword keyword-int">int</span></span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token class-name"><span class="token keyword keyword-double">double</span></span> b<span class="token punctuation">;</span>
 b <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword keyword-double">double</span><span class="token punctuation">)</span>a<span class="token punctuation">;</span>
